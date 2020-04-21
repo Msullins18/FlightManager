@@ -6,7 +6,6 @@ public class Traveller {
 	private String emailId;
 	private String password;
 	private String phoneNumber;
-	private Booking booking;
 	
 	public String getFirstName() {
 		return firstName;
@@ -38,10 +37,5 @@ public class Traveller {
 	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
-	public Booking getBooking() {
-		return booking;
-	}
-	public void setBooking(Booking booking) {
-		this.booking = booking;
-	}
+
 }
