@@ -11,17 +11,12 @@ public class FlightEntity {
 	@Id
 	private String flightId;
 	private String flightNo;
-	private String arrival;
+	private String origin;
+	private String destination;
 	private Integer baseFare;
 	private Integer tax;
 	private Integer seatsAvailable;
-	
-	public String getArrival() {
-		return arrival;
-	}
-	public void setArrival(String arrival) {
-		this.arrival = arrival;
-	}
+
 	public String getFlightId() {
 		return flightId;
 	}
@@ -52,6 +47,18 @@ public class FlightEntity {
 	}
 	public void setSeatsAvailable(Integer seatsAvailable) {
 		this.seatsAvailable = seatsAvailable;
+	}
+	public String getOrigin() {
+		return origin;
+	}
+	public void setOrigin(String origin) {
+		this.origin = origin;
+	}
+	public String getDestination() {
+		return destination;
+	}
+	public void setDestination(String destination) {
+		this.destination = destination;
 	}
 	
 
