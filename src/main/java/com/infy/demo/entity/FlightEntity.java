@@ -1,13 +1,9 @@
 package com.infy.demo.entity;
 
-import javax.persistence.CascadeType;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-
-import com.infy.demo.model.Airport;
 
 @Entity
 @Table(name="flight")
@@ -15,16 +11,17 @@ public class FlightEntity {
 	@Id
 	private String flightId;
 	private String flightNo;
-	
-	@ManyToOne(cascade=CascadeType.ALL)
-	@JoinColumn(name="airport_id")
-	private Airport arrival;
+	private String arrival;
 	private Integer baseFare;
 	private Integer tax;
-	private Integer totalSeats;
-	private boolean isAvaiable;
+	private Integer seatsAvailable;
 	
-	
+	public String getArrival() {
+		return arrival;
+	}
+	public void setArrival(String arrival) {
+		this.arrival = arrival;
+	}
 	public String getFlightId() {
 		return flightId;
 	}
@@ -37,12 +34,7 @@ public class FlightEntity {
 	public void setFlightNo(String flightNo) {
 		this.flightNo = flightNo;
 	}
-	public Airport getArrival() {
-		return arrival;
-	}
-	public void setArrival(Airport arrival) {
-		this.arrival = arrival;
-	}
+	
 	public Integer getBaseFare() {
 		return baseFare;
 	}
@@ -55,18 +47,14 @@ public class FlightEntity {
 	public void setTax(Integer tax) {
 		this.tax = tax;
 	}
-	public Integer getTotalSeats() {
-		return totalSeats;
+	public Integer getSeatsAvailable() {
+		return seatsAvailable;
 	}
-	public void setTotalSeats(Integer totalSeats) {
-		this.totalSeats = totalSeats;
+	public void setSeatsAvailable(Integer seatsAvailable) {
+		this.seatsAvailable = seatsAvailable;
 	}
-	public boolean isAvaiable() {
-		return isAvaiable;
-	}
-	public void setAvaiable(boolean isAvaiable) {
-		this.isAvaiable = isAvaiable;
-	}
+	
+
 	
 	
 	

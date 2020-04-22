@@ -3,11 +3,11 @@ package com.infy.demo.model;
 public class Flight {
 	private String flightId;
 	private String flightNo;
-	private Airport arrival;
+	private String arrival;
 	private Integer baseFare;
 	private Integer tax;
-	private Integer totalSeats;
-	private boolean isAvaiable;
+	private Integer AvailableSeats;
+	
 	public String getFlightId() {
 		return flightId;
 	}
@@ -21,10 +21,11 @@ public class Flight {
 		this.flightNo = flightNo;
 	}
 
-	public Airport getArrival() {
+
+	public String getArrival() {
 		return arrival;
 	}
-	public void setArrival(Airport arrival) {
+	public void setArrival(String arrival) {
 		this.arrival = arrival;
 	}
 	public Integer getBaseFare() {
@@ -39,20 +40,19 @@ public class Flight {
 	public void setTax(Integer tax) {
 		this.tax = tax;
 	}
-	public Integer getTotalSeats() {
-		return totalSeats;
+	public Integer getAvailableSeats() {
+		return AvailableSeats;
 	}
-	public void setTotalSeats(Integer totalSeats) {
-		this.totalSeats = totalSeats;
+	public void setAvailableSeats(Integer availableSeats) {
+		AvailableSeats = availableSeats;
 	}
-	public boolean isAvaiable() {
-		return isAvaiable;
-	}
-	public void setAvaiable(boolean isAvaiable) {
-		this.isAvaiable = isAvaiable;
-	}
-	
-	
+//	public Airport getDeparture() {
+//		return departure;
+//	}
+//	public void setDeparture(Airport departure) {
+//		this.departure = departure;
+//	}
+
 	
 
 }
