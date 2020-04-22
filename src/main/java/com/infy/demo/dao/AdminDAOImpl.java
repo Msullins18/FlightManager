@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import com.infy.demo.entity.AdminEntity;
 import com.infy.demo.model.Admin;
-@Repository
+@Repository(value = "adminDAO")
 public class AdminDAOImpl implements AdminDAO {
 
 	@Autowired
