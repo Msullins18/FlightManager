@@ -2,16 +2,11 @@ package com.infy.demo.dao;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-
-import com.infy.demo.entity.AirportEntity;
 import com.infy.demo.entity.FlightEntity;
-import com.infy.demo.model.Airport;
 import com.infy.demo.model.Flight;
 
 @Repository(value = "travellerSearchDAO")
