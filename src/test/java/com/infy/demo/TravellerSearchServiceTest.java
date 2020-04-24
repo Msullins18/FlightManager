@@ -33,11 +33,15 @@ public class TravellerSearchServiceTest {
 		String destination = "New York";
 		Integer numberOfTickets = 2;
 		Flight flight = new Flight();
-//		flight.setFlightId("F100001");
-//		flight.setFlightNo("ABC007");
-
-//		flight.setDestination("New York");
-//		flight.setAvailableSeats(100);
+		flight.setAirportId(airport);;
+		flight.setDateOfArrival(date);;
+		flight.setDateOfDeparture(date);
+		flight.setDestination(destination);
+		flight.setFlightFare(250);
+		flight.setFlightId(2000);
+		flight.setFlightSize(999);
+		flight.setFlightTax(20);
+		flight.setSeatsAvailable(100);
 		List<Flight> flightList = new ArrayList<>();
 		flightList.add(flight);
 		Mockito.when(travellerSearchDAO.getFlights(date, airport, destination, numberOfTickets)).thenReturn(flightList);
