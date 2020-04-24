@@ -29,18 +29,19 @@ public class TravellerSearchServiceTest {
 	@Test
 	public void testGetFlights() throws Exception{
 		LocalDate date = LocalDate.now().plusDays(14);
-		String origin = "Dallas";
+		Integer airport = 1000;
 		String destination = "New York";
+		Integer numberOfTickets = 2;
 		Flight flight = new Flight();
-		flight.setFlightId("F100001");
-		flight.setFlightNo("ABC007");
-		flight.setOrigin("Dallas");
-		flight.setDestination("New York");
-		flight.setAvailableSeats(100);
+//		flight.setFlightId("F100001");
+//		flight.setFlightNo("ABC007");
+
+//		flight.setDestination("New York");
+//		flight.setAvailableSeats(100);
 		List<Flight> flightList = new ArrayList<>();
 		flightList.add(flight);
-		Mockito.when(travellerSearchDAO.getFlights(origin, destination)).thenReturn(flightList);
-		List<Flight> result = travellerSearchService.getFlights(date, origin, destination);
+		Mockito.when(travellerSearchDAO.getFlights(date, airport, destination, numberOfTickets)).thenReturn(flightList);
+		List<Flight> result = travellerSearchService.getFlights(date, airport, destination, numberOfTickets);
 		Assert.assertNotNull(result);
 		
 	}

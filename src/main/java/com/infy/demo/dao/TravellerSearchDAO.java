@@ -1,12 +1,14 @@
 package com.infy.demo.dao;
 
+import java.time.LocalDate;
 import java.util.List;
 
+import com.infy.demo.model.Airport;
 import com.infy.demo.model.Flight;
 
 
 public interface TravellerSearchDAO {
-	public List<Flight> getFlights(String origin, String destination);
+	public List<Flight> getFlights(LocalDate date, Integer airportId, String destination, Integer numberOfTickets);
 	public List<String> getAllOrigins();
 	public List<String> getAllDestinations();
 	

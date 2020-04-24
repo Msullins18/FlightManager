@@ -1,57 +1,79 @@
 package com.infy.demo.model;
 
-public class Flight {
-	private String flightId;
-	private String flightNo;
-	private String origin;
-	private String destination;
-	private Integer baseFare;
-	private Integer tax;
-	private Integer AvailableSeats;
-	
-	public String getFlightId() {
-		return flightId;
-	}
-	public void setFlightId(String flightId) {
-		this.flightId = flightId;
-	}
-	public String getFlightNo() {
-		return flightNo;
-	}
-	public void setFlightNo(String flightNo) {
-		this.flightNo = flightNo;
-	}
+import java.time.LocalDate;
 
-	public Integer getBaseFare() {
-		return baseFare;
-	}
-	public void setBaseFare(Integer baseFare) {
-		this.baseFare = baseFare;
-	}
-	public Integer getTax() {
-		return tax;
-	}
-	public void setTax(Integer tax) {
-		this.tax = tax;
-	}
-	public Integer getAvailableSeats() {
-		return AvailableSeats;
-	}
-	public void setAvailableSeats(Integer availableSeats) {
-		AvailableSeats = availableSeats;
-	}
-	public String getOrigin() {
-		return origin;
-	}
-	public void setOrigin(String origin) {
-		this.origin = origin;
-	}
-	public String getDestination() {
-		return destination;
-	}
-	public void setDestination(String destination) {
-		this.destination = destination;
-	}
+public class Flight {
+	private Integer flightId;
+    private String flightType;
+    private int flightSize;
+    private int seatsAvailable;
+    private LocalDate dateOfArrival;
+    private LocalDate dateOfDeparture;
+    private String destination;
+    private Integer airportId;
+    private double flightFare;
+    private double flightTax;
+    public double getFlightFare() {
+        return flightFare;
+    }
+    public void setFlightFare(double flightFare) {
+        this.flightFare = flightFare;
+    }
+    public double getFlightTax() {
+        return flightTax;
+    }
+    public void setFlightTax(double flightTax) {
+        this.flightTax = flightTax;
+    }
+    public Integer getAirportId() {
+        return airportId;
+    }
+    public void setAirportId(Integer airportId) {
+        this.airportId = airportId;
+    }
+    public Integer getFlightId() {
+        return flightId;
+    }
+    public void setFlightId(Integer flightId) {
+        this.flightId = flightId;
+    }
+    public String getFlightType() {
+        return flightType;
+    }
+    public void setFlightType(String flightType) {
+        this.flightType = flightType;
+    }
+    public int getFlightSize() {
+        return flightSize;
+    }
+    public void setFlightSize(int flightSize) {
+        this.flightSize = flightSize;
+    }
+    public int getSeatsAvailable() {
+        return seatsAvailable;
+    }
+    public void setSeatsAvailable(int seatsAvailable) {
+        this.seatsAvailable = seatsAvailable;
+    }
+    public LocalDate getDateOfArrival() {
+        return dateOfArrival;
+    }
+    public void setDateOfArrival(LocalDate dateOfArrival) {
+        this.dateOfArrival = dateOfArrival;
+    }
+    public LocalDate getDateOfDeparture() {
+        return dateOfDeparture;
+    }
+    public void setDateOfDeparture(LocalDate dateOfDeparture) {
+        this.dateOfDeparture = dateOfDeparture;
+    }
+    public String getDestination() {
+        return destination;
+    }
+    public void setDestination(String destination) {
+        this.destination = destination;
+    }
+    
 
 
 }

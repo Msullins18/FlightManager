@@ -25,9 +25,9 @@ public class TravellerSearchAPI {
 	private TravellerSearchService travellerSearchService;
 	
 	@GetMapping(value="/getFlights")
-	public ResponseEntity<List<Flight>> getFlights(@PathVariable LocalDate date, String origin, String destination) throws Exception{
+	public ResponseEntity<List<Flight>> getFlights(@PathVariable LocalDate date, Integer airportId, String destination, Integer numberOfTickets) throws Exception{
 		try{
-			List<Flight> flightList = travellerSearchService.getFlights(date, origin, destination);
+			List<Flight> flightList = travellerSearchService.getFlights(date, airportId, destination, numberOfTickets);
 			ResponseEntity<List<Flight>> response = new ResponseEntity<List<Flight>>(flightList, HttpStatus.OK);
 			return response;
 		}catch(Exception e){
@@ -36,11 +36,11 @@ public class TravellerSearchAPI {
 	}
 	
 	
-	@GetMapping(value="/getOrigins")
+	@GetMapping(value="/getAirports")
 	public ResponseEntity<List<String>> getAllOrigins() throws Exception{
 		List<String> origins = null;
 		try{
-			origins = travellerSearchService.getAllDestinations();
+			origins = travellerSearchService.getAllOrigins();
 			ResponseEntity<List<String>> response = new ResponseEntity<List<String>>(origins, HttpStatus.OK);
 			return response;
 		}catch(Exception e){

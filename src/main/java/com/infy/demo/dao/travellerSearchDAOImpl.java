@@ -1,12 +1,15 @@
 package com.infy.demo.dao;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import com.infy.demo.entity.AirportEntity;
 import com.infy.demo.entity.FlightEntity;
+import com.infy.demo.model.Airport;
 import com.infy.demo.model.Flight;
 
 @Repository(value = "travellerSearchDAO")
@@ -15,25 +18,31 @@ public class travellerSearchDAOImpl implements TravellerSearchDAO {
 	private EntityManager entityManager;
 
 	@Override
-	public List<Flight> getFlights(String origin, String destination) {
-		String queryString = "select f from FlightEntity f where f.origin =: origin and f.destination =:destination";
+	public List<Flight> getFlights(LocalDate date, Integer airportId, String destination, Integer numberOfTickets) {
+		String queryString = "select f from FlightEntity f where f.airportId =: airportId and f.destination =:destination";
 		Query query=entityManager.createQuery(queryString);
-		query.setParameter("origin", origin);
+		query.setParameter("airportId", airportId);
 		query.setParameter("destination", destination);
 		List<FlightEntity> flightEntityList = query.getResultList();
-		List<Flight> flightList = new ArrayList<>();
+		List<Flight> flightList = null;
+		LocalDate today = LocalDate.now();
 		if(flightEntityList != null){
+			flightList = new ArrayList<>();
 			for(FlightEntity flightEntity: flightEntityList){
-//				if(flightEntity.getDestination().equals(destination)){
-					Flight flight = new Flight();
-					flight.setFlightId(flightEntity.getFlightId());
-					flight.setFlightNo(flightEntity.getFlightNo());
-					flight.setOrigin(flightEntity.getOrigin());
-					flight.setDestination(flightEntity.getDestination());
-					flight.setBaseFare(flightEntity.getBaseFare());
-					flight.setTax(flightEntity.getTax());
-					flightList.add(flight);
-//				}
+				if(numberOfTickets < flightEntity.getSeatsAvailable() && flightEntity.getDateOfDeparture().isBefore(today))
+					return flightList;
+				Flight flight = new Flight();
+				flight.setAirportId(flightEntity.getAirportId());
+				flight.setDateOfArrival(flightEntity.getDateOfArrival());
+				flight.setDateOfDeparture(flightEntity.getDateOfDeparture());
+				flight.setDestination(flightEntity.getDestination());
+				flight.setFlightFare(flightEntity.getFlightFare());
+				flight.setFlightId(flightEntity.getFlightId());
+				flight.setFlightSize(flightEntity.getFlightSize());
+				flight.setFlightTax(flightEntity.getFlightTax());
+				flight.setFlightType(flightEntity.getFlightType());
+				flight.setSeatsAvailable(flightEntity.getSeatsAvailable());
+				flightList.add(flight);
 			}
 		}
 		return flightList;
@@ -44,13 +53,17 @@ public class travellerSearchDAOImpl implements TravellerSearchDAO {
 		String queryString = "select f from FlightEntity f";
 		Query query=entityManager.createQuery(queryString);
 		List<FlightEntity> flightEntityList = query.getResultList();
-		List<String> originList = new ArrayList<>();
+		List<String> originList = null;
 		if(flightEntityList != null){
-			for(FlightEntity flight: flightEntityList){
-				String origin = flight.getOrigin();
-				originList.add(origin);
+			originList = new ArrayList<>();
+			for(FlightEntity flightEntity: flightEntityList){
+				AirportEntity airportEntity = entityManager.find(AirportEntity.class, flightEntity.getAirportId());
+				Airport airport = new Airport();
+				airport.setAirportId(airportEntity.getAirportId());
+				airport.setAirportName(airportEntity.getAirportName());
+				
+				originList.add(airportEntity.getAirportName());
 			}
-			
 		}
 		return originList;
 	}
