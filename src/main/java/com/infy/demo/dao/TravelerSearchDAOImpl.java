@@ -12,8 +12,8 @@ import com.infy.demo.entity.FlightEntity;
 import com.infy.demo.model.Airport;
 import com.infy.demo.model.Flight;
 
-@Repository(value = "travellerSearchDAO")
-public class travellerSearchDAOImpl implements TravellerSearchDAO {
+@Repository(value = "travelerSearchDAO")
+public class TravelerSearchDAOImpl implements TravelerSearchDAO {
 	@Autowired
 	private EntityManager entityManager;
 

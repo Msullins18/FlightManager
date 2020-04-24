@@ -13,21 +13,21 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
 import com.infy.demo.model.Flight;
-import com.infy.demo.service.TravellerSearchService;
+import com.infy.demo.service.TravelerSearchService;
 
 @RestController
 @RequestMapping(value ="searchAPI")
-public class TravellerSearchAPI {
+public class TravelerSearchAPI {
 	@Autowired
 	public Environment environment;
 	
 	@Autowired
-	private TravellerSearchService travellerSearchService;
+	private TravelerSearchService travelerSearchService;
 	
 	@GetMapping(value="/getFlights")
 	public ResponseEntity<List<Flight>> getFlights(@PathVariable LocalDate date, Integer airportId, String destination, Integer numberOfTickets) throws Exception{
 		try{
-			List<Flight> flightList = travellerSearchService.getFlights(date, airportId, destination, numberOfTickets);
+			List<Flight> flightList = travelerSearchService.getFlights(date, airportId, destination, numberOfTickets);
 			ResponseEntity<List<Flight>> response = new ResponseEntity<List<Flight>>(flightList, HttpStatus.OK);
 			return response;
 		}catch(Exception e){
@@ -40,7 +40,7 @@ public class TravellerSearchAPI {
 	public ResponseEntity<List<String>> getAllOrigins() throws Exception{
 		List<String> origins = null;
 		try{
-			origins = travellerSearchService.getAllOrigins();
+			origins = travelerSearchService.getAllOrigins();
 			ResponseEntity<List<String>> response = new ResponseEntity<List<String>>(origins, HttpStatus.OK);
 			return response;
 		}catch(Exception e){
@@ -52,7 +52,7 @@ public class TravellerSearchAPI {
 	public ResponseEntity<List<String>> getAllDestinations() throws Exception{
 		List<String> destinations = null;
 		try{
-			destinations = travellerSearchService.getAllDestinations();
+			destinations = travelerSearchService.getAllDestinations();
 			ResponseEntity<List<String>> response = new ResponseEntity<List<String>>(destinations, HttpStatus.OK);
 			return response;
 		}catch(Exception e){
