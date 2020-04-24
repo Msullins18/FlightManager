@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import com.infy.demo.dao.TravellerDAO;
 import com.infy.demo.model.Traveller;
 import com.infy.demo.utility.HashingUtility;
+import com.infy.demo.validator.EmailValidator;
 @Service (value = "travellerService")
 @Transactional
 public class TravellerServiceImpl implements TravellerService {
@@ -18,6 +19,7 @@ public class TravellerServiceImpl implements TravellerService {
 		// TODO Auto-generated method stub
 		Traveller travellerFromDAO = null;
 		String emailId = traveller.getEmailId().toLowerCase();
+		EmailValidator.validateEmail(emailId);
 		String passwordFromDAO = travellerDAO.getPasswordOfTraveller(emailId);
 		if(passwordFromDAO != null)
 		{

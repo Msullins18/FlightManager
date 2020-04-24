@@ -10,9 +10,9 @@ public class EmailValidator {
 	}
 	
 	public static Boolean validateEmailId(String emailId){
-		Boolean flag = false;
+		Boolean valid = false;
 		if(emailId.matches("[a-zA-Z0-9._]+@[a-zA-Z]{2,}\\.[a-zA-Z][a-zA-Z.]+"))
-			flag = true;
-		return flag;
+			valid = true;
+		return valid;
 	}
 }

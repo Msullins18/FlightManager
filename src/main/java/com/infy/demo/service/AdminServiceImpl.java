@@ -1,11 +1,14 @@
 package com.infy.demo.service;
 import javax.transaction.Transactional;
+import javax.validation.Validator;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.infy.demo.dao.AdminDAO;
 import com.infy.demo.model.Admin;
 import com.infy.demo.utility.HashingUtility;
+import com.infy.demo.validator.EmailValidator;
 @Service (value = "adminService")
 @Transactional
 public class AdminServiceImpl implements AdminService {
@@ -43,6 +46,7 @@ public class AdminServiceImpl implements AdminService {
 	public String registerAdmin(Admin admin) throws Exception {
 		// TODO Auto-generated method stub
 		String emailId = admin.getEmailId().toLowerCase();
+		EmailValidator.validateEmail(emailId);
 		String registered = null;
 		Boolean available = adminDAO.checkAvailabilityOfEmailId(emailId);
 		if(available)

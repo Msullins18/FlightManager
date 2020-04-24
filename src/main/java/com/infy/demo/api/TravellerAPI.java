@@ -2,10 +2,10 @@ package com.infy.demo.api;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.hibernate.cfg.Environment;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 import com.infy.demo.model.Traveller;
 import com.infy.demo.service.TravellerService;
-
+@CrossOrigin
 @RestController
 @RequestMapping("Traveller")
 public class TravellerAPI {
@@ -25,7 +25,6 @@ public class TravellerAPI {
 	
 //	@Autowired
 //	Environment environment;
-	
 	@PostMapping(value = "Login")
 	public ResponseEntity<Traveller> loginTraveller(@RequestBody Traveller traveller)
 	{
