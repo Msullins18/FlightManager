@@ -14,21 +14,26 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
 import com.infy.demo.model.Flight;
+<<<<<<< HEAD:src/main/java/com/infy/demo/api/TravellerSearchAPI.java
 import com.infy.demo.service.TravellerSearchService;
 @CrossOrigin
+=======
+import com.infy.demo.service.TravelerSearchService;
+
+>>>>>>> d74adf983eb1778afd44838091fa5deb56cb8d07:src/main/java/com/infy/demo/api/TravelerSearchAPI.java
 @RestController
 @RequestMapping(value ="searchAPI")
-public class TravellerSearchAPI {
+public class TravelerSearchAPI {
 	@Autowired
 	public Environment environment;
 	
 	@Autowired
-	private TravellerSearchService travellerSearchService;
+	private TravelerSearchService travelerSearchService;
 	
 	@GetMapping(value="/getFlights")
-	public ResponseEntity<List<Flight>> getFlights(@PathVariable LocalDate date, String origin, String destination) throws Exception{
+	public ResponseEntity<List<Flight>> getFlights(@PathVariable LocalDate date, Integer airportId, String destination, Integer numberOfTickets) throws Exception{
 		try{
-			List<Flight> flightList = travellerSearchService.getFlights(date, origin, destination);
+			List<Flight> flightList = travelerSearchService.getFlights(date, airportId, destination, numberOfTickets);
 			ResponseEntity<List<Flight>> response = new ResponseEntity<List<Flight>>(flightList, HttpStatus.OK);
 			return response;
 		}catch(Exception e){
@@ -37,11 +42,11 @@ public class TravellerSearchAPI {
 	}
 	
 	
-	@GetMapping(value="/getOrigins")
+	@GetMapping(value="/getAirports")
 	public ResponseEntity<List<String>> getAllOrigins() throws Exception{
 		List<String> origins = null;
 		try{
-			origins = travellerSearchService.getAllDestinations();
+			origins = travelerSearchService.getAllOrigins();
 			ResponseEntity<List<String>> response = new ResponseEntity<List<String>>(origins, HttpStatus.OK);
 			return response;
 		}catch(Exception e){
@@ -53,7 +58,7 @@ public class TravellerSearchAPI {
 	public ResponseEntity<List<String>> getAllDestinations() throws Exception{
 		List<String> destinations = null;
 		try{
-			destinations = travellerSearchService.getAllDestinations();
+			destinations = travelerSearchService.getAllDestinations();
 			ResponseEntity<List<String>> response = new ResponseEntity<List<String>>(destinations, HttpStatus.OK);
 			return response;
 		}catch(Exception e){

@@ -12,35 +12,40 @@ import org.mockito.Mockito;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.infy.demo.dao.TravellerSearchDAO;
+import com.infy.demo.dao.TravelerSearchDAO;
 import com.infy.demo.model.Flight;
-import com.infy.demo.service.TravellerSearchService;
-import com.infy.demo.service.TravellerSearchServiceImpl;
+import com.infy.demo.service.TravelerSearchService;
+import com.infy.demo.service.TravelerSearchServiceImpl;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class TravellerSearchServiceTest {
+public class TravelerSearchServiceTest {
 	@Mock
-	private TravellerSearchDAO travellerSearchDAO;
+	private TravelerSearchDAO travelerSearchDAO;
 	
 	@InjectMocks
-	private TravellerSearchService travellerSearchService = new TravellerSearchServiceImpl();
+	private TravelerSearchService travelerSearchService = new TravelerSearchServiceImpl();
 	
 	@Test
 	public void testGetFlights() throws Exception{
 		LocalDate date = LocalDate.now().plusDays(14);
-		String origin = "Dallas";
+		Integer airport = 1000;
 		String destination = "New York";
+		Integer numberOfTickets = 2;
 		Flight flight = new Flight();
-		flight.setFlightId("F100001");
-		flight.setFlightNo("ABC007");
-		flight.setOrigin("Dallas");
-		flight.setDestination("New York");
-		flight.setAvailableSeats(100);
+		flight.setAirportId(airport);;
+		flight.setDateOfArrival(date);;
+		flight.setDateOfDeparture(date);
+		flight.setDestination(destination);
+		flight.setFlightFare(250);
+		flight.setFlightId(2000);
+		flight.setFlightSize(999);
+		flight.setFlightTax(20);
+		flight.setSeatsAvailable(100);
 		List<Flight> flightList = new ArrayList<>();
 		flightList.add(flight);
-		Mockito.when(travellerSearchDAO.getFlights(origin, destination)).thenReturn(flightList);
-		List<Flight> result = travellerSearchService.getFlights(date, origin, destination);
+		Mockito.when(travelerSearchDAO.getFlights(date, airport, destination, numberOfTickets)).thenReturn(flightList);
+		List<Flight> result = travelerSearchService.getFlights(date, airport, destination, numberOfTickets);
 		Assert.assertNotNull(result);
 		
 	}
@@ -52,8 +57,8 @@ public class TravellerSearchServiceTest {
 		origins.add("Houston");
 		origins.add("New York");
 
-		Mockito.when(travellerSearchDAO.getAllOrigins()).thenReturn(origins);
-		List<String> originList = travellerSearchService.getAllOrigins();
+		Mockito.when(travelerSearchDAO.getAllOrigins()).thenReturn(origins);
+		List<String> originList = travelerSearchService.getAllOrigins();
 		Assert.assertNotNull(originList);
 	}
 	
@@ -64,8 +69,8 @@ public class TravellerSearchServiceTest {
 		destination.add("Houston");
 		destination.add("New York");
 
-		Mockito.when(travellerSearchDAO.getAllDestinations()).thenReturn(destination);
-		List<String> destinationList = travellerSearchService.getAllDestinations();
+		Mockito.when(travelerSearchDAO.getAllDestinations()).thenReturn(destination);
+		List<String> destinationList = travelerSearchService.getAllDestinations();
 		Assert.assertNotNull(destinationList);
 	}
 	
