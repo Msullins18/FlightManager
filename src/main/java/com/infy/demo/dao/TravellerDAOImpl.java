@@ -1,12 +1,11 @@
 package com.infy.demo.dao;
-
 import javax.persistence.EntityManager;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-
+import com.infy.demo.dao.TravellerDAO;
 import com.infy.demo.entity.TravellerEntity;
 import com.infy.demo.model.Traveller;
+
 @Repository(value = "travellerDAO" )
 public class TravellerDAOImpl implements TravellerDAO {
 	
@@ -69,5 +68,4 @@ public class TravellerDAOImpl implements TravellerDAO {
 		
 		return available;
 	}
-
 }

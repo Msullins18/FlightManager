@@ -12,8 +12,6 @@ import com.infy.demo.entity.FlightEntity;
 import com.infy.demo.model.Airport;
 import com.infy.demo.model.Flight;
 
-import oracle.net.aso.f;
-
 @Repository(value = "travelerSearchDAO")
 public class TravelerSearchDAOImpl implements TravelerSearchDAO {
 	@Autowired
