@@ -13,6 +13,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.infy.demo.dao.TravelerSearchDAO;
+import com.infy.demo.model.Airport;
 import com.infy.demo.model.Flight;
 import com.infy.demo.service.TravelerSearchService;
 import com.infy.demo.service.TravelerSearchServiceImpl;
@@ -52,13 +53,15 @@ public class TravelerSearchServiceTest {
 	
 	@Test
 	public void testGetAllOrigins() throws Exception{
-		List<String> origins = new ArrayList<>();
-		origins.add("Dallas");
-		origins.add("Houston");
-		origins.add("New York");
+		List<Airport> origins = new ArrayList<>();
+		Airport airport = new Airport();
+		airport.setAirportId(1000);
+		airport.setAirportName("DFW");
+		airport.setCity("Dallas");
+		origins.add(airport);
 
 		Mockito.when(travelerSearchDAO.getAllOrigins()).thenReturn(origins);
-		List<String> originList = travelerSearchService.getAllOrigins();
+		List<Airport> originList = travelerSearchService.getAllOrigins();
 		Assert.assertNotNull(originList);
 	}
 	

@@ -12,6 +12,8 @@ import com.infy.demo.entity.FlightEntity;
 import com.infy.demo.model.Airport;
 import com.infy.demo.model.Flight;
 
+import oracle.net.aso.f;
+
 @Repository(value = "travelerSearchDAO")
 public class TravelerSearchDAOImpl implements TravelerSearchDAO {
 	@Autowired
@@ -24,12 +26,13 @@ public class TravelerSearchDAOImpl implements TravelerSearchDAO {
 		query.setParameter("airportId", airportId);
 		query.setParameter("destination", destination);
 		List<FlightEntity> flightEntityList = query.getResultList();
+
 		List<Flight> flightList = null;
 		LocalDate today = LocalDate.now();
 		if(flightEntityList != null){
 			flightList = new ArrayList<>();
 			for(FlightEntity flightEntity: flightEntityList){
-				if(numberOfTickets < flightEntity.getSeatsAvailable() && flightEntity.getDateOfDeparture().isBefore(today))
+				if(flightEntity.getSeatsAvailable()<1 && flightEntity.getDateOfDeparture().isBefore(today))
 					return flightList;
 				Flight flight = new Flight();
 				flight.setAirportId(flightEntity.getAirportId());
@@ -49,11 +52,11 @@ public class TravelerSearchDAOImpl implements TravelerSearchDAO {
 	}
 
 	@Override
-	public List<String> getAllOrigins() {
+	public List<Airport> getAllOrigins() {
 		String queryString = "select f from FlightEntity f";
 		Query query=entityManager.createQuery(queryString);
 		List<FlightEntity> flightEntityList = query.getResultList();
-		List<String> originList = null;
+		List<Airport> originList = null;
 		if(flightEntityList != null){
 			originList = new ArrayList<>();
 			for(FlightEntity flightEntity: flightEntityList){
@@ -61,8 +64,8 @@ public class TravelerSearchDAOImpl implements TravelerSearchDAO {
 				Airport airport = new Airport();
 				airport.setAirportId(airportEntity.getAirportId());
 				airport.setAirportName(airportEntity.getAirportName());
-				
-				originList.add(airportEntity.getAirportName());
+				airport.setCity(airportEntity.getCity());
+				originList.add(airport);
 			}
 		}
 		return originList;
