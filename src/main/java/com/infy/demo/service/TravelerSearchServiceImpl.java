@@ -20,11 +20,13 @@ public class TravelerSearchServiceImpl implements TravelerSearchService {
 
 	@Override
 	public List<Flight> getFlights(LocalDate date, Integer airportId, String destination, Integer numberOfTickets) throws Exception {
-		TravelValidator.isValidDate(date);
-		List<Flight> flightList = travelerSearchDAO.getFlights(date, airportId, destination, numberOfTickets);
+		TravelValidator.validateTravel(date);
+		List<Flight>flightList = travelerSearchDAO.getFlights(date, airportId, destination, numberOfTickets);
 		if(flightList.isEmpty())
 			throw new Exception("TravelerSearchService.NO_Flights_AVAILABLE");
 		return flightList;
+		
+		
 	}
 
 	@Override

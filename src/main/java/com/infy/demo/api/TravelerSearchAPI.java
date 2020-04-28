@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -19,9 +20,9 @@ import com.infy.demo.model.Airport;
 import com.infy.demo.model.Flight;
 import com.infy.demo.model.SearchFlights;
 import com.infy.demo.service.TravelerSearchService;
-
+@CrossOrigin
 @RestController
-@RequestMapping(value ="search")
+@RequestMapping(value ="Search")
 public class TravelerSearchAPI {
 	@Autowired
 	public Environment environment;
@@ -40,7 +41,10 @@ public class TravelerSearchAPI {
 			logger.info("The number of flights avaiable is " + flightList.size()); 
 			return response;
 		}catch(Exception e){
-			throw new ResponseStatusException(HttpStatus.NOT_FOUND,	environment.getProperty(e.getMessage()), e);
+			if(e.getMessage().contains("Validator")){
+				throw new ResponseStatusException(HttpStatus.NOT_ACCEPTABLE, environment.getProperty(e.getMessage()), e);
+			}
+			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, environment.getProperty(e.getMessage()), e);
 		}
 	}
 //	
@@ -86,7 +90,7 @@ public class TravelerSearchAPI {
 		try{
 			destinations = travelerSearchService.getAllDestinations();
 			ResponseEntity<List<String>> response = new ResponseEntity<List<String>>(destinations, HttpStatus.OK);
-			logger.info("The number of airports is " + destinations.size());
+			logger.info("The number of destinations is " + destinations.size());
 			return response;
 		}catch(Exception e){
 			throw new ResponseStatusException(HttpStatus.NOT_FOUND,	environment.getProperty(e.getMessage()), e);

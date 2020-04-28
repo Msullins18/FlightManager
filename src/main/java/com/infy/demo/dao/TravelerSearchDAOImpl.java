@@ -3,6 +3,12 @@ package com.infy.demo.dao;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.function.Function;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
+
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,13 +26,12 @@ public class TravelerSearchDAOImpl implements TravelerSearchDAO {
 	private EntityManager entityManager;
 
 	@Override
-	public List<Flight> getFlights(LocalDate date, Integer airportId, String destination, Integer numberOfTickets) {
+	public List<Flight> getFlights(LocalDate date, Integer airportId, String destination, Integer numberOfTickets) throws Exception {
 		String queryString = "select f from FlightEntity f where f.airportId =: airportId and f.destination =:destination";
 		Query query=entityManager.createQuery(queryString);
 		query.setParameter("airportId", airportId);
 		query.setParameter("destination", destination);
 		List<FlightEntity> flightEntityList = query.getResultList();
-
 		List<Flight> flightList = null;
 		LocalDate today = LocalDate.now();
 		if(flightEntityList != null){
@@ -35,6 +40,7 @@ public class TravelerSearchDAOImpl implements TravelerSearchDAO {
 				if(flightEntity.getSeatsAvailable()<1 && flightEntity.getDateOfDeparture().isBefore(today))
 					return flightList;
 				Flight flight = new Flight();
+
 				flight.setAirportId(flightEntity.getAirportId());
 				flight.setDateOfArrival(flightEntity.getDateOfArrival());
 				flight.setDateOfDeparture(flightEntity.getDateOfDeparture());
@@ -44,7 +50,12 @@ public class TravelerSearchDAOImpl implements TravelerSearchDAO {
 				flight.setFlightSize(flightEntity.getFlightSize());
 				flight.setFlightTax(flightEntity.getFlightTax());
 				flight.setFlightType(flightEntity.getFlightType());
+
 				flight.setSeatsAvailable(flightEntity.getSeatsAvailable());
+				if(numberOfTickets>flight.getSeatsAvailable()){
+					throw new Exception("TravelerSearchDAO.Not_Engough_Tickets_Available");
+				}
+				
 				flightList.add(flight);
 			}
 		}
@@ -56,9 +67,9 @@ public class TravelerSearchDAOImpl implements TravelerSearchDAO {
 		String queryString = "select f from FlightEntity f";
 		Query query=entityManager.createQuery(queryString);
 		List<FlightEntity> flightEntityList = query.getResultList();
-		List<Airport> originList = null;
+		List<Airport> originList = new ArrayList<>();
+		List<Airport> airportList = null;
 		if(flightEntityList != null){
-			originList = new ArrayList<>();
 			for(FlightEntity flightEntity: flightEntityList){
 				AirportEntity airportEntity = entityManager.find(AirportEntity.class, flightEntity.getAirportId());
 				Airport airport = new Airport();
@@ -67,9 +78,19 @@ public class TravelerSearchDAOImpl implements TravelerSearchDAO {
 				airport.setCity(airportEntity.getCity());
 				originList.add(airport);
 			}
+			airportList = originList.stream()
+                    .filter( distinctByKey(p -> p.getAirportId()) )
+                    .collect( Collectors.toList() );
 		}
-		return originList;
+		
+		return airportList;
 	}
+	
+	public static <T> Predicate<T> distinctByKey(Function<? super T, Object> keyExtractor) 
+    {
+        Map<Object, Boolean> map = new ConcurrentHashMap<>();
+        return t -> map.putIfAbsent(keyExtractor.apply(t), Boolean.TRUE) == null;
+    }
 
 	@Override
 	public List<String> getAllDestinations() {

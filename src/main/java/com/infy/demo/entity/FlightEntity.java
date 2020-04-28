@@ -17,24 +17,34 @@ public class FlightEntity {
 	    @Column(name="FLIGHT_ID")
 	    @GeneratedValue(strategy=GenerationType.SEQUENCE)
 	    private Integer flightId;
+	 
 	    @Column(name="FLIGHT_TYPE")
 	    private String flightType;
+	    
 	    @Column(name="FLIGHT_SIZE")
-	    private int flightSize;
+	    private Integer flightSize;
+	    
 	    @Column(name="SEATS_AVAILABLE")
-	    private int seatsAvailable;
+	    private Integer seatsAvailable;
+	    
 	    @Column(name="DATE_OF_DEPARTURE")
 	    private LocalDate dateOfDeparture;
+	    
 	    @Column(name="DATE_OF_ARRIVAL")
 	    private LocalDate dateOfArrival;
+	    
 	    @Column(name="DESTINATION")
 	    private String destination;
+	    
 	    @Column(name="FLIGHT_FARE")
 	    private Double flightFare;
+	    
 	    @Column(name="FLIGHT_TAX")
 	    private Double flightTax;
+	    
 	    @Column(name="AIRPORT_ID")
 	    private Integer airportId;
+	    
 	    public Integer getAirportId() {
 			return airportId;
 		}

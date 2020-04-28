@@ -6,13 +6,15 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="airport")
+@Table(name="AIRPORT")
 public class AirportEntity {
 	@Id
 	@Column(name ="AIRPORT_ID")
 	private Integer airportId;
+	
 	@Column(name="NAME")
 	private String airportName;
+	
 	@Column(name="CITY")
 	private String city;
 	
