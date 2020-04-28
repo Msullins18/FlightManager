@@ -1,13 +1,22 @@
 package com.infy.demo.dao;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.EntityManager;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.infy.demo.entity.AdminEntity;
+import com.infy.demo.entity.AirportEntity;
+import com.infy.demo.entity.FlightEntity;
 import com.infy.demo.model.Admin;
-@Repository(value = "adminDAO")
+import com.infy.demo.model.Airport;
+import com.infy.demo.model.Flight;
+
+@Repository
 public class AdminDAOImpl implements AdminDAO {
 
 	@Autowired
@@ -69,5 +78,44 @@ public class AdminDAOImpl implements AdminDAO {
 		
 		return available;
 	}
+
+	@Override
+	public Integer addAirport(Airport airport) {
+		// TODO Auto-generated method stub
+		AirportEntity newAirport = new AirportEntity();
+		newAirport.setAirportId(airport.getAirportId());
+		newAirport.setCity(airport.getCity());
+		newAirport.setAirportName(airport.getAirportName());
+		List<FlightEntity> flightList = new ArrayList<>();
+		FlightEntity f1 = null;
+		for(Flight flight : airport.getFlights()){
+			f1=new FlightEntity();
+			if(flight!=null){
+				f1.setDateOfArrival(flight.getDateOfArrival());
+				f1.setDateOfDeparture(flight.getDateOfDeparture());
+				f1.setDestination(flight.getDestination());
+				f1.setFlightFare(flight.getFlightFare());
+				f1.setFlightSize(flight.getFlightSize());
+				f1.setFlightTax(f1.getFlightTax());
+				f1.setFlightType(flight.getFlightType());
+				flightList.add(f1);
+			}
+		}
+		newAirport.setFlightEntities(flightList);
+		entityManager.persist(newAirport);
+		return newAirport.getAirportId();
+	}
+
+	@Override
+	public Integer deleteAirport(Integer airportId) {
+		// TODO Auto-generated method stub
+		AirportEntity airport = entityManager.find(AirportEntity.class, airportId);
+		if(airport!=null){
+			entityManager.remove(airport);
+		}
+		return airportId;
+	}
+	
+	
 
 }
