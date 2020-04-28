@@ -68,11 +68,15 @@ public class TravelerSearchAPI {
 //	}
 	
 	@GetMapping(value="/getAirports")
-	public ResponseEntity<List<String>> getAllOrigins() throws Exception{
-		List<String> origins = null;
+	public ResponseEntity<List<Airport>> getAllOrigins() throws Exception{
+		List<Airport> origins = null;
 		try{
 			origins = travelerSearchService.getAllOrigins();
+<<<<<<< HEAD
 			ResponseEntity<List<String>> response = new ResponseEntity<List<String>>(origins, HttpStatus.OK);
+=======
+			ResponseEntity<List<Airport>> response = new ResponseEntity<List<Airport>>(origins, HttpStatus.OK);
+>>>>>>> bff0372be609b14f4ea6c2b7f0cf049c773969bd
 			logger.info("The number of airports is " + origins.size());
 			return response;
 		}catch(Exception e){

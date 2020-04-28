@@ -1,6 +1,7 @@
 package com.infy.demo.validator;
 
 import java.time.LocalDate;
+import com.infy.demo.model.Traveller;
 
 public class TravelValidator {
 	public static void validateTravel(LocalDate date) throws Exception{

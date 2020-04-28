@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.infy.demo.dao.TravelerSearchDAO;
+import com.infy.demo.model.Airport;
 import com.infy.demo.model.Flight;
 import com.infy.demo.validator.TravelValidator;
 
@@ -27,7 +28,7 @@ public class TravelerSearchServiceImpl implements TravelerSearchService {
 	}
 
 	@Override
-	public List<String> getAllOrigins() throws Exception {
+	public List<Airport> getAllOrigins() throws Exception {
 		return travelerSearchDAO.getAllOrigins();
 	}
 
