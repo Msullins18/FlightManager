@@ -25,7 +25,6 @@ public class AdminAPI {
 	
 	@Autowired
 	AdminService adminService;
-	
 
 	@Autowired
 	private Environment environment;
