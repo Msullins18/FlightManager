@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.Assert;
+import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -11,7 +12,8 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
-
+import com.carrotsearch.junitbenchmarks.BenchmarkOptions;
+import com.carrotsearch.junitbenchmarks.BenchmarkRule;
 import com.infy.demo.dao.TravelerSearchDAO;
 import com.infy.demo.model.Airport;
 import com.infy.demo.model.Flight;
@@ -21,6 +23,10 @@ import com.infy.demo.service.TravelerSearchServiceImpl;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class TravelerSearchServiceTest {
+	
+	@Rule
+	public BenchmarkRule benchmarkRun = new BenchmarkRule();
+	
 	@Mock
 	private TravelerSearchDAO travelerSearchDAO;
 	
@@ -52,6 +58,7 @@ public class TravelerSearchServiceTest {
 	}
 	
 	@Test
+	@BenchmarkOptions(concurrency = 2, warmupRounds = 0, benchmarkRounds = 5)
 	public void testGetAllOrigins() throws Exception{
 		List<Airport> origins = new ArrayList<>();
 		Airport airport = new Airport();
