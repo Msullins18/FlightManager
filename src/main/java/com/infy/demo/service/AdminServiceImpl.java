@@ -1,13 +1,13 @@
 package com.infy.demo.service;
 import javax.persistence.EntityManager;
 import javax.transaction.Transactional;
-import javax.validation.Validator;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.infy.demo.dao.AdminDAO;
 import com.infy.demo.entity.AirportEntity;
+import com.infy.demo.exceptions.EmailUnavailableException;
+import com.infy.demo.exceptions.InvalidCredentialsException;
+import com.infy.demo.exceptions.UserNotFoundException;
 import com.infy.demo.model.Admin;
 import com.infy.demo.model.Airport;
 import com.infy.demo.utility.HashingUtility;
@@ -27,6 +27,7 @@ public class AdminServiceImpl implements AdminService {
 		// TODO Auto-generated method stub
 		Admin adminFromDAO = null;
 		String emailId = admin.getEmailId().toLowerCase();
+		EmailValidator.validateEmail(emailId);
 		String passwordFromDAO = adminDAO.getPasswordOfAdmin(emailId);
 		if(passwordFromDAO != null)
 		{
@@ -37,13 +38,13 @@ public class AdminServiceImpl implements AdminService {
 			}
 			else
 			{
-				throw new Exception("AdminService.INVALID_CREDENTIALS");
+				throw new InvalidCredentialsException();
 			}
 			
 		}
 		else
 		{
-			throw new Exception("AdminService.INVALID_CREDENTIALS");
+			throw new UserNotFoundException(emailId);
 		}
 		return adminFromDAO;
 	}
@@ -64,7 +65,7 @@ public class AdminServiceImpl implements AdminService {
 		}
 		if(registered == null)
 		{
-			throw new Exception("AdminService.EMAIL_TAKEN");
+			throw new EmailUnavailableException(emailId);
 		}
 		return registered;
 	}

@@ -17,7 +17,7 @@ public class AdminEntity {
 	
 	@Column(name = "LAST_NAME")
 	private String lastName;
-	
+
 	@Column(name = "PASSWORD")
 	private String password;
 	

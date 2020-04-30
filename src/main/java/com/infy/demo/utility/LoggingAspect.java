@@ -22,12 +22,13 @@ public class LoggingAspect {
 	
 	private void log(Exception exception) {
 		Logger logger = LogManager.getLogger(this.getClass());
-		if(exception.getMessage()!=null && 
-				(exception.getMessage().contains("Service") || exception.getMessage().contains("Validator"))){
+		if(exception.getMessage() != null)
+		{
 			logger.error(exception.getMessage());
 		}
-		else{
-			logger.error(exception.getMessage(), exception);
+		else
+		{
+			logger.error(exception);
 		}
 	}
 

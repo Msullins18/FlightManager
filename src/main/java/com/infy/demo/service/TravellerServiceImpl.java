@@ -4,6 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.infy.demo.dao.TravellerDAO;
+import com.infy.demo.exceptions.EmailUnavailableException;
+import com.infy.demo.exceptions.InvalidCredentialsException;
+import com.infy.demo.exceptions.UserNotFoundException;
 import com.infy.demo.model.Traveller;
 import com.infy.demo.utility.HashingUtility;
 import com.infy.demo.validator.EmailValidator;
@@ -15,7 +18,7 @@ public class TravellerServiceImpl implements TravellerService {
 	TravellerDAO travellerDAO;
 	
 	@Override
-	public Traveller loginTraveller(Traveller traveller) throws Exception {
+	public Traveller loginTraveller(Traveller traveller) throws Exception{
 		// TODO Auto-generated method stub
 		Traveller travellerFromDAO = null;
 		String emailId = traveller.getEmailId().toLowerCase();
@@ -30,21 +33,22 @@ public class TravellerServiceImpl implements TravellerService {
 			}
 			else
 			{
-				throw new Exception("TravellerService.INVALID_CREDENTIALS");
+				throw new InvalidCredentialsException();
 			}
 			
 		}
 		else
 		{
-			throw new Exception("TravellerService.INVALID_CREDENTIALS");
+			throw new UserNotFoundException(emailId);
 		}
 		return travellerFromDAO;
 	}
 
 	@Override
-	public String registerTraveller(Traveller traveller) throws Exception {
+	public String registerTraveller(Traveller traveller) throws Exception{
 		// TODO Auto-generated method stub
 		String emailId = traveller.getEmailId().toLowerCase();
+		EmailValidator.validateEmail(emailId);
 		String registered = null;
 		Boolean available = travellerDAO.checkAvailabilityOfEmailId(emailId);
 		if(available)
@@ -53,6 +57,10 @@ public class TravellerServiceImpl implements TravellerService {
 			traveller.setEmailId(emailId);
 			traveller.setPassword(passwordToDB);
 			registered = travellerDAO.registerTraveller(traveller);
+		}
+		if(registered == null)
+		{
+			throw new EmailUnavailableException(emailId);
 		}
 		return registered;
 	}

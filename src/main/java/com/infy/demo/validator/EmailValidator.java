@@ -1,10 +1,12 @@
 package com.infy.demo.validator;
 
+import com.infy.demo.exceptions.InvalidEmailException;
+
 public class EmailValidator {
 	
-	public static void validateEmail(String emailId) throws Exception{
+	public static void validateEmail(String emailId) throws RuntimeException{
 		if( !validateEmailId(emailId)) {
-			throw new Exception("SellerValidator.INVALID_EMAIL_FORMAT_FOR_LOGIN");
+			throw new InvalidEmailException();
 		}
 			
 	}
