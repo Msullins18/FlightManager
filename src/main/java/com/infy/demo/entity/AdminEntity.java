@@ -5,10 +5,14 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.infy.demo.validator.Email;
+import com.infy.demo.validator.Password;
+
 @Entity
 @Table(name = "Admin")
 public class AdminEntity {
 	@Id
+	@Email
 	@Column(name = "EMAIL_ID")
 	private String emailId;
 	
@@ -17,7 +21,8 @@ public class AdminEntity {
 	
 	@Column(name = "LAST_NAME")
 	private String lastName;
-
+	
+	@Password
 	@Column(name = "PASSWORD")
 	private String password;
 	

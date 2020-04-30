@@ -24,13 +24,13 @@ public class AirportAPI {
 	@Autowired
 	private Environment environment;
 	
-	@PostMapping(value = "addFlight/{airportId}")
-	public ResponseEntity<String> addFlight(@RequestBody Flight flight, @PathVariable("airportId") Integer airId) throws Exception {
+	@PostMapping(value = "addFlight")
+	public ResponseEntity<String> addFlight(@RequestBody Flight flight) throws Exception {
 		try
 		{
-			airportService.addFlight(flight);
+			Integer id = airportService.addFlight(flight);
 			
-			String message = environment.getProperty("AirportAPI.FLIGHT_ADDED_TO_AIRPORT" + airId);
+			String message = "The following flight has been successfully added with Id:" + id;
 			
 			return new ResponseEntity<String>(message, HttpStatus.OK);
 			

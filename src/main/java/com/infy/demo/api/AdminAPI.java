@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.TransactionSystemException;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -55,14 +56,13 @@ public class AdminAPI {
 		return re;
 	}
 	
-	@PostMapping(value = "addAirport/")
+	@PostMapping(value = "addAirport")
 	public ResponseEntity<String> addAirport(@RequestBody Airport airport) throws Exception {
 		try
 		{
-			adminService.addAirport(airport);
-			
-			String message = environment.getProperty("AdminAPI.AIRPORT_ADDED_TO_AIRPORT");
-			logger.info(message + adminService.addAirport(airport));
+			Integer id = adminService.addAirport(airport);
+			String message = "The following Airport has been successfully added with Airport Id: " + id;
+			logger.info(message);
 			return new ResponseEntity<String>(message, HttpStatus.OK);
 			
 		}
@@ -77,10 +77,9 @@ public class AdminAPI {
 		
 		try
 		{
-			adminService.deleteAirport(airportId);
-			
-			String message = environment.getProperty("Airport Successfully deleted");
-			
+			Integer id = adminService.deleteAirport(airportId);
+			String message = "The following airport has been successfully deleted with Airport Id: " + id;
+			logger.info(message);
 			return new ResponseEntity<String>(message, HttpStatus.OK);
 		}
 		catch (Exception e) {
@@ -111,6 +110,12 @@ public class AdminAPI {
     public ResponseEntity<Object> handleException(InvalidEmailException  e) {
     	//throw new ResponseStatusException(HttpStatus.UNAUTHORIZED,e.getMessage());
     	return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
+    }
+    
+    @ExceptionHandler(TransactionSystemException.class)
+    public ResponseEntity<Object> handleException(TransactionSystemException  e) {
+    	//throw new ResponseStatusException(HttpStatus.UNAUTHORIZED,e.getMessage());
+    	return new ResponseEntity<>("Invalid inputs! Please try again.", HttpStatus.BAD_REQUEST);
     }
 
 }

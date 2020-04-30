@@ -22,7 +22,6 @@ public class TravellerServiceImpl implements TravellerService {
 		// TODO Auto-generated method stub
 		Traveller travellerFromDAO = null;
 		String emailId = traveller.getEmailId().toLowerCase();
-		EmailValidator.validateEmail(emailId);
 		String passwordFromDAO = travellerDAO.getPasswordOfTraveller(emailId);
 		if(passwordFromDAO != null)
 		{
@@ -48,7 +47,6 @@ public class TravellerServiceImpl implements TravellerService {
 	public String registerTraveller(Traveller traveller) throws Exception{
 		// TODO Auto-generated method stub
 		String emailId = traveller.getEmailId().toLowerCase();
-		EmailValidator.validateEmail(emailId);
 		String registered = null;
 		Boolean available = travellerDAO.checkAvailabilityOfEmailId(emailId);
 		if(available)

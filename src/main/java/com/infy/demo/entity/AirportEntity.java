@@ -6,10 +6,10 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 
@@ -18,6 +18,8 @@ import javax.persistence.Table;
 public class AirportEntity {
 	@Id
 	@Column(name="AIRPORT_ID")
+  	@SequenceGenerator(name = "airportSeqGen", sequenceName = "airport_seq", allocationSize = 1)
+  	@GeneratedValue(generator = "airportSeqGen")
 	private Integer airportId;
 	
 	@Column(name="NAME")
@@ -26,7 +28,7 @@ public class AirportEntity {
 	@Column(name="CITY")
 	private String city;
 	
-	@OneToMany(cascade=CascadeType.ALL)
+	@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name="AIRPORT_ID")
 	private List<FlightEntity> flightEntities;
 

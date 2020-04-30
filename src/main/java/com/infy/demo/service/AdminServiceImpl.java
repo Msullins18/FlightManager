@@ -27,7 +27,6 @@ public class AdminServiceImpl implements AdminService {
 		// TODO Auto-generated method stub
 		Admin adminFromDAO = null;
 		String emailId = admin.getEmailId().toLowerCase();
-		EmailValidator.validateEmail(emailId);
 		String passwordFromDAO = adminDAO.getPasswordOfAdmin(emailId);
 		if(passwordFromDAO != null)
 		{
@@ -53,7 +52,6 @@ public class AdminServiceImpl implements AdminService {
 	public String registerAdmin(Admin admin) throws Exception {
 		// TODO Auto-generated method stub
 		String emailId = admin.getEmailId().toLowerCase();
-		EmailValidator.validateEmail(emailId);
 		String registered = null;
 		Boolean available = adminDAO.checkAvailabilityOfEmailId(emailId);
 		if(available)
@@ -74,11 +72,8 @@ public class AdminServiceImpl implements AdminService {
 	@Override
 	public Integer addAirport(Airport airport) throws Exception {
 		// TODO Auto-generated method stub
-		AirportEntity airportEntity = entityManager.find(AirportEntity.class, airport.getAirportId());
-		if(airportEntity!=null){
-			throw new Exception("AdminService.AIRPORT_EXISTS");
-		}
-		return adminDAO.addAirport(airport);
+		Integer id = adminDAO.addAirport(airport);
+		return id;
 	}
 
 	@Override

@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
@@ -15,7 +16,8 @@ import javax.persistence.Table;
 public class FlightEntity {
 	 @Id
 	    @Column(name="FLIGHT_ID")
-	    @GeneratedValue(strategy=GenerationType.SEQUENCE)
+	  	@SequenceGenerator(name = "flightSeqGen", sequenceName = "flight_seq", allocationSize = 1)
+	  	@GeneratedValue(generator = "flightSeqGen")
 	    private Integer flightId;
 	    @Column(name="FLIGHT_TYPE")
 	    private String flightType;
