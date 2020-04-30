@@ -41,7 +41,10 @@ public class TravelerSearchAPI {
 			logger.info("The number of flights avaiable is " + flightList.size()); 
 			return response;
 		}catch(Exception e){
-			throw new ResponseStatusException(HttpStatus.NOT_FOUND,	environment.getProperty(e.getMessage()), e);
+			if(e.getMessage().contains("Validator")){
+				throw new ResponseStatusException(HttpStatus.NOT_ACCEPTABLE, environment.getProperty(e.getMessage()), e);
+			}
+			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, environment.getProperty(e.getMessage()), e);
 		}
 	}
 
