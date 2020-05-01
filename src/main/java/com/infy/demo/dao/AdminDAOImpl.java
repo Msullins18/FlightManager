@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
-
+import javax.persistence.Query;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -105,6 +105,29 @@ public class AdminDAOImpl implements AdminDAO {
 			entityManager.remove(airport);
 		}
 		return airportId;
+	}
+
+	@Override
+	public List<Airport> getAirports() {
+		// TODO Auto-generated method stub\
+		List<Airport> airports = null;
+
+		String dft = "SELECT a FROM AirportEntity a";
+		Query query = entityManager.createQuery(dft);
+		List<AirportEntity> airportList = query.getResultList();
+		airports = new ArrayList<Airport>();
+		if(!airports.isEmpty()){
+			for(AirportEntity a : airportList){
+				Airport airport = new Airport();
+				airport.setAirportId(a.getAirportId());
+				airport.setAirportName(a.getAirportName());
+				airport.setCity(a.getCity());
+				airport.setFlights(new ArrayList<Flight>());
+				airports.add(airport);
+			}
+		}
+		return airports;
+
 	}
 	
 	

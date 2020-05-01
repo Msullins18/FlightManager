@@ -1,5 +1,7 @@
 package com.infy.demo.api;
 
+import java.util.List;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.TransactionSystemException;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -23,6 +26,7 @@ import com.infy.demo.exceptions.UserNotFoundException;
 import com.infy.demo.model.Admin;
 import com.infy.demo.model.Airport;
 import com.infy.demo.service.AdminService;
+
 @CrossOrigin
 @RestController
 @RequestMapping("Admin")
@@ -73,14 +77,13 @@ public class AdminAPI {
 	}
 	
 	@PostMapping(value = "deleteAirport/{airportId}")
-	public ResponseEntity<String> deleteAirport(@PathVariable("airportId") Integer airportId) throws Exception{
+	public ResponseEntity<Integer> deleteAirport(@PathVariable("airportId") Integer airportId) throws Exception{
 		
 		try
 		{
-			Integer id = adminService.deleteAirport(airportId);
-			String message = "The following airport has been successfully deleted with Airport Id: " + id;
-			logger.info(message);
-			return new ResponseEntity<String>(message, HttpStatus.OK);
+			Integer result = adminService.deleteAirport(airportId);
+			logger.info(environment.getProperty("DealsForTodayAPI.DELETE_SUCCESS") + result);
+			return new ResponseEntity<Integer>(result, HttpStatus.OK);
 		}
 		catch (Exception e) {
 			
@@ -88,6 +91,19 @@ public class AdminAPI {
 		}
 	}
 	
+	@GetMapping(value = "getAirports")
+	public ResponseEntity<List<Airport>> getDealsForToday() throws Exception {
+		List<Airport> list = null;
+		try {
+			list = adminService.getAirports();
+			ResponseEntity<List<Airport>> response = new ResponseEntity<List<Airport>>(list, HttpStatus.OK);
+			return response;
+		} catch (Exception e) {
+
+			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, environment.getProperty(e.getMessage()));
+		}
+
+	}
     @ExceptionHandler(UserNotFoundException.class)
     public ResponseEntity<Object> handleException(UserNotFoundException  e) {
     	//throw new ResponseStatusException(HttpStatus.NOT_FOUND,e.getMessage());

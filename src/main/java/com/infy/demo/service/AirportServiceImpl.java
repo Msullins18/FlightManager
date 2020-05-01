@@ -1,5 +1,7 @@
 package com.infy.demo.service;
 
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,9 +31,19 @@ public class AirportServiceImpl implements AirportService {
 	}
 
 	@Override
-	public Integer deleteFlight(Integer airportId, Integer flightId) {
+	public Integer deleteFlight(Integer flightId) {
 		// TODO Auto-generated method stub
-		return airportDAO.deleteFlight(airportId, flightId);
+		return airportDAO.deleteFlight(flightId);
+	}
+
+	@Override
+	public List<Flight> getFlights() throws Exception {
+		// TODO Auto-generated method stub
+		List<Flight> flightList = airportDAO.getFlights();
+		if(flightList==null){
+			throw new Exception("No Flights Available");
+		}
+		return flightList;
 	}
 
 }

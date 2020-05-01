@@ -1,9 +1,14 @@
 package com.infy.demo.api;
+import java.util.List;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -18,12 +23,14 @@ import com.infy.demo.service.AirportService;
 @RestController
 @RequestMapping("AirportAPI")
 public class AirportAPI {
+	
 	@Autowired
 	private AirportService airportService;
 	
 	@Autowired
 	private Environment environment;
 	
+	static Logger logger = LogManager.getLogger(AirportAPI.class.getName());
 	@PostMapping(value = "addFlight")
 	public ResponseEntity<String> addFlight(@RequestBody Flight flight) throws Exception {
 		try
@@ -41,20 +48,32 @@ public class AirportAPI {
 		}
 	}
 	
-	@PostMapping(value = "deleteFlight/{airportId}")
-	public ResponseEntity<String> deleteFlight(@PathVariable("airportId") Integer airId, @RequestBody Integer flightId) throws Exception{
+	@PostMapping(value = "deleteFlight/{flightId}")
+	public ResponseEntity<Integer> deleteFlight(@PathVariable("flightId") Integer flightId) throws Exception{
 		
 		try
 		{
-			airportService.deleteFlight(airId, flightId);
-			
-			String message = environment.getProperty("AirportAPI.FLIGHT_DELETED_FROM_AIRPORT" + airId);
-			
-			return new ResponseEntity<String>(message, HttpStatus.OK);
+			Integer result = airportService.deleteFlight(flightId);
+			logger.info(environment.getProperty("DealsForTodayAPI.DELETE_SUCCESS") + result);
+			return new ResponseEntity<Integer>(result, HttpStatus.OK);
 		}
 		catch (Exception e) {
 			
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, environment.getProperty(e.getMessage()));
 		}
+	}
+	
+	@GetMapping(value = "getFlights")
+	public ResponseEntity<List<Flight>> getDealsForToday() throws Exception {
+		List<Flight> list = null;
+		try {
+			list = airportService.getFlights();
+			ResponseEntity<List<Flight>> response = new ResponseEntity<List<Flight>>(list, HttpStatus.OK);
+			return response;
+		} catch (Exception e) {
+
+			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, environment.getProperty(e.getMessage()));
+		}
+
 	}
 }

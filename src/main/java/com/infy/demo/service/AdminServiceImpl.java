@@ -1,4 +1,6 @@
 package com.infy.demo.service;
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -84,6 +86,16 @@ public class AdminServiceImpl implements AdminService {
 			throw new Exception("AdminService.AIRPORT_NOT_EXISTS");
 		}
 		return adminDAO.deleteAirport(airportId);
+	}
+
+	@Override
+	public List<Airport> getAirports() throws Exception {
+		// TODO Auto-generated method stub
+		List<Airport> airports = adminDAO.getAirports();
+		if(airports==null){
+			throw new Exception("Sorry no Airports are available at the moment");
+		}
+		return airports;
 	}
 	
 	

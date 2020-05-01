@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -24,7 +25,6 @@ public class AirportDAOImpl implements AirportDAO {
 	public Integer addFlight(Flight flight) {
 		// TODO Auto-generated method stub
 		FlightEntity newFlight = new FlightEntity();
-		
 		newFlight.setDateOfArrival(flight.getDateOfArrival());
 		newFlight.setDateOfDeparture(flight.getDateOfDeparture());
 		newFlight.setDestination(flight.getDestination());
@@ -34,7 +34,7 @@ public class AirportDAOImpl implements AirportDAO {
 		newFlight.setSeatsAvailable(flight.getSeatsAvailable());
 		newFlight.setFlightFare(flight.getFlightFare());
 		newFlight.setAirportId(flight.getAirportId());
-		newFlight.setFlightTax(flight.getFlightTax());
+		newFlight.setFlightTax(newFlight.getFlightTax());
 		
 		AirportEntity airport = entityManager.find(AirportEntity.class, flight.getAirportId());
 		airport.getFlightEntities().add(newFlight);
@@ -44,18 +44,39 @@ public class AirportDAOImpl implements AirportDAO {
 	}
 
 	@Override
-	public Integer deleteFlight(Integer airportId, Integer flightId) {
+	public Integer deleteFlight(Integer flightId) {
 		// TODO Auto-generated method stub
-		AirportEntity airport = entityManager.find(AirportEntity.class, airportId);
-		List<FlightEntity> flightList = airport.getFlightEntities();
-		List<FlightEntity> updateFlightList = new ArrayList<>();
-		for(FlightEntity flight : flightList){
-			if(!(flightId.equals(flight.getFlightId()))){
-				updateFlightList.add(flight);
-		}
-			}
-		airport.setFlightEntities(updateFlightList);
+		FlightEntity f1 = entityManager.find(FlightEntity.class, flightId);
+		entityManager.remove(f1);
 		return flightId;
+	}
+
+	@Override
+	public List<Flight> getFlights() {
+		// TODO Auto-generated method stub
+		List<Flight> flights = null;
+		String dft = "SELECT f FROM FlightEntity f";
+		Query query = entityManager.createQuery(dft);
+		List<FlightEntity> flightEntity = query.getResultList();
+		flights = new ArrayList<Flight>();
+		if(!flightEntity.isEmpty()){
+			for(FlightEntity f : flightEntity){
+				Flight flight = new Flight();
+				flight.setAirportId(f.getAirportId());
+				flight.setDateOfArrival(f.getDateOfArrival());
+				flight.setDateOfDeparture(f.getDateOfDeparture());
+				flight.setDestination(f.getDestination());
+				flight.setFlightId(f.getFlightId());
+				flight.setFlightSize(f.getFlightSize());
+				flight.setFlightTax(f.getFlightTax());
+				flight.setFlightFare(f.getFlightFare());
+				flight.setFlightType(f.getFlightType());
+				flight.setSeatsAvailable(f.getSeatsAvailable());
+				flights.add(flight);
+			}
+		}
+
+		return flights;
 	}
 
 }
