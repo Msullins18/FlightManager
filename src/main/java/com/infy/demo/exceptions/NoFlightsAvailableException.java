@@ -6,6 +6,6 @@ public class NoFlightsAvailableException extends RuntimeException {
 
 	public NoFlightsAvailableException()
 	{
-		super();
+		super("No flight schedule available. Please select a different date.");
 	}
 }

@@ -93,13 +93,17 @@ public class TravelerSearchDAOImpl implements TravelerSearchDAO {
 		Query query=entityManager.createQuery(queryString);
 		List<FlightEntity> flightEntityList = query.getResultList();
 		List<String> destinationList = new ArrayList<>();
+		List<String> finalDestinationList = new ArrayList<>();
 		if(flightEntityList != null){
 			for(FlightEntity flight: flightEntityList){
 				String destination = flight.getDestination();
 				destinationList.add(destination);
 			}	
 		}
-		return destinationList;
+		finalDestinationList =destinationList.stream()
+                .filter( distinctByKey(p -> p) )
+                .collect( Collectors.toList() );
+		return finalDestinationList;
 	}
 
 	
