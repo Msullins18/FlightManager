@@ -83,26 +83,16 @@ public class AdminDAOImpl implements AdminDAO {
 	public Integer addAirport(Airport airport) {
 		// TODO Auto-generated method stub
 		AirportEntity newAirport = new AirportEntity();
-		newAirport.setAirportId(airport.getAirportId());
+		
 		newAirport.setCity(airport.getCity());
 		newAirport.setAirportName(airport.getAirportName());
-		List<FlightEntity> flightList = new ArrayList<>();
-		FlightEntity f1 = null;
-		for(Flight flight : airport.getFlights()){
-			f1=new FlightEntity();
-			if(flight!=null){
-				f1.setDateOfArrival(flight.getDateOfArrival());
-				f1.setDateOfDeparture(flight.getDateOfDeparture());
-				f1.setDestination(flight.getDestination());
-				f1.setFlightFare(flight.getFlightFare());
-				f1.setFlightSize(flight.getFlightSize());
-				f1.setFlightTax(f1.getFlightTax());
-				f1.setFlightType(flight.getFlightType());
-				flightList.add(f1);
-			}
-		}
-		newAirport.setFlightEntities(flightList);
+		
+		List<FlightEntity> listOfFlights = new ArrayList<>();
+		
+		newAirport.setFlightEntities(listOfFlights);
+		
 		entityManager.persist(newAirport);
+		
 		return newAirport.getAirportId();
 	}
 
@@ -110,6 +100,7 @@ public class AdminDAOImpl implements AdminDAO {
 	public Integer deleteAirport(Integer airportId) {
 		// TODO Auto-generated method stub
 		AirportEntity airport = entityManager.find(AirportEntity.class, airportId);
+		airport.setFlightEntities(null);
 		if(airport!=null){
 			entityManager.remove(airport);
 		}

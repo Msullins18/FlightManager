@@ -32,9 +32,4 @@ public class SearchFlights {
 	public void setNumberOfTickets(Integer numberOfTickets) {
 		this.numberOfTickets = numberOfTickets;
 	}
-
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> bff0372be609b14f4ea6c2b7f0cf049c773969bd

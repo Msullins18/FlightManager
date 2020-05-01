@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -19,9 +20,9 @@ import com.infy.demo.model.Airport;
 import com.infy.demo.model.Flight;
 import com.infy.demo.model.SearchFlights;
 import com.infy.demo.service.TravelerSearchService;
-
+@CrossOrigin
 @RestController
-@RequestMapping(value ="search")
+@RequestMapping(value ="Search")
 public class TravelerSearchAPI {
 	@Autowired
 	public Environment environment;
@@ -30,7 +31,7 @@ public class TravelerSearchAPI {
 	private TravelerSearchService travelerSearchService;
 	
 	static Logger logger = LogManager.getLogger(TravelerSearchAPI.class.getName());
-	
+
 	@PostMapping(value="/getFlights")
 	public ResponseEntity<List<Flight>> getFlights(@RequestBody SearchFlights searchFlights) throws Exception{
 		try{
@@ -40,50 +41,26 @@ public class TravelerSearchAPI {
 			logger.info("The number of flights avaiable is " + flightList.size()); 
 			return response;
 		}catch(Exception e){
-			throw new ResponseStatusException(HttpStatus.NOT_FOUND,	environment.getProperty(e.getMessage()), e);
+			if(e.getMessage().contains("Validator")){
+				throw new ResponseStatusException(HttpStatus.NOT_ACCEPTABLE, environment.getProperty(e.getMessage()), e);
+			}
+			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, environment.getProperty(e.getMessage()), e);
 		}
 	}
-//	
-//	@GetMapping(value="/getFlights")
-//	public ResponseEntity<List<Flight>> getFlights(@PathVariable LocalDate date, Integer airportId, String destination, Integer numberOfTickets) throws Exception{
-//		try{
-//			List<Flight> flightList = travelerSearchService.getFlights(date, airportId, destination, numberOfTickets);
-//			ResponseEntity<List<Flight>> response = new ResponseEntity<List<Flight>>(flightList, HttpStatus.OK);
-//			return response;
-//		}catch(Exception e){
-//			throw new ResponseStatusException(HttpStatus.NOT_FOUND,	environment.getProperty(e.getMessage()), e);
-//		}
-//	}
-	
-//	@GetMapping(value="/getFlights")
-//	public ResponseEntity<List<Flight>> getFlights(@PathVariable String airportId, String destination) throws Exception{
-//		try{
-//			Integer id = Integer.parseInt(airportId);
-//			List<Flight> flightList = travelerSearchService.getFlights(id, destination);
-//			ResponseEntity<List<Flight>> response = new ResponseEntity<List<Flight>>(flightList, HttpStatus.OK);
-//			return response;
-//		}catch(Exception e){
-//			throw new ResponseStatusException(HttpStatus.NOT_FOUND,	environment.getProperty(e.getMessage()), e);
-//		}
-//	}
-	
+
 	@GetMapping(value="/getAirports")
 	public ResponseEntity<List<Airport>> getAllOrigins() throws Exception{
 		List<Airport> origins = null;
 		try{
 			origins = travelerSearchService.getAllOrigins();
-<<<<<<< HEAD
-			ResponseEntity<List<String>> response = new ResponseEntity<List<String>>(origins, HttpStatus.OK);
-=======
 			ResponseEntity<List<Airport>> response = new ResponseEntity<List<Airport>>(origins, HttpStatus.OK);
->>>>>>> bff0372be609b14f4ea6c2b7f0cf049c773969bd
 			logger.info("The number of airports is " + origins.size());
 			return response;
 		}catch(Exception e){
 			throw new ResponseStatusException(HttpStatus.NOT_FOUND,	environment.getProperty(e.getMessage()), e);
 		}
 	}
-	
+
 	@GetMapping(value="/getDestinations")
 	public ResponseEntity<List<String>> getAllDestinations() throws Exception{
 		List<String> destinations = null;

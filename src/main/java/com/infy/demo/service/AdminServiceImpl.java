@@ -1,13 +1,13 @@
 package com.infy.demo.service;
 import javax.persistence.EntityManager;
 import javax.transaction.Transactional;
-import javax.validation.Validator;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.infy.demo.dao.AdminDAO;
 import com.infy.demo.entity.AirportEntity;
+import com.infy.demo.exceptions.EmailUnavailableException;
+import com.infy.demo.exceptions.InvalidCredentialsException;
+import com.infy.demo.exceptions.UserNotFoundException;
 import com.infy.demo.model.Admin;
 import com.infy.demo.model.Airport;
 import com.infy.demo.utility.HashingUtility;
@@ -37,13 +37,13 @@ public class AdminServiceImpl implements AdminService {
 			}
 			else
 			{
-				throw new Exception("AdminService.INVALID_CREDENTIALS");
+				throw new InvalidCredentialsException();
 			}
 			
 		}
 		else
 		{
-			throw new Exception("AdminService.INVALID_CREDENTIALS");
+			throw new UserNotFoundException(emailId);
 		}
 		return adminFromDAO;
 	}
@@ -52,7 +52,6 @@ public class AdminServiceImpl implements AdminService {
 	public String registerAdmin(Admin admin) throws Exception {
 		// TODO Auto-generated method stub
 		String emailId = admin.getEmailId().toLowerCase();
-		EmailValidator.validateEmail(emailId);
 		String registered = null;
 		Boolean available = adminDAO.checkAvailabilityOfEmailId(emailId);
 		if(available)
@@ -64,7 +63,7 @@ public class AdminServiceImpl implements AdminService {
 		}
 		if(registered == null)
 		{
-			throw new Exception("AdminService.EMAIL_TAKEN");
+			throw new EmailUnavailableException(emailId);
 		}
 		return registered;
 	}
@@ -73,11 +72,8 @@ public class AdminServiceImpl implements AdminService {
 	@Override
 	public Integer addAirport(Airport airport) throws Exception {
 		// TODO Auto-generated method stub
-		AirportEntity airportEntity = entityManager.find(AirportEntity.class, airport.getAirportId());
-		if(airportEntity!=null){
-			throw new Exception("AdminService.AIRPORT_EXISTS");
-		}
-		return adminDAO.addAirport(airport);
+		Integer id = adminDAO.addAirport(airport);
+		return id;
 	}
 
 	@Override

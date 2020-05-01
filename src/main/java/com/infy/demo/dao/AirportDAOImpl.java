@@ -24,6 +24,7 @@ public class AirportDAOImpl implements AirportDAO {
 	public Integer addFlight(Flight flight) {
 		// TODO Auto-generated method stub
 		FlightEntity newFlight = new FlightEntity();
+		
 		newFlight.setDateOfArrival(flight.getDateOfArrival());
 		newFlight.setDateOfDeparture(flight.getDateOfDeparture());
 		newFlight.setDestination(flight.getDestination());
@@ -32,7 +33,9 @@ public class AirportDAOImpl implements AirportDAO {
 		newFlight.setDestination(flight.getDestination());
 		newFlight.setSeatsAvailable(flight.getSeatsAvailable());
 		newFlight.setFlightFare(flight.getFlightFare());
+		newFlight.setAirportId(flight.getAirportId());
 		newFlight.setFlightTax(flight.getFlightTax());
+		
 		AirportEntity airport = entityManager.find(AirportEntity.class, flight.getAirportId());
 		airport.getFlightEntities().add(newFlight);
 		entityManager.persist(airport);
