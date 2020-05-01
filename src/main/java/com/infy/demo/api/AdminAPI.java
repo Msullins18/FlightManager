@@ -82,7 +82,7 @@ public class AdminAPI {
 		try
 		{
 			Integer result = adminService.deleteAirport(airportId);
-			logger.info(environment.getProperty("DealsForTodayAPI.DELETE_SUCCESS") + result);
+			logger.info("The following Airport has been successfully deleted with Airport Id:" + result);
 			return new ResponseEntity<Integer>(result, HttpStatus.OK);
 		}
 		catch (Exception e) {

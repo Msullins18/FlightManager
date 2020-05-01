@@ -116,7 +116,7 @@ public class AdminDAOImpl implements AdminDAO {
 		Query query = entityManager.createQuery(dft);
 		List<AirportEntity> airportList = query.getResultList();
 		airports = new ArrayList<Airport>();
-		if(!airports.isEmpty()){
+		if(!airportList.isEmpty()){
 			for(AirportEntity a : airportList){
 				Airport airport = new Airport();
 				airport.setAirportId(a.getAirportId());

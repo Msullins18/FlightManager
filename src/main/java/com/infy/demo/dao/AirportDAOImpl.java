@@ -34,7 +34,7 @@ public class AirportDAOImpl implements AirportDAO {
 		newFlight.setSeatsAvailable(flight.getSeatsAvailable());
 		newFlight.setFlightFare(flight.getFlightFare());
 		newFlight.setAirportId(flight.getAirportId());
-		newFlight.setFlightTax(newFlight.getFlightTax());
+		newFlight.setFlightTax(flight.getFlightTax());
 		
 		AirportEntity airport = entityManager.find(AirportEntity.class, flight.getAirportId());
 		airport.getFlightEntities().add(newFlight);
