@@ -34,18 +34,11 @@ public class TravelerSearchAPI {
 
 	@PostMapping(value="/getFlights")
 	public ResponseEntity<List<Flight>> getFlights(@RequestBody SearchFlights searchFlights) throws Exception{
-		try{
-			logger.info("Search flights from "+searchFlights.getAirportId() +" to " +searchFlights.getDestination());
-			List<Flight> flightList = travelerSearchService.getFlights(searchFlights.getDate(), searchFlights.getAirportId(),searchFlights.getDestination(), searchFlights.getNumberOfTickets());
-			ResponseEntity<List<Flight>> response = new ResponseEntity<List<Flight>>(flightList, HttpStatus.OK);
-			logger.info("The number of flights avaiable is " + flightList.size()); 
-			return response;
-		}catch(Exception e){
-			if(e.getMessage().contains("Validator")){
-				throw new ResponseStatusException(HttpStatus.NOT_ACCEPTABLE, environment.getProperty(e.getMessage()), e);
-			}
-			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, environment.getProperty(e.getMessage()), e);
-		}
+		logger.info("Search flights from "+searchFlights.getAirportId() +" to " +searchFlights.getDestination());
+		List<Flight> flightList = travelerSearchService.getFlights(searchFlights.getDate(), searchFlights.getAirportId(),searchFlights.getDestination(), searchFlights.getNumberOfTickets());
+		ResponseEntity<List<Flight>> response = new ResponseEntity<List<Flight>>(flightList, HttpStatus.OK);
+		logger.info("The number of flights avaiable is " + flightList.size()); 
+		return response;
 	}
 
 	@GetMapping(value="/getAirports")

@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.infy.demo.dao.TravelerSearchDAO;
+import com.infy.demo.exceptions.NoFlightsAvailableException;
 import com.infy.demo.model.Airport;
 import com.infy.demo.model.Flight;
 import com.infy.demo.validator.TravelValidator;
@@ -23,7 +24,7 @@ public class TravelerSearchServiceImpl implements TravelerSearchService {
 		TravelValidator.validateTravel(date);;
 		List<Flight> flightList = travelerSearchDAO.getFlights(date, airportId, destination, numberOfTickets);
 		if(flightList.isEmpty())
-			throw new Exception("TravelerSearchService.NO_Flights_AVAILABLE");
+			throw new NoFlightsAvailableException();
 		return flightList;
 	}
 
