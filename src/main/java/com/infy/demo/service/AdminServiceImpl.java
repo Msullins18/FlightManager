@@ -3,6 +3,8 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.transaction.Transactional;
+import javax.validation.Validator;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.infy.demo.dao.AdminDAO;
@@ -81,8 +83,8 @@ public class AdminServiceImpl implements AdminService {
 	@Override
 	public Integer deleteAirport(Integer airportId) throws Exception {
 		// TODO Auto-generated method stub
-		AirportEntity airportEntity = entityManager.find(AirportEntity.class, airportId);
-		if(airportEntity==null){
+		Integer id = adminDAO.deleteAirport(airportId);
+		if(id==null){
 			throw new Exception("AdminService.AIRPORT_NOT_EXISTS");
 		}
 		return adminDAO.deleteAirport(airportId);

@@ -13,6 +13,7 @@ import static org.mockito.Mockito.*;
 
 import com.infy.demo.dao.TravellerDAO;
 import com.infy.demo.exceptions.InvalidCredentialsException;
+import com.infy.demo.exceptions.UserNotFoundException;
 import com.infy.demo.model.Traveller;
 import com.infy.demo.service.TravellerService;
 import com.infy.demo.service.TravellerServiceImpl;
@@ -54,6 +55,18 @@ public class TravelerLoginTests {
 		traveller.setPassword("Me123");
 		
 		when(travellerDAO.getPasswordOfTraveller("marcus@marcus.com")).thenReturn(HashingUtility.getHash("Me@123"));
+		
+		Traveller travellerFromDAO = travellerService.loginTraveller(traveller);
+	}
+	@Test
+	public void authenticateTravellerLoginUserNotFound() throws Exception 
+	{
+		expectedException.expect(UserNotFoundException.class);
+		Traveller traveller = new Traveller();
+		traveller.setEmailId("marcus@marcus.com");
+		traveller.setPassword("Me123");
+		
+		when(travellerDAO.getPasswordOfTraveller("marcus@marcus.com")).thenReturn(null);
 		
 		Traveller travellerFromDAO = travellerService.loginTraveller(traveller);
 	}

@@ -5,6 +5,7 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.TransactionSystemException;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,7 +15,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.infy.demo.exceptions.EmailUnavailableException;
 import com.infy.demo.exceptions.InvalidCredentialsException;
-import com.infy.demo.exceptions.InvalidEmailException;
 import com.infy.demo.exceptions.UserNotFoundException;
 import com.infy.demo.model.Traveller;
 import com.infy.demo.service.TravellerService;
@@ -67,11 +67,10 @@ public class TravellerAPI {
     	//throw new ResponseStatusException(HttpStatus.UNAUTHORIZED,e.getMessage());
     	return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
     }
-    
-    @ExceptionHandler(InvalidEmailException.class)
-    public ResponseEntity<Object> handleException(InvalidEmailException  e) {
+    @ExceptionHandler(TransactionSystemException.class)
+    public ResponseEntity<Object> handleException(TransactionSystemException  e) {
     	//throw new ResponseStatusException(HttpStatus.UNAUTHORIZED,e.getMessage());
-    	return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
+    	return new ResponseEntity<>("Invalid inputs! Please try again.", HttpStatus.BAD_REQUEST);
     }
 
 }

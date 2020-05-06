@@ -12,6 +12,7 @@ import static org.mockito.Mockito.*;
 
 import com.infy.demo.dao.AdminDAO;
 import com.infy.demo.exceptions.InvalidCredentialsException;
+import com.infy.demo.exceptions.UserNotFoundException;
 import com.infy.demo.model.Admin;
 import com.infy.demo.service.AdminService;
 import com.infy.demo.service.AdminServiceImpl;
@@ -60,4 +61,17 @@ public class AdminLoginTests {
 		assertEquals(null, adminFromDAO);
 	}
 	
+	@Test
+	public void authenticateAdminLoginUserNotFound() throws Exception 
+	{
+		expectedException.expect(UserNotFoundException.class);
+		Admin admin = new Admin();
+		admin.setEmailId("marcus@marcus.com");
+		admin.setPassword("Me@123");
+		
+		when(adminDAO.getPasswordOfAdmin("marcus@marcus.com")).thenReturn(null);
+		
+		Admin adminFromDAO = adminService.loginAdmin(admin);
+		assertEquals(null, adminFromDAO);
+	}
 }

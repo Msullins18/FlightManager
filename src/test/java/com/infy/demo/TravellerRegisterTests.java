@@ -6,12 +6,14 @@ import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.transaction.TransactionSystemException;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 
 import com.infy.demo.dao.TravellerDAO;
 import com.infy.demo.exceptions.EmailUnavailableException;
+
 import com.infy.demo.model.Traveller;
 import com.infy.demo.service.TravellerService;
 import com.infy.demo.service.TravellerServiceImpl;
@@ -46,7 +48,7 @@ public class TravellerRegisterTests {
 	@Test
 	public void registerTravellerInvalidInputs() throws Exception 
 	{
-		expectedException.expect(Exception.class);
+		expectedException.expect(TransactionSystemException.class);
 		Traveller traveller = new Traveller();
 		traveller.setEmailId("marcusmarcus.com");
 		traveller.setPassword("Me@123");
@@ -54,8 +56,8 @@ public class TravellerRegisterTests {
 		traveller.setLastName("marcus");
 		traveller.setPhoneNumber("1112225545");
 		
-//		when(travellerDAO.checkAvailabilityOfEmailId("marcus@marcus.com")).thenReturn(true);
-//		when(travellerDAO.registertraveller(traveller)).thenReturn("marcus@marcus.com");
+		when(travellerDAO.checkAvailabilityOfEmailId("marcusmarcus.com")).thenReturn(true);
+		when(travellerDAO.registerTraveller(traveller)).thenThrow(TransactionSystemException.class);
 		String registered = travellerService.registerTraveller(traveller);
 		assertEquals("marcus@marcus.com", registered);
 	}

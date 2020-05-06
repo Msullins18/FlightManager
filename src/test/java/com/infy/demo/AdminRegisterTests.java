@@ -7,6 +7,7 @@ import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.transaction.TransactionSystemException;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
@@ -47,7 +48,7 @@ public class AdminRegisterTests {
 	@Test
 	public void registerAdminInvalidInputs() throws Exception 
 	{
-		expectedException.expect(Exception.class);
+		expectedException.expect(TransactionSystemException.class);
 		Admin admin = new Admin();
 		admin.setEmailId("marcusmarcus.com");
 		admin.setPassword("Me@123");
@@ -55,10 +56,9 @@ public class AdminRegisterTests {
 		admin.setLastName("marcus");
 		admin.setPhoneNumber("1112225545");
 		
-//		when(adminDAO.checkAvailabilityOfEmailId("marcus@marcus.com")).thenReturn(true);
-//		when(adminDAO.registerAdmin(admin)).thenReturn("marcus@marcus.com");
+		when(adminDAO.checkAvailabilityOfEmailId("marcusmarcus.com")).thenReturn(true);
+		when(adminDAO.registerAdmin(admin)).thenThrow(TransactionSystemException.class);
 		String registered = adminService.registerAdmin(admin);
-		assertEquals("marcus@marcus.com", registered);
 	}
 	
 	@Test
@@ -75,5 +75,4 @@ public class AdminRegisterTests {
 		when(adminDAO.checkAvailabilityOfEmailId("marcus@marcus.com")).thenReturn(false);
 		String registered = adminService.registerAdmin(admin);
 	}
-	
 }

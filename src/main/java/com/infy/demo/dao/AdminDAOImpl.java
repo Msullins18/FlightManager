@@ -99,12 +99,14 @@ public class AdminDAOImpl implements AdminDAO {
 	@Override
 	public Integer deleteAirport(Integer airportId) {
 		// TODO Auto-generated method stub
+		Integer id = null;
 		AirportEntity airport = entityManager.find(AirportEntity.class, airportId);
 		airport.setFlightEntities(null);
 		if(airport!=null){
+			id = airport.getAirportId();
 			entityManager.remove(airport);
 		}
-		return airportId;
+		return id;
 	}
 
 	@Override

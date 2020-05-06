@@ -21,7 +21,6 @@ import org.springframework.web.server.ResponseStatusException;
 
 import com.infy.demo.exceptions.EmailUnavailableException;
 import com.infy.demo.exceptions.InvalidCredentialsException;
-import com.infy.demo.exceptions.InvalidEmailException;
 import com.infy.demo.exceptions.UserNotFoundException;
 import com.infy.demo.model.Admin;
 import com.infy.demo.model.Airport;
@@ -118,12 +117,6 @@ public class AdminAPI {
     
     @ExceptionHandler(EmailUnavailableException.class)
     public ResponseEntity<Object> handleException(EmailUnavailableException  e) {
-    	//throw new ResponseStatusException(HttpStatus.UNAUTHORIZED,e.getMessage());
-    	return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
-    }
-    
-    @ExceptionHandler(InvalidEmailException.class)
-    public ResponseEntity<Object> handleException(InvalidEmailException  e) {
     	//throw new ResponseStatusException(HttpStatus.UNAUTHORIZED,e.getMessage());
     	return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
     }
