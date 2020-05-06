@@ -92,7 +92,7 @@ public class AdminAPI {
 	}
 	
 	@GetMapping(value = "getAirports")
-	public ResponseEntity<List<Airport>> getDealsForToday() throws Exception {
+	public ResponseEntity<List<Airport>> getAirports() throws Exception {
 		List<Airport> list = null;
 		try {
 			list = adminService.getAirports();
