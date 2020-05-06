@@ -18,13 +18,15 @@ import com.infy.demo.exceptions.InvalidCredentialsException;
 import com.infy.demo.exceptions.UserNotFoundException;
 import com.infy.demo.model.Traveller;
 import com.infy.demo.service.TravellerService;
+
+import lombok.extern.slf4j.Slf4j;
 @CrossOrigin
 @RestController
 @RequestMapping("Traveller")
+@Slf4j
 public class TravellerAPI {
 	
-	static Logger logger = LogManager.getLogger(AdminAPI.class.getName());
-	
+
 	@Autowired
 	TravellerService travellerService;
 	
@@ -33,20 +35,20 @@ public class TravellerAPI {
 	@PostMapping(value = "Login")
 	public ResponseEntity<Traveller> loginTraveller(@RequestBody Traveller traveller) throws Exception
 	{
-		logger.info("TRAVELLER TRYING TO LOGIN WITH EMAIL: " + traveller.getEmailId());
+		log.info("TRAVELLER TRYING TO LOGIN WITH EMAIL: " + traveller.getEmailId());
 		Traveller authenticated = travellerService.loginTraveller(traveller);
 		ResponseEntity<Traveller> re = new ResponseEntity<Traveller>(authenticated,HttpStatus.OK);
-		logger.info("TRAVELLER LOGGED IN SUCCESSFULLY WITH EMAIL: "+ authenticated.getEmailId());
+		log.info("TRAVELLER LOGGED IN SUCCESSFULLY WITH EMAIL: "+ authenticated.getEmailId());
 		return re;
 	}
 	
 	@PostMapping(value = "Register")
 	public ResponseEntity<String> registerTraveller(@RequestBody Traveller traveller) throws Exception
 	{
-		logger.info("TRAVELLER TRYING TO REGISTER WITH EMAIL: " + traveller.getEmailId());
+		log.info("TRAVELLER TRYING TO REGISTER WITH EMAIL: " + traveller.getEmailId());
 		String registered = travellerService.registerTraveller(traveller);
 		ResponseEntity<String> re = new ResponseEntity<String>(registered,HttpStatus.OK);
-		logger.info("TRAVELLER REGISTERED SUCCESSFULLY WITH EMAIL: "+ registered);
+		log.info("TRAVELLER REGISTERED SUCCESSFULLY WITH EMAIL: "+ registered);
 		return re;
 	}
 	

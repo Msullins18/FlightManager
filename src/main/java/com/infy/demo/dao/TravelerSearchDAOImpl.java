@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.Function;
 import java.util.function.Predicate;
@@ -33,7 +34,8 @@ public class TravelerSearchDAOImpl implements TravelerSearchDAO {
 
 		List<Flight> flightList = null;
 		LocalDate today = LocalDate.now();
-		if(flightEntityList != null){
+		Optional<List<FlightEntity>> checkNull = Optional.ofNullable(flightEntityList);
+		if(checkNull.isPresent()){
 			flightList = new ArrayList<>();
 			for(FlightEntity flightEntity: flightEntityList){
 				if(flightEntity.getSeatsAvailable()<1 && flightEntity.getDateOfDeparture().isBefore(today))
@@ -65,7 +67,8 @@ public class TravelerSearchDAOImpl implements TravelerSearchDAO {
 		List<FlightEntity> flightEntityList = query.getResultList();
 		List<Airport> originList = new ArrayList<>();
 		List<Airport> airportList = new ArrayList<>();
-		if(flightEntityList != null){
+		Optional<List<FlightEntity>> checkNull = Optional.ofNullable(flightEntityList);
+		if(checkNull.isPresent()){
 			for(FlightEntity flightEntity: flightEntityList){
 				AirportEntity airportEntity = entityManager.find(AirportEntity.class, flightEntity.getAirportId());
 				Airport airport = new Airport();
@@ -94,7 +97,8 @@ public class TravelerSearchDAOImpl implements TravelerSearchDAO {
 		List<FlightEntity> flightEntityList = query.getResultList();
 		List<String> destinationList = new ArrayList<>();
 		List<String> finalDestinationList = new ArrayList<>();
-		if(flightEntityList != null){
+		Optional<List<FlightEntity>> checkNull = Optional.ofNullable(flightEntityList);
+		if(checkNull.isPresent()){
 			for(FlightEntity flight: flightEntityList){
 				String destination = flight.getDestination();
 				destinationList.add(destination);

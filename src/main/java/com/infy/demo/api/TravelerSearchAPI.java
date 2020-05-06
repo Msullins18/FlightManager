@@ -20,24 +20,25 @@ import com.infy.demo.model.Airport;
 import com.infy.demo.model.Flight;
 import com.infy.demo.model.SearchFlights;
 import com.infy.demo.service.TravelerSearchService;
+
+import lombok.extern.slf4j.Slf4j;
 @CrossOrigin
 @RestController
 @RequestMapping(value ="Search")
+@Slf4j
 public class TravelerSearchAPI {
 	@Autowired
 	public Environment environment;
 	
 	@Autowired
 	private TravelerSearchService travelerSearchService;
-	
-	static Logger logger = LogManager.getLogger(TravelerSearchAPI.class.getName());
 
 	@PostMapping(value="/getFlights")
 	public ResponseEntity<List<Flight>> getFlights(@RequestBody SearchFlights searchFlights) throws Exception{
-		logger.info("Search flights from "+searchFlights.getAirportId() +" to " +searchFlights.getDestination());
+		log.info("Search flights from "+searchFlights.getAirportId() +" to " +searchFlights.getDestination());
 		List<Flight> flightList = travelerSearchService.getFlights(searchFlights.getDate(), searchFlights.getAirportId(),searchFlights.getDestination(), searchFlights.getNumberOfTickets());
 		ResponseEntity<List<Flight>> response = new ResponseEntity<List<Flight>>(flightList, HttpStatus.OK);
-		logger.info("The number of flights avaiable is " + flightList.size()); 
+		log.info("The number of flights avaiable is " + flightList.size()); 
 		return response;
 	}
 
@@ -47,7 +48,7 @@ public class TravelerSearchAPI {
 		try{
 			origins = travelerSearchService.getAllOrigins();
 			ResponseEntity<List<Airport>> response = new ResponseEntity<List<Airport>>(origins, HttpStatus.OK);
-			logger.info("The number of airports is " + origins.size());
+			log.info("The number of airports is " + origins.size());
 			return response;
 		}catch(Exception e){
 			throw new ResponseStatusException(HttpStatus.NOT_FOUND,	environment.getProperty(e.getMessage()), e);
@@ -60,7 +61,7 @@ public class TravelerSearchAPI {
 		try{
 			destinations = travelerSearchService.getAllDestinations();
 			ResponseEntity<List<String>> response = new ResponseEntity<List<String>>(destinations, HttpStatus.OK);
-			logger.info("The number of airports is " + destinations.size());
+			log.info("The number of airports is " + destinations.size());
 			return response;
 		}catch(Exception e){
 			throw new ResponseStatusException(HttpStatus.NOT_FOUND,	environment.getProperty(e.getMessage()), e);
