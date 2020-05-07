@@ -6,6 +6,7 @@ import java.util.List;
 import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
@@ -15,6 +16,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import com.carrotsearch.junitbenchmarks.BenchmarkOptions;
 import com.carrotsearch.junitbenchmarks.BenchmarkRule;
 import com.infy.demo.dao.TravelerSearchDAO;
+import com.infy.demo.exceptions.NoFlightsAvailableException;
 import com.infy.demo.model.Airport;
 import com.infy.demo.model.Flight;
 import com.infy.demo.service.TravelerSearchService;
@@ -32,6 +34,9 @@ public class TravelerSearchServiceTest {
 	
 	@InjectMocks
 	private TravelerSearchService travelerSearchService = new TravelerSearchServiceImpl();
+	
+	@Rule
+	public ExpectedException expectedException=ExpectedException.none();
 	
 	@Test
 	public void testGetFlights() throws Exception{
@@ -84,5 +89,16 @@ public class TravelerSearchServiceTest {
 		Assert.assertNotNull(destinationList);
 	}
 	
+	@Test(expected=NoFlightsAvailableException.class)
+	public void testGetFlightsNoavailable() throws Exception{
+		LocalDate date = LocalDate.now().plusDays(14);
+		Integer airport = 1000;
+		String destination = "New York";
+		Integer numberOfTickets = 2;
+		List<Flight> flightList = new ArrayList<>();
+		Mockito.when(travelerSearchDAO.getFlights(date, airport, destination, numberOfTickets)).thenReturn(flightList);
+		travelerSearchService.getFlights(date, airport, destination, numberOfTickets);
+		
+	}
 
 }
