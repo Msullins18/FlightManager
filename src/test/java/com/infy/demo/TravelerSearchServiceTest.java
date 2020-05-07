@@ -38,9 +38,6 @@ public class TravelerSearchServiceTest {
 	@InjectMocks
 	private TravelerSearchService travelerSearchService = new TravelerSearchServiceImpl();
 	
-	@Rule
-	public ExpectedException expectedException=ExpectedException.none();
-	
 	@Test
 	public void testGetFlights() throws Exception{
 		LocalDate date = LocalDate.now().plusDays(14);

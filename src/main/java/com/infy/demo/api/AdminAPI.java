@@ -1,14 +1,10 @@
 package com.infy.demo.api;
 
 import java.util.List;
-
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.transaction.TransactionSystemException;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -26,13 +22,10 @@ import com.infy.demo.exceptions.UserNotFoundException;
 import com.infy.demo.model.Admin;
 import com.infy.demo.model.Airport;
 import com.infy.demo.service.AdminService;
-<<<<<<< HEAD
-@Controller
-=======
 
 import lombok.extern.slf4j.Slf4j;
 
->>>>>>> 49d26f658d96bf4867a9cca40964036672efcc45
+
 @CrossOrigin
 @RestController
 @RequestMapping("Admin")
