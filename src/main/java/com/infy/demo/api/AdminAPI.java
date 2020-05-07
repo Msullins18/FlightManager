@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.transaction.TransactionSystemException;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -25,7 +26,7 @@ import com.infy.demo.exceptions.UserNotFoundException;
 import com.infy.demo.model.Admin;
 import com.infy.demo.model.Airport;
 import com.infy.demo.service.AdminService;
-
+@Controller
 @CrossOrigin
 @RestController
 @RequestMapping("Admin")
@@ -54,6 +55,7 @@ public class AdminAPI {
 	{
 		logger.info("ADMIN TRYING TO REGISTER WITH EMAIL: "+ admin.getEmailId());
 		String registered = adminService.registerAdmin(admin);
+		System.out.println(registered);
 		ResponseEntity<String> re = new ResponseEntity<String>(registered,HttpStatus.OK);
 		logger.info("ADMIN SUCCESSFULLY REGISTERED WITH EMAIL: "+ registered);
 		return re;

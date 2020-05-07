@@ -58,8 +58,8 @@ public class AirportDAOImpl implements AirportDAO {
 		String dft = "SELECT f FROM FlightEntity f";
 		Query query = entityManager.createQuery(dft);
 		List<FlightEntity> flightEntity = query.getResultList();
-		flights = new ArrayList<Flight>();
 		if(!flightEntity.isEmpty()){
+			flights = new ArrayList<Flight>();
 			for(FlightEntity f : flightEntity){
 				Flight flight = new Flight();
 				flight.setAirportId(f.getAirportId());

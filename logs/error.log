@@ -1,883 +1,212 @@
-2020-05-06 10:39:19.044  INFO 82284 --- [restartedMain] com.infy.demo.FlightManagerApplication   : Starting FlightManagerApplication on USABOS252632L with PID 82284 (C:\Users\marcus.sullins\Downloads\demo\demo\target\classes started by marcus.sullins in C:\Users\marcus.sullins\Downloads\demo\demo)
-2020-05-06 10:39:19.069  INFO 82284 --- [restartedMain] com.infy.demo.FlightManagerApplication   : No active profile set, falling back to default profiles: default
-2020-05-06 10:39:19.206  INFO 82284 --- [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in C:\Users\marcus.sullins\.m2\repository\org\glassfish\jaxb\jaxb-runtime\2.3.2\jaxb-runtime-2.3.2.jar referenced one or more files that do not exist: file:/C:/Users/marcus.sullins/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/jakarta.xml.bind-api-2.3.2.jar,file:/C:/Users/marcus.sullins/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/txw2-2.3.2.jar,file:/C:/Users/marcus.sullins/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/istack-commons-runtime-3.0.8.jar,file:/C:/Users/marcus.sullins/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/stax-ex-1.8.1.jar,file:/C:/Users/marcus.sullins/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/FastInfoset-1.2.16.jar,file:/C:/Users/marcus.sullins/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/jakarta.activation-api-1.2.1.jar
-2020-05-06 10:39:19.206  INFO 82284 --- [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in C:\Users\marcus.sullins\.m2\repository\com\oracle\ojdbc\ojdbc8\19.3.0.0\ojdbc8-19.3.0.0.jar referenced one or more files that do not exist: file:/C:/Users/marcus.sullins/.m2/repository/com/oracle/ojdbc/ojdbc8/19.3.0.0/oraclepki.jar
-2020-05-06 10:39:19.206  INFO 82284 --- [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in C:\Users\marcus.sullins\.m2\repository\com\oracle\ojdbc\oraclepki\19.3.0.0\oraclepki-19.3.0.0.jar referenced one or more files that do not exist: file:/C:/Users/marcus.sullins/.m2/repository/com/oracle/ojdbc/oraclepki/19.3.0.0/osdt_core.jar,file:/C:/Users/marcus.sullins/.m2/repository/com/oracle/ojdbc/oraclepki/19.3.0.0/osdt_cert.jar,file:/C:/Users/marcus.sullins/.m2/repository/com/oracle/ojdbc/oraclepki/oracle.osdt/osdt_core.jar,file:/C:/Users/marcus.sullins/.m2/repository/com/oracle/ojdbc/oraclepki/oracle.osdt/osdt_cert.jar
-2020-05-06 10:39:19.207  INFO 82284 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2020-05-06 10:39:19.207  INFO 82284 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2020-05-06 10:39:23.067  INFO 82284 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2020-05-06 10:39:23.121  INFO 82284 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 39ms. Found 0 JPA repository interfaces.
-2020-05-06 10:39:25.737  INFO 82284 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8085 (http)
-2020-05-06 10:39:25.820  INFO 82284 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2020-05-06 10:39:25.820  INFO 82284 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.33]
-2020-05-06 10:39:26.153  INFO 82284 --- [restartedMain] o.a.c.c.C.[.[.[/Flight_Manager]          : Initializing Spring embedded WebApplicationContext
-2020-05-06 10:39:26.154  INFO 82284 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 6945 ms
-2020-05-06 10:39:27.207  INFO 82284 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2020-05-06 10:39:32.793  INFO 82284 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2020-05-06 10:39:32.977  INFO 82284 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2020-05-06 10:39:33.183  INFO 82284 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.12.Final
-2020-05-06 10:39:33.578  INFO 82284 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
-2020-05-06 10:39:34.725  INFO 82284 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
-2020-05-06 10:39:44.697  INFO 82284 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2020-05-06 10:39:44.708  INFO 82284 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2020-05-06 10:39:45.420  WARN 82284 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2020-05-06 10:39:45.894  INFO 82284 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2020-05-06 10:39:46.277  INFO 82284 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2020-05-06 10:39:46.341  INFO 82284 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2020-05-06 10:39:46.832  INFO 82284 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
-2020-05-06 10:39:46.883  INFO 82284 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
-2020-05-06 10:39:46.940  INFO 82284 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-2020-05-06 10:39:47.175  INFO 82284 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getDealsForTodayUsingGET_1
-2020-05-06 10:39:47.325  INFO 82284 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8085 (http) with context path '/Flight_Manager'
-2020-05-06 10:39:47.334  INFO 82284 --- [restartedMain] com.infy.demo.FlightManagerApplication   : Started FlightManagerApplication in 29.423 seconds (JVM running for 31.246)
-2020-05-06 10:40:40.487  INFO 82284 --- [http-nio-8085-exec-1] o.a.c.c.C.[.[.[/Flight_Manager]          : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2020-05-06 10:40:40.488  INFO 82284 --- [http-nio-8085-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2020-05-06 10:40:40.510  INFO 82284 --- [http-nio-8085-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 22 ms
-2020-05-06 10:44:45.822 ERROR 82284 --- [http-nio-8085-exec-5] o.a.c.c.C.[.[.[.[dispatcherServlet]      : Servlet.service() for servlet [dispatcherServlet] threw exception
-
-javax.servlet.ServletException: Circular view path [error]: would dispatch back to the current handler URL [/Flight_Manager/error] again. Check your ViewResolver setup! (Hint: This may be the result of an unspecified view, due to default view name generation.)
-	at org.springframework.web.servlet.view.InternalResourceView.prepareForRendering(InternalResourceView.java:210) ~[spring-webmvc-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.springframework.web.servlet.view.InternalResourceView.renderMergedOutputModel(InternalResourceView.java:148) ~[spring-webmvc-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.springframework.web.servlet.view.AbstractView.render(AbstractView.java:316) ~[spring-webmvc-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1373) ~[spring-webmvc-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1118) ~[spring-webmvc-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1057) ~[spring-webmvc-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943) ~[spring-webmvc-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) ~[spring-webmvc-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634) ~[tomcat-embed-core-9.0.33.jar:9.0.33]
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741) ~[tomcat-embed-core-9.0.33.jar:9.0.33]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) ~[tomcat-embed-core-9.0.33.jar:9.0.33]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.33.jar:9.0.33]
-	at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:712) [tomcat-embed-core-9.0.33.jar:9.0.33]
-	at org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:461) [tomcat-embed-core-9.0.33.jar:9.0.33]
-	at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:384) [tomcat-embed-core-9.0.33.jar:9.0.33]
-	at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:312) [tomcat-embed-core-9.0.33.jar:9.0.33]
-	at org.apache.catalina.core.StandardHostValve.custom(StandardHostValve.java:394) [tomcat-embed-core-9.0.33.jar:9.0.33]
-	at org.apache.catalina.core.StandardHostValve.status(StandardHostValve.java:253) [tomcat-embed-core-9.0.33.jar:9.0.33]
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:175) [tomcat-embed-core-9.0.33.jar:9.0.33]
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.33.jar:9.0.33]
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) [tomcat-embed-core-9.0.33.jar:9.0.33]
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) [tomcat-embed-core-9.0.33.jar:9.0.33]
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:373) [tomcat-embed-core-9.0.33.jar:9.0.33]
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.33.jar:9.0.33]
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868) [tomcat-embed-core-9.0.33.jar:9.0.33]
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1594) [tomcat-embed-core-9.0.33.jar:9.0.33]
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.33.jar:9.0.33]
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source) [na:1.8.0_141]
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [na:1.8.0_141]
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.33.jar:9.0.33]
-	at java.lang.Thread.run(Unknown Source) [na:1.8.0_141]
-
-2020-05-06 10:44:45.825 ERROR 82284 --- [http-nio-8085-exec-5] o.a.c.c.C.[Tomcat].[localhost]           : Exception Processing ErrorPage[errorCode=0, location=/error]
-
-javax.servlet.ServletException: Circular view path [error]: would dispatch back to the current handler URL [/Flight_Manager/error] again. Check your ViewResolver setup! (Hint: This may be the result of an unspecified view, due to default view name generation.)
-	at org.springframework.web.servlet.view.InternalResourceView.prepareForRendering(InternalResourceView.java:210) ~[spring-webmvc-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.springframework.web.servlet.view.InternalResourceView.renderMergedOutputModel(InternalResourceView.java:148) ~[spring-webmvc-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.springframework.web.servlet.view.AbstractView.render(AbstractView.java:316) ~[spring-webmvc-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1373) ~[spring-webmvc-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1118) ~[spring-webmvc-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1057) ~[spring-webmvc-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943) ~[spring-webmvc-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) ~[spring-webmvc-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634) ~[tomcat-embed-core-9.0.33.jar:9.0.33]
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741) ~[tomcat-embed-core-9.0.33.jar:9.0.33]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) ~[tomcat-embed-core-9.0.33.jar:9.0.33]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.33.jar:9.0.33]
-	at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:712) ~[tomcat-embed-core-9.0.33.jar:9.0.33]
-	at org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:461) ~[tomcat-embed-core-9.0.33.jar:9.0.33]
-	at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:384) ~[tomcat-embed-core-9.0.33.jar:9.0.33]
-	at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:312) ~[tomcat-embed-core-9.0.33.jar:9.0.33]
-	at org.apache.catalina.core.StandardHostValve.custom(StandardHostValve.java:394) [tomcat-embed-core-9.0.33.jar:9.0.33]
-	at org.apache.catalina.core.StandardHostValve.status(StandardHostValve.java:253) [tomcat-embed-core-9.0.33.jar:9.0.33]
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:175) [tomcat-embed-core-9.0.33.jar:9.0.33]
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.33.jar:9.0.33]
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) [tomcat-embed-core-9.0.33.jar:9.0.33]
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) [tomcat-embed-core-9.0.33.jar:9.0.33]
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:373) [tomcat-embed-core-9.0.33.jar:9.0.33]
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.33.jar:9.0.33]
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868) [tomcat-embed-core-9.0.33.jar:9.0.33]
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1594) [tomcat-embed-core-9.0.33.jar:9.0.33]
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.33.jar:9.0.33]
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source) [na:1.8.0_141]
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [na:1.8.0_141]
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.33.jar:9.0.33]
-	at java.lang.Thread.run(Unknown Source) [na:1.8.0_141]
-
-2020-05-06 10:54:28.804  INFO 82284 --- [Thread-10] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
-2020-05-06 10:54:28.831  INFO 82284 --- [Thread-10] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2020-05-06 10:54:28.846  INFO 82284 --- [Thread-10] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2020-05-06 10:54:28.865  INFO 82284 --- [Thread-10] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2020-05-06 10:54:29.597  INFO 82284 --- [restartedMain] com.infy.demo.FlightManagerApplication   : Starting FlightManagerApplication on USABOS252632L with PID 82284 (C:\Users\marcus.sullins\Downloads\demo\demo\target\classes started by marcus.sullins in C:\Users\marcus.sullins\Downloads\demo\demo)
-2020-05-06 10:54:29.598  INFO 82284 --- [restartedMain] com.infy.demo.FlightManagerApplication   : No active profile set, falling back to default profiles: default
-2020-05-06 10:54:30.393  INFO 82284 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2020-05-06 10:54:30.422  INFO 82284 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 27ms. Found 0 JPA repository interfaces.
-2020-05-06 10:54:30.905  INFO 82284 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8085 (http)
-2020-05-06 10:54:30.907  INFO 82284 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2020-05-06 10:54:30.907  INFO 82284 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.33]
-2020-05-06 10:54:30.958  INFO 82284 --- [restartedMain] o.a.c.c.C.[.[.[/Flight_Manager]          : Initializing Spring embedded WebApplicationContext
-2020-05-06 10:54:30.959  INFO 82284 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1358 ms
-2020-05-06 10:54:31.056  INFO 82284 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
-2020-05-06 10:54:34.597  INFO 82284 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
-2020-05-06 10:54:34.619  INFO 82284 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2020-05-06 10:54:34.619  INFO 82284 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
-2020-05-06 10:54:41.564  INFO 82284 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2020-05-06 10:54:41.565  INFO 82284 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2020-05-06 10:54:41.868  WARN 82284 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2020-05-06 10:54:42.008  INFO 82284 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2020-05-06 10:54:42.156  INFO 82284 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2020-05-06 10:54:42.167  INFO 82284 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2020-05-06 10:54:42.363  INFO 82284 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
-2020-05-06 10:54:42.363  INFO 82284 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
-2020-05-06 10:54:42.373  INFO 82284 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-2020-05-06 10:54:42.495  INFO 82284 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8085 (http) with context path '/Flight_Manager'
-2020-05-06 10:54:42.497  INFO 82284 --- [restartedMain] com.infy.demo.FlightManagerApplication   : Started FlightManagerApplication in 12.958 seconds (JVM running for 926.404)
-2020-05-06 10:54:42.500  INFO 82284 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
-2020-05-06 10:55:00.039  INFO 82284 --- [http-nio-8085-exec-1] o.a.c.c.C.[.[.[/Flight_Manager]          : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2020-05-06 10:55:00.040  INFO 82284 --- [http-nio-8085-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2020-05-06 10:55:00.057  INFO 82284 --- [http-nio-8085-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 16 ms
-2020-05-06 11:01:52.759  INFO 82284 --- [Thread-14] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
-2020-05-06 11:01:52.764  INFO 82284 --- [Thread-14] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2020-05-06 11:01:52.766  INFO 82284 --- [Thread-14] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
-2020-05-06 11:01:52.778  INFO 82284 --- [Thread-14] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
-2020-05-06 11:05:55.121  INFO 78084 --- [restartedMain] com.infy.demo.FlightManagerApplication   : Starting FlightManagerApplication on USABOS252632L with PID 78084 (C:\Users\marcus.sullins\Downloads\demo\demo\target\classes started by marcus.sullins in C:\Users\marcus.sullins\Downloads\demo\demo)
-2020-05-06 11:05:55.125  INFO 78084 --- [restartedMain] com.infy.demo.FlightManagerApplication   : No active profile set, falling back to default profiles: default
-2020-05-06 11:05:55.205  INFO 78084 --- [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in C:\Users\marcus.sullins\.m2\repository\org\glassfish\jaxb\jaxb-runtime\2.3.2\jaxb-runtime-2.3.2.jar referenced one or more files that do not exist: file:/C:/Users/marcus.sullins/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/jakarta.xml.bind-api-2.3.2.jar,file:/C:/Users/marcus.sullins/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/txw2-2.3.2.jar,file:/C:/Users/marcus.sullins/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/istack-commons-runtime-3.0.8.jar,file:/C:/Users/marcus.sullins/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/stax-ex-1.8.1.jar,file:/C:/Users/marcus.sullins/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/FastInfoset-1.2.16.jar,file:/C:/Users/marcus.sullins/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/jakarta.activation-api-1.2.1.jar
-2020-05-06 11:05:55.205  INFO 78084 --- [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in C:\Users\marcus.sullins\.m2\repository\com\oracle\ojdbc\ojdbc8\19.3.0.0\ojdbc8-19.3.0.0.jar referenced one or more files that do not exist: file:/C:/Users/marcus.sullins/.m2/repository/com/oracle/ojdbc/ojdbc8/19.3.0.0/oraclepki.jar
-2020-05-06 11:05:55.205  INFO 78084 --- [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in C:\Users\marcus.sullins\.m2\repository\com\oracle\ojdbc\oraclepki\19.3.0.0\oraclepki-19.3.0.0.jar referenced one or more files that do not exist: file:/C:/Users/marcus.sullins/.m2/repository/com/oracle/ojdbc/oraclepki/19.3.0.0/osdt_core.jar,file:/C:/Users/marcus.sullins/.m2/repository/com/oracle/ojdbc/oraclepki/19.3.0.0/osdt_cert.jar,file:/C:/Users/marcus.sullins/.m2/repository/com/oracle/ojdbc/oraclepki/oracle.osdt/osdt_core.jar,file:/C:/Users/marcus.sullins/.m2/repository/com/oracle/ojdbc/oraclepki/oracle.osdt/osdt_cert.jar
-2020-05-06 11:05:55.206  INFO 78084 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2020-05-06 11:05:55.206  INFO 78084 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2020-05-06 11:05:56.637  INFO 78084 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2020-05-06 11:05:56.711  INFO 78084 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 55ms. Found 0 JPA repository interfaces.
-2020-05-06 11:05:58.978  INFO 78084 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8085 (http)
-2020-05-06 11:05:59.140  INFO 78084 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2020-05-06 11:05:59.140  INFO 78084 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.33]
-2020-05-06 11:05:59.745  INFO 78084 --- [restartedMain] o.a.c.c.C.[.[.[/Flight_Manager]          : Initializing Spring embedded WebApplicationContext
-2020-05-06 11:05:59.746  INFO 78084 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 4540 ms
-2020-05-06 11:06:00.776  INFO 78084 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2020-05-06 11:06:05.834  INFO 78084 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2020-05-06 11:06:06.185  INFO 78084 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2020-05-06 11:06:06.555  INFO 78084 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.12.Final
-2020-05-06 11:06:06.944  INFO 78084 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
-2020-05-06 11:06:07.744  INFO 78084 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
-2020-05-06 11:06:15.741  INFO 78084 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2020-05-06 11:06:15.766  INFO 78084 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2020-05-06 11:06:16.621  WARN 78084 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2020-05-06 11:06:17.161  INFO 78084 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2020-05-06 11:06:17.591  INFO 78084 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2020-05-06 11:06:17.673  INFO 78084 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2020-05-06 11:06:18.198  INFO 78084 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
-2020-05-06 11:06:18.259  INFO 78084 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
-2020-05-06 11:06:18.356  INFO 78084 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-2020-05-06 11:06:18.979  INFO 78084 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8085 (http) with context path '/Flight_Manager'
-2020-05-06 11:06:18.985  INFO 78084 --- [restartedMain] com.infy.demo.FlightManagerApplication   : Started FlightManagerApplication in 24.427 seconds (JVM running for 25.195)
-2020-05-06 11:06:48.637  INFO 78084 --- [http-nio-8085-exec-1] o.a.c.c.C.[.[.[/Flight_Manager]          : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2020-05-06 11:06:48.638  INFO 78084 --- [http-nio-8085-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2020-05-06 11:06:48.673  INFO 78084 --- [http-nio-8085-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 35 ms
-2020-05-06 11:06:49.171  INFO 78084 --- [http-nio-8085-exec-1] com.infy.demo.api.AdminAPI               : ADMIN TRYING TO LOGIN WITH EMAIL: marcus.sullins@infosys.com
-2020-05-06 11:06:50.307  INFO 78084 --- [http-nio-8085-exec-1] com.infy.demo.api.AdminAPI               : ADMIN LOGGED IN SUCCESSFULLY WITH EMAIL: marcus.sullins@infosys.com
-2020-05-06 11:24:34.590  INFO 79720 --- [restartedMain] com.infy.demo.FlightManagerApplication   : Starting FlightManagerApplication on USABOS252632L with PID 79720 (C:\Users\marcus.sullins\Downloads\demo\demo\target\classes started by marcus.sullins in C:\Users\marcus.sullins\Downloads\demo\demo)
-2020-05-06 11:24:34.590  INFO 79720 --- [restartedMain] com.infy.demo.FlightManagerApplication   : No active profile set, falling back to default profiles: default
-2020-05-06 11:24:34.668  INFO 79720 --- [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in C:\Users\marcus.sullins\.m2\repository\org\glassfish\jaxb\jaxb-runtime\2.3.2\jaxb-runtime-2.3.2.jar referenced one or more files that do not exist: file:/C:/Users/marcus.sullins/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/jakarta.xml.bind-api-2.3.2.jar,file:/C:/Users/marcus.sullins/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/txw2-2.3.2.jar,file:/C:/Users/marcus.sullins/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/istack-commons-runtime-3.0.8.jar,file:/C:/Users/marcus.sullins/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/stax-ex-1.8.1.jar,file:/C:/Users/marcus.sullins/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/FastInfoset-1.2.16.jar,file:/C:/Users/marcus.sullins/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/jakarta.activation-api-1.2.1.jar
-2020-05-06 11:24:34.668  INFO 79720 --- [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in C:\Users\marcus.sullins\.m2\repository\com\oracle\ojdbc\ojdbc8\19.3.0.0\ojdbc8-19.3.0.0.jar referenced one or more files that do not exist: file:/C:/Users/marcus.sullins/.m2/repository/com/oracle/ojdbc/ojdbc8/19.3.0.0/oraclepki.jar
-2020-05-06 11:24:34.668  INFO 79720 --- [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in C:\Users\marcus.sullins\.m2\repository\com\oracle\ojdbc\oraclepki\19.3.0.0\oraclepki-19.3.0.0.jar referenced one or more files that do not exist: file:/C:/Users/marcus.sullins/.m2/repository/com/oracle/ojdbc/oraclepki/19.3.0.0/osdt_core.jar,file:/C:/Users/marcus.sullins/.m2/repository/com/oracle/ojdbc/oraclepki/19.3.0.0/osdt_cert.jar,file:/C:/Users/marcus.sullins/.m2/repository/com/oracle/ojdbc/oraclepki/oracle.osdt/osdt_core.jar,file:/C:/Users/marcus.sullins/.m2/repository/com/oracle/ojdbc/oraclepki/oracle.osdt/osdt_cert.jar
-2020-05-06 11:24:34.668  INFO 79720 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2020-05-06 11:24:34.668  INFO 79720 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2020-05-06 11:24:36.328  INFO 79720 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2020-05-06 11:24:36.405  INFO 79720 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 55ms. Found 0 JPA repository interfaces.
-2020-05-06 11:24:38.792  INFO 79720 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8085 (http)
-2020-05-06 11:24:38.988  INFO 79720 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2020-05-06 11:24:38.989  INFO 79720 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.33]
-2020-05-06 11:24:39.474  INFO 79720 --- [restartedMain] o.a.c.c.C.[.[.[/Flight_Manager]          : Initializing Spring embedded WebApplicationContext
-2020-05-06 11:24:39.474  INFO 79720 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 4806 ms
-2020-05-06 11:24:40.241  INFO 79720 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2020-05-06 11:24:44.921  INFO 79720 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2020-05-06 11:24:45.077  INFO 79720 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2020-05-06 11:24:45.266  INFO 79720 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.12.Final
-2020-05-06 11:24:45.625  INFO 79720 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
-2020-05-06 11:24:46.247  INFO 79720 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
-2020-05-06 11:24:52.662  INFO 79720 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2020-05-06 11:24:52.686  INFO 79720 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2020-05-06 11:24:53.850  WARN 79720 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2020-05-06 11:24:54.576  INFO 79720 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2020-05-06 11:24:55.053  INFO 79720 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2020-05-06 11:24:55.638  INFO 79720 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2020-05-06 11:24:56.879  INFO 79720 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
-2020-05-06 11:24:57.194  INFO 79720 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
-2020-05-06 11:24:57.356  INFO 79720 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-2020-05-06 11:24:58.294  INFO 79720 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8085 (http) with context path '/Flight_Manager'
-2020-05-06 11:24:58.298  INFO 79720 --- [restartedMain] com.infy.demo.FlightManagerApplication   : Started FlightManagerApplication in 24.319 seconds (JVM running for 25.092)
-2020-05-06 11:25:35.269  INFO 79720 --- [http-nio-8085-exec-1] o.a.c.c.C.[.[.[/Flight_Manager]          : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2020-05-06 11:25:35.270  INFO 79720 --- [http-nio-8085-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2020-05-06 11:25:35.373  INFO 79720 --- [http-nio-8085-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 103 ms
-2020-05-06 11:25:36.004  INFO 79720 --- [http-nio-8085-exec-1] com.infy.demo.api.AdminAPI               : ADMIN TRYING TO LOGIN WITH EMAIL: marcus.sullins@infosys.com
-2020-05-06 11:25:37.692  INFO 79720 --- [http-nio-8085-exec-1] com.infy.demo.api.AdminAPI               : ADMIN LOGGED IN SUCCESSFULLY WITH EMAIL: marcus.sullins@infosys.com
-2020-05-06 11:26:50.539  INFO 79720 --- [http-nio-8085-exec-4] com.infy.demo.api.AdminAPI               : The following Airport has been successfully added with Airport Id: 3009
-2020-05-06 11:27:05.836  INFO 79720 --- [http-nio-8085-exec-5] com.infy.demo.api.AdminAPI               : The following Airport has been successfully deleted with Airport Id:3009
-2020-05-06 11:44:15.891  INFO 76696 --- [main] c.i.demo.FlightManagerApplicationTests   : Starting FlightManagerApplicationTests on USABOS252632L with PID 76696 (started by marcus.sullins in C:\Users\marcus.sullins\Downloads\demo\demo)
-2020-05-06 11:44:15.919  INFO 76696 --- [main] c.i.demo.FlightManagerApplicationTests   : No active profile set, falling back to default profiles: default
-2020-05-06 11:44:20.186  INFO 76696 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2020-05-06 11:44:20.283  INFO 76696 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 57ms. Found 0 JPA repository interfaces.
-2020-05-06 11:44:23.640  INFO 76696 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2020-05-06 11:44:29.628  INFO 76696 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2020-05-06 11:44:29.949  INFO 76696 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2020-05-06 11:44:30.234  INFO 76696 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.12.Final
-2020-05-06 11:44:31.134  INFO 76696 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
-2020-05-06 11:44:32.276  INFO 76696 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
-2020-05-06 11:44:40.472  INFO 76696 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2020-05-06 11:44:40.502  INFO 76696 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2020-05-06 11:44:42.396  WARN 76696 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2020-05-06 11:44:43.653  INFO 76696 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2020-05-06 11:44:45.342  INFO 76696 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2020-05-06 11:44:46.643  INFO 76696 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
-2020-05-06 11:44:46.766  INFO 76696 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
-2020-05-06 11:44:46.850  INFO 76696 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-2020-05-06 11:44:47.701  INFO 76696 --- [main] c.i.demo.FlightManagerApplicationTests   : Started FlightManagerApplicationTests in 33.044 seconds (JVM running for 38.06)
-2020-05-06 11:44:52.165  INFO 76696 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
-2020-05-06 11:44:52.180  INFO 76696 --- [SpringContextShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2020-05-06 11:44:52.208  INFO 76696 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2020-05-06 11:44:54.998  INFO 76696 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2020-05-06 11:49:29.139  INFO 72692 --- [main] com.infy.demo.TravelerSearchAPITest      : Starting TravelerSearchAPITest on USABOS252632L with PID 72692 (started by marcus.sullins in C:\Users\marcus.sullins\Downloads\demo\demo)
-2020-05-06 11:49:29.146  INFO 72692 --- [main] com.infy.demo.TravelerSearchAPITest      : No active profile set, falling back to default profiles: default
-2020-05-06 11:49:32.441  INFO 72692 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2020-05-06 11:49:32.952  INFO 72692 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
-2020-05-06 11:49:32.953  INFO 72692 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
-2020-05-06 11:49:32.978  INFO 72692 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 24 ms
-2020-05-06 11:49:33.052  INFO 72692 --- [main] com.infy.demo.TravelerSearchAPITest      : Started TravelerSearchAPITest in 4.846 seconds (JVM running for 8.44)
-2020-05-06 11:49:35.690  INFO 72692 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
-2020-05-06 11:50:24.833  INFO 46612 --- [main] com.infy.demo.TravelerSearchServiceTest  : Starting TravelerSearchServiceTest on USABOS252632L with PID 46612 (started by marcus.sullins in C:\Users\marcus.sullins\Downloads\demo\demo)
-2020-05-06 11:50:24.835  INFO 46612 --- [main] com.infy.demo.TravelerSearchServiceTest  : No active profile set, falling back to default profiles: default
-2020-05-06 11:50:26.712  INFO 46612 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2020-05-06 11:50:26.779  INFO 46612 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 44ms. Found 0 JPA repository interfaces.
-2020-05-06 11:50:28.734  INFO 46612 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2020-05-06 11:50:33.960  INFO 46612 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2020-05-06 11:50:34.172  INFO 46612 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2020-05-06 11:50:34.373  INFO 46612 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.12.Final
-2020-05-06 11:50:34.703  INFO 46612 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
-2020-05-06 11:50:35.342  INFO 46612 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
-2020-05-06 11:50:42.756  INFO 46612 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2020-05-06 11:50:42.809  INFO 46612 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2020-05-06 11:50:43.947  WARN 46612 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2020-05-06 11:50:44.795  INFO 46612 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2020-05-06 11:50:45.692  INFO 46612 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2020-05-06 11:50:46.437  INFO 46612 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
-2020-05-06 11:50:46.491  INFO 46612 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
-2020-05-06 11:50:46.537  INFO 46612 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-2020-05-06 11:50:46.912  INFO 46612 --- [main] com.infy.demo.TravelerSearchServiceTest  : Started TravelerSearchServiceTest in 22.583 seconds (JVM running for 24.109)
-2020-05-06 11:50:47.505  INFO 46612 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
-2020-05-06 11:50:47.511  INFO 46612 --- [SpringContextShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2020-05-06 11:50:47.515  INFO 46612 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2020-05-06 11:50:49.387  INFO 46612 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2020-05-06 11:50:59.201  INFO 82896 --- [main] com.infy.demo.TravelerSearchServiceTest  : Starting TravelerSearchServiceTest on USABOS252632L with PID 82896 (started by marcus.sullins in C:\Users\marcus.sullins\Downloads\demo\demo)
-2020-05-06 11:50:59.204  INFO 82896 --- [main] com.infy.demo.TravelerSearchServiceTest  : No active profile set, falling back to default profiles: default
-2020-05-06 11:51:01.458  INFO 82896 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2020-05-06 11:51:01.550  INFO 82896 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 61ms. Found 0 JPA repository interfaces.
-2020-05-06 11:51:03.668  INFO 82896 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2020-05-06 11:51:08.831  INFO 82896 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2020-05-06 11:51:08.977  INFO 82896 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2020-05-06 11:51:09.189  INFO 82896 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.12.Final
-2020-05-06 11:51:09.537  INFO 82896 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
-2020-05-06 11:51:10.170  INFO 82896 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
-2020-05-06 11:51:16.977  INFO 82896 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2020-05-06 11:51:16.994  INFO 82896 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2020-05-06 11:51:18.443  WARN 82896 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2020-05-06 11:51:20.584  INFO 82896 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2020-05-06 11:51:21.815  INFO 82896 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2020-05-06 11:51:22.834  INFO 82896 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
-2020-05-06 11:51:22.929  INFO 82896 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
-2020-05-06 11:51:23.028  INFO 82896 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-2020-05-06 11:51:23.700  INFO 82896 --- [main] com.infy.demo.TravelerSearchServiceTest  : Started TravelerSearchServiceTest in 25.337 seconds (JVM running for 28.859)
-2020-05-06 11:51:27.138  INFO 82896 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
-2020-05-06 11:51:27.143  INFO 82896 --- [SpringContextShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2020-05-06 11:51:27.153  INFO 82896 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2020-05-06 11:51:29.950  INFO 82896 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2020-05-06 11:54:36.712  INFO 60180 --- [main] com.infy.demo.TravelerSearchServiceTest  : Starting TravelerSearchServiceTest on USABOS252632L with PID 60180 (started by marcus.sullins in C:\Users\marcus.sullins\Downloads\demo\demo)
-2020-05-06 11:54:36.715  INFO 60180 --- [main] com.infy.demo.TravelerSearchServiceTest  : No active profile set, falling back to default profiles: default
-2020-05-06 11:54:38.737  INFO 60180 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2020-05-06 11:54:38.812  INFO 60180 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 43ms. Found 0 JPA repository interfaces.
-2020-05-06 11:54:41.057  INFO 60180 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2020-05-06 11:55:25.708 ERROR 60180 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Exception during pool initialization.
-
-java.sql.SQLRecoverableException: IO Error: The Network Adapter could not establish the connection
-	at oracle.jdbc.driver.T4CConnection.logon(T4CConnection.java:854) ~[ojdbc8-19.3.0.0.jar:19.3.0.0.0]
-	at oracle.jdbc.driver.PhysicalConnection.connect(PhysicalConnection.java:793) ~[ojdbc8-19.3.0.0.jar:19.3.0.0.0]
-	at oracle.jdbc.driver.T4CDriverExtension.getConnection(T4CDriverExtension.java:57) ~[ojdbc8-19.3.0.0.jar:19.3.0.0.0]
-	at oracle.jdbc.driver.OracleDriver.connect(OracleDriver.java:747) ~[ojdbc8-19.3.0.0.jar:19.3.0.0.0]
-	at oracle.jdbc.driver.OracleDriver.connect(OracleDriver.java:562) ~[ojdbc8-19.3.0.0.jar:19.3.0.0.0]
-	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138) ~[HikariCP-3.4.2.jar:na]
-	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:354) ~[HikariCP-3.4.2.jar:na]
-	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:202) ~[HikariCP-3.4.2.jar:na]
-	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:473) [HikariCP-3.4.2.jar:na]
-	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:554) [HikariCP-3.4.2.jar:na]
-	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:115) [HikariCP-3.4.2.jar:na]
-	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112) [HikariCP-3.4.2.jar:na]
-	at org.springframework.jdbc.datasource.DataSourceUtils.fetchConnection(DataSourceUtils.java:158) [spring-jdbc-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.springframework.jdbc.datasource.DataSourceUtils.doGetConnection(DataSourceUtils.java:116) [spring-jdbc-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.springframework.jdbc.datasource.DataSourceUtils.getConnection(DataSourceUtils.java:79) [spring-jdbc-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:324) [spring-jdbc-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.springframework.boot.jdbc.EmbeddedDatabaseConnection.isEmbedded(EmbeddedDatabaseConnection.java:120) [spring-boot-2.2.6.RELEASE.jar:2.2.6.RELEASE]
-	at org.springframework.boot.autoconfigure.orm.jpa.HibernateDefaultDdlAutoProvider.getDefaultDdlAuto(HibernateDefaultDdlAutoProvider.java:42) [spring-boot-autoconfigure-2.2.6.RELEASE.jar:2.2.6.RELEASE]
-	at org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaConfiguration.lambda$getVendorProperties$1(HibernateJpaConfiguration.java:130) [spring-boot-autoconfigure-2.2.6.RELEASE.jar:2.2.6.RELEASE]
-	at org.springframework.boot.autoconfigure.orm.jpa.HibernateSettings.getDdlAuto(HibernateSettings.java:41) ~[spring-boot-autoconfigure-2.2.6.RELEASE.jar:2.2.6.RELEASE]
-	at org.springframework.boot.autoconfigure.orm.jpa.HibernateProperties.determineDdlAuto(HibernateProperties.java:136) ~[spring-boot-autoconfigure-2.2.6.RELEASE.jar:2.2.6.RELEASE]
-	at org.springframework.boot.autoconfigure.orm.jpa.HibernateProperties.getAdditionalProperties(HibernateProperties.java:102) ~[spring-boot-autoconfigure-2.2.6.RELEASE.jar:2.2.6.RELEASE]
-	at org.springframework.boot.autoconfigure.orm.jpa.HibernateProperties.determineHibernateProperties(HibernateProperties.java:94) ~[spring-boot-autoconfigure-2.2.6.RELEASE.jar:2.2.6.RELEASE]
-	at org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaConfiguration.getVendorProperties(HibernateJpaConfiguration.java:132) [spring-boot-autoconfigure-2.2.6.RELEASE.jar:2.2.6.RELEASE]
-	at org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration.entityManagerFactory(JpaBaseConfiguration.java:133) ~[spring-boot-autoconfigure-2.2.6.RELEASE.jar:2.2.6.RELEASE]
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_141]
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[na:1.8.0_141]
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[na:1.8.0_141]
-	at java.lang.reflect.Method.invoke(Unknown Source) ~[na:1.8.0_141]
-	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:154) ~[spring-beans-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:651) ~[spring-beans-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:636) ~[spring-beans-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1338) ~[spring-beans-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1177) ~[spring-beans-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:557) ~[spring-beans-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:517) ~[spring-beans-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:323) ~[spring-beans-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222) ~[spring-beans-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:321) ~[spring-beans-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1108) ~[spring-context-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:868) ~[spring-context-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:550) ~[spring-context-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:747) ~[spring-boot-2.2.6.RELEASE.jar:2.2.6.RELEASE]
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397) ~[spring-boot-2.2.6.RELEASE.jar:2.2.6.RELEASE]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315) ~[spring-boot-2.2.6.RELEASE.jar:2.2.6.RELEASE]
-	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:126) ~[spring-boot-test-2.2.6.RELEASE.jar:2.2.6.RELEASE]
-	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:99) ~[spring-test-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:124) ~[spring-test-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:123) ~[spring-test-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:190) ~[spring-test-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.springframework.test.context.web.ServletTestExecutionListener.prepareTestInstance(ServletTestExecutionListener.java:132) ~[spring-test-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:244) ~[spring-test-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:227) ~[spring-test-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:289) ~[spring-test-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12) ~[junit.jar:4.12]
-	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:291) ~[spring-test-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:246) ~[spring-test-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:97) ~[spring-test-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290) ~[junit.jar:4.12]
-	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71) ~[junit.jar:4.12]
-	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288) ~[junit.jar:4.12]
-	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58) ~[junit.jar:4.12]
-	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268) ~[junit.jar:4.12]
-	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61) ~[spring-test-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70) ~[spring-test-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.junit.runners.ParentRunner.run(ParentRunner.java:363) ~[junit.jar:4.12]
-	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:190) ~[spring-test-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:89) ~[.cp/:na]
-	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:41) ~[.cp/:na]
-	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:541) ~[.cp/:na]
-	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:763) ~[.cp/:na]
-	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:463) ~[.cp/:na]
-	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:209) ~[.cp/:na]
-Caused by: oracle.net.ns.NetException: The Network Adapter could not establish the connection
-	at oracle.net.nt.ConnStrategy.execute(ConnStrategy.java:571) ~[ojdbc8-19.3.0.0.jar:19.3.0.0.0]
-	at oracle.net.resolver.AddrResolution.resolveAndExecute(AddrResolution.java:548) ~[ojdbc8-19.3.0.0.jar:19.3.0.0.0]
-	at oracle.net.ns.NSProtocol.establishConnection(NSProtocol.java:682) ~[ojdbc8-19.3.0.0.jar:19.3.0.0.0]
-	at oracle.net.ns.NSProtocol.connect(NSProtocol.java:309) ~[ojdbc8-19.3.0.0.jar:19.3.0.0.0]
-	at oracle.jdbc.driver.T4CConnection.connect(T4CConnection.java:1596) ~[ojdbc8-19.3.0.0.jar:19.3.0.0.0]
-	at oracle.jdbc.driver.T4CConnection.logon(T4CConnection.java:588) ~[ojdbc8-19.3.0.0.jar:19.3.0.0.0]
-	... 73 common frames omitted
-Caused by: java.io.IOException: Connection timed out: connect, socket connect lapse 21006 ms. /10.123.79.59 1521 30000 1 true
-	at oracle.net.nt.TcpNTAdapter.connect(TcpNTAdapter.java:233) ~[ojdbc8-19.3.0.0.jar:19.3.0.0.0]
-	at oracle.net.nt.ConnOption.connect(ConnOption.java:174) ~[ojdbc8-19.3.0.0.jar:19.3.0.0.0]
-	at oracle.net.nt.ConnStrategy.execute(ConnStrategy.java:510) ~[ojdbc8-19.3.0.0.jar:19.3.0.0.0]
-	... 78 common frames omitted
-Caused by: java.net.ConnectException: Connection timed out: connect
-	at sun.nio.ch.Net.connect0(Native Method) ~[na:1.8.0_141]
-	at sun.nio.ch.Net.connect(Unknown Source) ~[na:1.8.0_141]
-	at sun.nio.ch.Net.connect(Unknown Source) ~[na:1.8.0_141]
-	at sun.nio.ch.SocketChannelImpl.connect(Unknown Source) ~[na:1.8.0_141]
-	at java.nio.channels.SocketChannel.open(Unknown Source) ~[na:1.8.0_141]
-	at oracle.net.nt.TimeoutSocketChannel.connect(TimeoutSocketChannel.java:99) ~[ojdbc8-19.3.0.0.jar:19.3.0.0.0]
-	at oracle.net.nt.TimeoutSocketChannel.<init>(TimeoutSocketChannel.java:77) ~[ojdbc8-19.3.0.0.jar:19.3.0.0.0]
-	at oracle.net.nt.TcpNTAdapter.connect(TcpNTAdapter.java:192) ~[ojdbc8-19.3.0.0.jar:19.3.0.0.0]
-	... 80 common frames omitted
-
-2020-05-06 11:55:26.023  INFO 60180 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2020-05-06 11:55:26.301  INFO 60180 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.12.Final
-2020-05-06 11:55:26.458  INFO 60180 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
-2020-05-06 11:55:27.221  INFO 60180 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2020-05-06 11:56:10.236 ERROR 60180 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Exception during pool initialization.
-
-java.sql.SQLRecoverableException: IO Error: The Network Adapter could not establish the connection
-	at oracle.jdbc.driver.T4CConnection.logon(T4CConnection.java:854) ~[ojdbc8-19.3.0.0.jar:19.3.0.0.0]
-	at oracle.jdbc.driver.PhysicalConnection.connect(PhysicalConnection.java:793) ~[ojdbc8-19.3.0.0.jar:19.3.0.0.0]
-	at oracle.jdbc.driver.T4CDriverExtension.getConnection(T4CDriverExtension.java:57) ~[ojdbc8-19.3.0.0.jar:19.3.0.0.0]
-	at oracle.jdbc.driver.OracleDriver.connect(OracleDriver.java:747) ~[ojdbc8-19.3.0.0.jar:19.3.0.0.0]
-	at oracle.jdbc.driver.OracleDriver.connect(OracleDriver.java:562) ~[ojdbc8-19.3.0.0.jar:19.3.0.0.0]
-	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138) ~[HikariCP-3.4.2.jar:na]
-	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:354) ~[HikariCP-3.4.2.jar:na]
-	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:202) ~[HikariCP-3.4.2.jar:na]
-	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:473) [HikariCP-3.4.2.jar:na]
-	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:554) [HikariCP-3.4.2.jar:na]
-	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:115) [HikariCP-3.4.2.jar:na]
-	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112) [HikariCP-3.4.2.jar:na]
-	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:122) [hibernate-core-5.4.12.Final.jar:5.4.12.Final]
-	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:180) [hibernate-core-5.4.12.Final.jar:5.4.12.Final]
-	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:68) [hibernate-core-5.4.12.Final.jar:5.4.12.Final]
-	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:35) [hibernate-core-5.4.12.Final.jar:5.4.12.Final]
-	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:101) [hibernate-core-5.4.12.Final.jar:5.4.12.Final]
-	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:263) [hibernate-core-5.4.12.Final.jar:5.4.12.Final]
-	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:237) [hibernate-core-5.4.12.Final.jar:5.4.12.Final]
-	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:214) [hibernate-core-5.4.12.Final.jar:5.4.12.Final]
-	at org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory.injectServices(DefaultIdentifierGeneratorFactory.java:152) [hibernate-core-5.4.12.Final.jar:5.4.12.Final]
-	at org.hibernate.service.internal.AbstractServiceRegistryImpl.injectDependencies(AbstractServiceRegistryImpl.java:286) [hibernate-core-5.4.12.Final.jar:5.4.12.Final]
-	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:243) [hibernate-core-5.4.12.Final.jar:5.4.12.Final]
-	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:214) [hibernate-core-5.4.12.Final.jar:5.4.12.Final]
-	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:176) [hibernate-core-5.4.12.Final.jar:5.4.12.Final]
-	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:118) [hibernate-core-5.4.12.Final.jar:5.4.12.Final]
-	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1202) [hibernate-core-5.4.12.Final.jar:5.4.12.Final]
-	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1233) [hibernate-core-5.4.12.Final.jar:5.4.12.Final]
-	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58) [spring-orm-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365) [spring-orm-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:391) [spring-orm-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:378) [spring-orm-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341) [spring-orm-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1855) [spring-beans-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1792) [spring-beans-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:595) [spring-beans-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:517) [spring-beans-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:323) [spring-beans-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222) ~[spring-beans-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:321) [spring-beans-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) [spring-beans-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1108) ~[spring-context-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:868) ~[spring-context-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:550) ~[spring-context-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:747) ~[spring-boot-2.2.6.RELEASE.jar:2.2.6.RELEASE]
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397) ~[spring-boot-2.2.6.RELEASE.jar:2.2.6.RELEASE]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315) ~[spring-boot-2.2.6.RELEASE.jar:2.2.6.RELEASE]
-	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:126) ~[spring-boot-test-2.2.6.RELEASE.jar:2.2.6.RELEASE]
-	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:99) ~[spring-test-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:124) ~[spring-test-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:123) ~[spring-test-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:190) ~[spring-test-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.springframework.test.context.web.ServletTestExecutionListener.prepareTestInstance(ServletTestExecutionListener.java:132) ~[spring-test-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:244) ~[spring-test-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:227) ~[spring-test-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:289) ~[spring-test-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12) ~[junit.jar:4.12]
-	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:291) ~[spring-test-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:246) ~[spring-test-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:97) ~[spring-test-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290) ~[junit.jar:4.12]
-	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71) ~[junit.jar:4.12]
-	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288) ~[junit.jar:4.12]
-	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58) ~[junit.jar:4.12]
-	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268) ~[junit.jar:4.12]
-	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61) ~[spring-test-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70) ~[spring-test-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.junit.runners.ParentRunner.run(ParentRunner.java:363) ~[junit.jar:4.12]
-	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:190) ~[spring-test-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:89) ~[.cp/:na]
-	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:41) ~[.cp/:na]
-	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:541) ~[.cp/:na]
-	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:763) ~[.cp/:na]
-	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:463) ~[.cp/:na]
-	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:209) ~[.cp/:na]
-Caused by: oracle.net.ns.NetException: The Network Adapter could not establish the connection
-	at oracle.net.nt.ConnStrategy.execute(ConnStrategy.java:571) ~[ojdbc8-19.3.0.0.jar:19.3.0.0.0]
-	at oracle.net.resolver.AddrResolution.resolveAndExecute(AddrResolution.java:548) ~[ojdbc8-19.3.0.0.jar:19.3.0.0.0]
-	at oracle.net.ns.NSProtocol.establishConnection(NSProtocol.java:682) ~[ojdbc8-19.3.0.0.jar:19.3.0.0.0]
-	at oracle.net.ns.NSProtocol.connect(NSProtocol.java:309) ~[ojdbc8-19.3.0.0.jar:19.3.0.0.0]
-	at oracle.jdbc.driver.T4CConnection.connect(T4CConnection.java:1596) ~[ojdbc8-19.3.0.0.jar:19.3.0.0.0]
-	at oracle.jdbc.driver.T4CConnection.logon(T4CConnection.java:588) ~[ojdbc8-19.3.0.0.jar:19.3.0.0.0]
-	... 74 common frames omitted
-Caused by: java.io.IOException: Connection timed out: connect, socket connect lapse 21004 ms. /10.123.79.59 1521 30000 1 true
-	at oracle.net.nt.TcpNTAdapter.connect(TcpNTAdapter.java:233) ~[ojdbc8-19.3.0.0.jar:19.3.0.0.0]
-	at oracle.net.nt.ConnOption.connect(ConnOption.java:174) ~[ojdbc8-19.3.0.0.jar:19.3.0.0.0]
-	at oracle.net.nt.ConnStrategy.execute(ConnStrategy.java:510) ~[ojdbc8-19.3.0.0.jar:19.3.0.0.0]
-	... 79 common frames omitted
-Caused by: java.net.ConnectException: Connection timed out: connect
-	at sun.nio.ch.Net.connect0(Native Method) ~[na:1.8.0_141]
-	at sun.nio.ch.Net.connect(Unknown Source) ~[na:1.8.0_141]
-	at sun.nio.ch.Net.connect(Unknown Source) ~[na:1.8.0_141]
-	at sun.nio.ch.SocketChannelImpl.connect(Unknown Source) ~[na:1.8.0_141]
-	at java.nio.channels.SocketChannel.open(Unknown Source) ~[na:1.8.0_141]
-	at oracle.net.nt.TimeoutSocketChannel.connect(TimeoutSocketChannel.java:99) ~[ojdbc8-19.3.0.0.jar:19.3.0.0.0]
-	at oracle.net.nt.TimeoutSocketChannel.<init>(TimeoutSocketChannel.java:77) ~[ojdbc8-19.3.0.0.jar:19.3.0.0.0]
-	at oracle.net.nt.TcpNTAdapter.connect(TcpNTAdapter.java:192) ~[ojdbc8-19.3.0.0.jar:19.3.0.0.0]
-	... 81 common frames omitted
-
-2020-05-06 11:56:10.240  WARN 60180 --- [main] o.h.e.j.e.i.JdbcEnvironmentInitiator     : HHH000342: Could not obtain connection to query metadata : IO Error: The Network Adapter could not establish the connection
-2020-05-06 11:56:10.302  WARN 60180 --- [main] o.s.w.c.s.GenericWebApplicationContext   : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is org.hibernate.service.spi.ServiceException: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment]
-2020-05-06 11:56:10.328  INFO 60180 --- [main] ConditionEvaluationReportLoggingListener : 
-
-Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
-2020-05-06 11:56:10.334 ERROR 60180 --- [main] o.s.boot.SpringApplication               : Application run failed
-
-org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is org.hibernate.service.spi.ServiceException: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1796) ~[spring-beans-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:595) ~[spring-beans-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:517) ~[spring-beans-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:323) ~[spring-beans-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222) ~[spring-beans-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:321) ~[spring-beans-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1108) ~[spring-context-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:868) ~[spring-context-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:550) ~[spring-context-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:747) ~[spring-boot-2.2.6.RELEASE.jar:2.2.6.RELEASE]
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397) ~[spring-boot-2.2.6.RELEASE.jar:2.2.6.RELEASE]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315) ~[spring-boot-2.2.6.RELEASE.jar:2.2.6.RELEASE]
-	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:126) [spring-boot-test-2.2.6.RELEASE.jar:2.2.6.RELEASE]
-	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:99) [spring-test-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:124) [spring-test-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:123) [spring-test-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:190) [spring-test-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.springframework.test.context.web.ServletTestExecutionListener.prepareTestInstance(ServletTestExecutionListener.java:132) [spring-test-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:244) [spring-test-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:227) [spring-test-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:289) [spring-test-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12) [junit.jar:4.12]
-	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:291) [spring-test-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:246) [spring-test-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:97) [spring-test-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290) [junit.jar:4.12]
-	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71) [junit.jar:4.12]
-	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288) [junit.jar:4.12]
-	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58) [junit.jar:4.12]
-	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268) [junit.jar:4.12]
-	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61) [spring-test-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70) [spring-test-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.junit.runners.ParentRunner.run(ParentRunner.java:363) [junit.jar:4.12]
-	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:190) [spring-test-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:89) [.cp/:na]
-	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:41) [.cp/:na]
-	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:541) [.cp/:na]
-	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:763) [.cp/:na]
-	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:463) [.cp/:na]
-	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:209) [.cp/:na]
-Caused by: org.hibernate.service.spi.ServiceException: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment]
-	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:275) ~[hibernate-core-5.4.12.Final.jar:5.4.12.Final]
-	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:237) ~[hibernate-core-5.4.12.Final.jar:5.4.12.Final]
-	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:214) ~[hibernate-core-5.4.12.Final.jar:5.4.12.Final]
-	at org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory.injectServices(DefaultIdentifierGeneratorFactory.java:152) ~[hibernate-core-5.4.12.Final.jar:5.4.12.Final]
-	at org.hibernate.service.internal.AbstractServiceRegistryImpl.injectDependencies(AbstractServiceRegistryImpl.java:286) ~[hibernate-core-5.4.12.Final.jar:5.4.12.Final]
-	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:243) ~[hibernate-core-5.4.12.Final.jar:5.4.12.Final]
-	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:214) ~[hibernate-core-5.4.12.Final.jar:5.4.12.Final]
-	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:176) ~[hibernate-core-5.4.12.Final.jar:5.4.12.Final]
-	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:118) ~[hibernate-core-5.4.12.Final.jar:5.4.12.Final]
-	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1202) ~[hibernate-core-5.4.12.Final.jar:5.4.12.Final]
-	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1233) ~[hibernate-core-5.4.12.Final.jar:5.4.12.Final]
-	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58) ~[spring-orm-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365) ~[spring-orm-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:391) ~[spring-orm-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:378) ~[spring-orm-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341) ~[spring-orm-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1855) ~[spring-beans-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1792) ~[spring-beans-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	... 40 common frames omitted
-Caused by: org.hibernate.HibernateException: Access to DialectResolutionInfo cannot be null when 'hibernate.dialect' not set
-	at org.hibernate.engine.jdbc.dialect.internal.DialectFactoryImpl.determineDialect(DialectFactoryImpl.java:100) ~[hibernate-core-5.4.12.Final.jar:5.4.12.Final]
-	at org.hibernate.engine.jdbc.dialect.internal.DialectFactoryImpl.buildDialect(DialectFactoryImpl.java:54) ~[hibernate-core-5.4.12.Final.jar:5.4.12.Final]
-	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:137) ~[hibernate-core-5.4.12.Final.jar:5.4.12.Final]
-	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:35) ~[hibernate-core-5.4.12.Final.jar:5.4.12.Final]
-	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:101) ~[hibernate-core-5.4.12.Final.jar:5.4.12.Final]
-	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:263) ~[hibernate-core-5.4.12.Final.jar:5.4.12.Final]
-	... 57 common frames omitted
-
-2020-05-06 11:56:10.340 ERROR 60180 --- [main] o.s.test.context.TestContextManager      : Caught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener@6df4af5] to prepare test instance [com.infy.demo.TravelerSearchServiceTest@6a9164d1]
-
-java.lang.IllegalStateException: Failed to load ApplicationContext
-	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:132) ~[spring-test-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:123) ~[spring-test-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:190) ~[spring-test-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.springframework.test.context.web.ServletTestExecutionListener.prepareTestInstance(ServletTestExecutionListener.java:132) ~[spring-test-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:244) ~[spring-test-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:227) [spring-test-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:289) [spring-test-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12) [junit.jar:4.12]
-	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:291) [spring-test-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:246) [spring-test-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:97) [spring-test-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290) [junit.jar:4.12]
-	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71) [junit.jar:4.12]
-	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288) [junit.jar:4.12]
-	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58) [junit.jar:4.12]
-	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268) [junit.jar:4.12]
-	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61) [spring-test-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70) [spring-test-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.junit.runners.ParentRunner.run(ParentRunner.java:363) [junit.jar:4.12]
-	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:190) [spring-test-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:89) [.cp/:na]
-	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:41) [.cp/:na]
-	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:541) [.cp/:na]
-	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:763) [.cp/:na]
-	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:463) [.cp/:na]
-	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:209) [.cp/:na]
-Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is org.hibernate.service.spi.ServiceException: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1796) ~[spring-beans-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:595) ~[spring-beans-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:517) ~[spring-beans-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:323) ~[spring-beans-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222) ~[spring-beans-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:321) ~[spring-beans-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1108) ~[spring-context-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:868) ~[spring-context-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:550) ~[spring-context-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:747) ~[spring-boot-2.2.6.RELEASE.jar:2.2.6.RELEASE]
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397) ~[spring-boot-2.2.6.RELEASE.jar:2.2.6.RELEASE]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315) ~[spring-boot-2.2.6.RELEASE.jar:2.2.6.RELEASE]
-	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:126) ~[spring-boot-test-2.2.6.RELEASE.jar:2.2.6.RELEASE]
-	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:99) ~[spring-test-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:124) ~[spring-test-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	... 25 common frames omitted
-Caused by: org.hibernate.service.spi.ServiceException: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment]
-	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:275) ~[hibernate-core-5.4.12.Final.jar:5.4.12.Final]
-	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:237) ~[hibernate-core-5.4.12.Final.jar:5.4.12.Final]
-	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:214) ~[hibernate-core-5.4.12.Final.jar:5.4.12.Final]
-	at org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory.injectServices(DefaultIdentifierGeneratorFactory.java:152) ~[hibernate-core-5.4.12.Final.jar:5.4.12.Final]
-	at org.hibernate.service.internal.AbstractServiceRegistryImpl.injectDependencies(AbstractServiceRegistryImpl.java:286) ~[hibernate-core-5.4.12.Final.jar:5.4.12.Final]
-	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:243) ~[hibernate-core-5.4.12.Final.jar:5.4.12.Final]
-	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:214) ~[hibernate-core-5.4.12.Final.jar:5.4.12.Final]
-	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:176) ~[hibernate-core-5.4.12.Final.jar:5.4.12.Final]
-	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:118) ~[hibernate-core-5.4.12.Final.jar:5.4.12.Final]
-	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1202) ~[hibernate-core-5.4.12.Final.jar:5.4.12.Final]
-	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1233) ~[hibernate-core-5.4.12.Final.jar:5.4.12.Final]
-	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58) ~[spring-orm-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365) ~[spring-orm-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:391) ~[spring-orm-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:378) ~[spring-orm-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341) ~[spring-orm-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1855) ~[spring-beans-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1792) ~[spring-beans-5.2.5.RELEASE.jar:5.2.5.RELEASE]
-	... 40 common frames omitted
-Caused by: org.hibernate.HibernateException: Access to DialectResolutionInfo cannot be null when 'hibernate.dialect' not set
-	at org.hibernate.engine.jdbc.dialect.internal.DialectFactoryImpl.determineDialect(DialectFactoryImpl.java:100) ~[hibernate-core-5.4.12.Final.jar:5.4.12.Final]
-	at org.hibernate.engine.jdbc.dialect.internal.DialectFactoryImpl.buildDialect(DialectFactoryImpl.java:54) ~[hibernate-core-5.4.12.Final.jar:5.4.12.Final]
-	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:137) ~[hibernate-core-5.4.12.Final.jar:5.4.12.Final]
-	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:35) ~[hibernate-core-5.4.12.Final.jar:5.4.12.Final]
-	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:101) ~[hibernate-core-5.4.12.Final.jar:5.4.12.Final]
-	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:263) ~[hibernate-core-5.4.12.Final.jar:5.4.12.Final]
-	... 57 common frames omitted
-
-2020-05-06 11:56:10.476  INFO 60180 --- [main] com.infy.demo.TravelerSearchServiceTest  : Starting TravelerSearchServiceTest on USABOS252632L with PID 60180 (started by marcus.sullins in C:\Users\marcus.sullins\Downloads\demo\demo)
-2020-05-06 11:56:10.476  INFO 60180 --- [main] com.infy.demo.TravelerSearchServiceTest  : No active profile set, falling back to default profiles: default
-2020-05-06 11:56:11.221  INFO 60180 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2020-05-06 11:56:11.250  INFO 60180 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 27ms. Found 0 JPA repository interfaces.
-2020-05-06 11:56:11.516  INFO 60180 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
-2020-05-06 11:58:45.634  INFO 61152 --- [main] com.infy.demo.TravelerSearchServiceTest  : Starting TravelerSearchServiceTest on USABOS252632L with PID 61152 (started by marcus.sullins in C:\Users\marcus.sullins\Downloads\demo\demo)
-2020-05-06 11:58:45.638  INFO 61152 --- [main] com.infy.demo.TravelerSearchServiceTest  : No active profile set, falling back to default profiles: default
-2020-05-06 11:58:57.847  INFO 61152 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2020-05-06 11:58:57.920  INFO 61152 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 41ms. Found 0 JPA repository interfaces.
-2020-05-06 11:58:59.833  INFO 61152 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2020-05-06 11:59:05.623  INFO 61152 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2020-05-06 11:59:05.787  INFO 61152 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2020-05-06 11:59:05.980  INFO 61152 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.12.Final
-2020-05-06 11:59:06.092  INFO 61152 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
-2020-05-06 11:59:07.638  INFO 61152 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
-2020-05-06 11:59:17.590  INFO 61152 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2020-05-06 11:59:17.636  INFO 61152 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2020-05-06 11:59:20.478  WARN 61152 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2020-05-06 11:59:22.061  INFO 61152 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2020-05-06 11:59:24.322  INFO 61152 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2020-05-06 11:59:26.279  INFO 61152 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
-2020-05-06 11:59:26.449  INFO 61152 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
-2020-05-06 11:59:26.560  INFO 61152 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-2020-05-06 11:59:27.348  INFO 61152 --- [main] com.infy.demo.TravelerSearchServiceTest  : Started TravelerSearchServiceTest in 42.523 seconds (JVM running for 47.763)
-2020-05-06 11:59:28.045  INFO 61152 --- [main] com.infy.demo.TravelerSearchAPITest      : Starting TravelerSearchAPITest on USABOS252632L with PID 61152 (started by marcus.sullins in C:\Users\marcus.sullins\Downloads\demo\demo)
-2020-05-06 11:59:28.049  INFO 61152 --- [main] com.infy.demo.TravelerSearchAPITest      : No active profile set, falling back to default profiles: default
-2020-05-06 11:59:28.877  INFO 61152 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2020-05-06 11:59:29.048  INFO 61152 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
-2020-05-06 11:59:29.049  INFO 61152 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
-2020-05-06 11:59:29.104  INFO 61152 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 55 ms
-2020-05-06 11:59:29.121  INFO 61152 --- [main] com.infy.demo.TravelerSearchAPITest      : Started TravelerSearchAPITest in 1.181 seconds (JVM running for 49.535)
-2020-05-06 11:59:29.614  INFO 61152 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
-2020-05-06 11:59:33.408  INFO 61152 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
-2020-05-06 11:59:33.415  INFO 61152 --- [SpringContextShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2020-05-06 11:59:33.452  INFO 61152 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2020-05-06 11:59:36.569  INFO 61152 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2020-05-06 13:00:24.834  INFO 47732 --- [restartedMain] com.infy.demo.FlightManagerApplication   : Starting FlightManagerApplication on USABOS252632L with PID 47732 (C:\Users\marcus.sullins\Downloads\demo\demo\target\classes started by marcus.sullins in C:\Users\marcus.sullins\Downloads\demo\demo)
-2020-05-06 13:00:24.838  INFO 47732 --- [restartedMain] com.infy.demo.FlightManagerApplication   : No active profile set, falling back to default profiles: default
-2020-05-06 13:00:24.931  INFO 47732 --- [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in C:\Users\marcus.sullins\.m2\repository\org\glassfish\jaxb\jaxb-runtime\2.3.2\jaxb-runtime-2.3.2.jar referenced one or more files that do not exist: file:/C:/Users/marcus.sullins/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/jakarta.xml.bind-api-2.3.2.jar,file:/C:/Users/marcus.sullins/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/txw2-2.3.2.jar,file:/C:/Users/marcus.sullins/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/istack-commons-runtime-3.0.8.jar,file:/C:/Users/marcus.sullins/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/stax-ex-1.8.1.jar,file:/C:/Users/marcus.sullins/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/FastInfoset-1.2.16.jar,file:/C:/Users/marcus.sullins/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/jakarta.activation-api-1.2.1.jar
-2020-05-06 13:00:24.931  INFO 47732 --- [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in C:\Users\marcus.sullins\.m2\repository\com\oracle\ojdbc\ojdbc8\19.3.0.0\ojdbc8-19.3.0.0.jar referenced one or more files that do not exist: file:/C:/Users/marcus.sullins/.m2/repository/com/oracle/ojdbc/ojdbc8/19.3.0.0/oraclepki.jar
-2020-05-06 13:00:24.931  INFO 47732 --- [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in C:\Users\marcus.sullins\.m2\repository\com\oracle\ojdbc\oraclepki\19.3.0.0\oraclepki-19.3.0.0.jar referenced one or more files that do not exist: file:/C:/Users/marcus.sullins/.m2/repository/com/oracle/ojdbc/oraclepki/19.3.0.0/osdt_core.jar,file:/C:/Users/marcus.sullins/.m2/repository/com/oracle/ojdbc/oraclepki/19.3.0.0/osdt_cert.jar,file:/C:/Users/marcus.sullins/.m2/repository/com/oracle/ojdbc/oraclepki/oracle.osdt/osdt_core.jar,file:/C:/Users/marcus.sullins/.m2/repository/com/oracle/ojdbc/oraclepki/oracle.osdt/osdt_cert.jar
-2020-05-06 13:00:24.931  INFO 47732 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2020-05-06 13:00:24.931  INFO 47732 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2020-05-06 13:00:27.464  INFO 47732 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2020-05-06 13:00:27.530  INFO 47732 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 40ms. Found 0 JPA repository interfaces.
-2020-05-06 13:00:30.871  INFO 47732 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8085 (http)
-2020-05-06 13:00:30.916  INFO 47732 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2020-05-06 13:00:30.917  INFO 47732 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.33]
-2020-05-06 13:00:31.175  INFO 47732 --- [restartedMain] o.a.c.c.C.[.[.[/Flight_Manager]          : Initializing Spring embedded WebApplicationContext
-2020-05-06 13:00:31.176  INFO 47732 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 6244 ms
-2020-05-06 13:00:32.038  INFO 47732 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2020-05-06 13:00:38.439  INFO 47732 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2020-05-06 13:00:38.647  INFO 47732 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2020-05-06 13:00:38.843  INFO 47732 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.12.Final
-2020-05-06 13:00:39.215  INFO 47732 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
-2020-05-06 13:00:40.019  INFO 47732 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
-2020-05-06 13:00:51.000  INFO 47732 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2020-05-06 13:00:51.020  INFO 47732 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2020-05-06 13:00:51.795  WARN 47732 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2020-05-06 13:00:52.403  INFO 47732 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2020-05-06 13:00:52.815  INFO 47732 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2020-05-06 13:00:52.901  INFO 47732 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2020-05-06 13:00:53.411  INFO 47732 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
-2020-05-06 13:00:53.480  INFO 47732 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
-2020-05-06 13:00:53.526  INFO 47732 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-2020-05-06 13:00:54.032  INFO 47732 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8085 (http) with context path '/Flight_Manager'
-2020-05-06 13:00:54.038  INFO 47732 --- [restartedMain] com.infy.demo.FlightManagerApplication   : Started FlightManagerApplication in 30.099 seconds (JVM running for 30.925)
-2020-05-06 13:00:59.667  INFO 47732 --- [http-nio-8085-exec-2] o.a.c.c.C.[.[.[/Flight_Manager]          : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2020-05-06 13:00:59.668  INFO 47732 --- [http-nio-8085-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2020-05-06 13:00:59.689  INFO 47732 --- [http-nio-8085-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 21 ms
-2020-05-06 13:01:00.209  INFO 47732 --- [http-nio-8085-exec-2] com.infy.demo.api.AdminAPI               : ADMIN TRYING TO REGISTER WITH EMAIL: marcus.sullinsinfosys.com
-2020-05-06 13:01:01.804  WARN 47732 --- [http-nio-8085-exec-2] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.transaction.TransactionSystemException: Could not commit JPA transaction; nested exception is javax.persistence.RollbackException: Error while committing the transaction]
-2020-05-06 13:12:46.187  INFO 47732 --- [Thread-10] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
-2020-05-06 13:12:46.192  INFO 47732 --- [Thread-10] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2020-05-06 13:12:46.199  INFO 47732 --- [Thread-10] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2020-05-06 13:12:46.215  INFO 47732 --- [Thread-10] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2020-05-06 13:12:46.963  INFO 47732 --- [restartedMain] com.infy.demo.FlightManagerApplication   : Starting FlightManagerApplication on USABOS252632L with PID 47732 (C:\Users\marcus.sullins\Downloads\demo\demo\target\classes started by marcus.sullins in C:\Users\marcus.sullins\Downloads\demo\demo)
-2020-05-06 13:12:46.963  INFO 47732 --- [restartedMain] com.infy.demo.FlightManagerApplication   : No active profile set, falling back to default profiles: default
-2020-05-06 13:12:47.703  INFO 47732 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2020-05-06 13:12:47.735  INFO 47732 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 31ms. Found 0 JPA repository interfaces.
-2020-05-06 13:12:48.150  INFO 47732 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8085 (http)
-2020-05-06 13:12:48.151  INFO 47732 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2020-05-06 13:12:48.152  INFO 47732 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.33]
-2020-05-06 13:12:48.226  INFO 47732 --- [restartedMain] o.a.c.c.C.[.[.[/Flight_Manager]          : Initializing Spring embedded WebApplicationContext
-2020-05-06 13:12:48.226  INFO 47732 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1258 ms
-2020-05-06 13:12:48.325  INFO 47732 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
-2020-05-06 13:12:52.273  INFO 47732 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
-2020-05-06 13:12:52.291  INFO 47732 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2020-05-06 13:12:52.298  INFO 47732 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
-2020-05-06 13:13:00.363  INFO 47732 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2020-05-06 13:13:00.364  INFO 47732 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2020-05-06 13:13:00.670  WARN 47732 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2020-05-06 13:13:00.814  INFO 47732 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2020-05-06 13:13:00.960  INFO 47732 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2020-05-06 13:13:00.973  INFO 47732 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2020-05-06 13:13:01.172  INFO 47732 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
-2020-05-06 13:13:01.173  INFO 47732 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
-2020-05-06 13:13:01.179  INFO 47732 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-2020-05-06 13:13:01.280  INFO 47732 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8085 (http) with context path '/Flight_Manager'
-2020-05-06 13:13:01.282  INFO 47732 --- [restartedMain] com.infy.demo.FlightManagerApplication   : Started FlightManagerApplication in 14.443 seconds (JVM running for 758.166)
-2020-05-06 13:13:01.285  INFO 47732 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
-2020-05-06 13:13:07.424  INFO 47732 --- [http-nio-8085-exec-2] o.a.c.c.C.[.[.[/Flight_Manager]          : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2020-05-06 13:13:07.425  INFO 47732 --- [http-nio-8085-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2020-05-06 13:13:07.440  INFO 47732 --- [http-nio-8085-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 15 ms
-2020-05-06 13:13:07.447  INFO 47732 --- [http-nio-8085-exec-2] com.infy.demo.api.AdminAPI               : ADMIN TRYING TO REGISTER WITH EMAIL: marcus.sullinsinfosys.com
-2020-05-06 13:13:09.568  WARN 47732 --- [http-nio-8085-exec-2] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.transaction.TransactionSystemException: Could not commit JPA transaction; nested exception is javax.persistence.RollbackException: Error while committing the transaction]
-2020-05-06 13:14:47.132  INFO 47732 --- [Thread-15] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
-2020-05-06 13:14:47.135  INFO 47732 --- [Thread-15] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2020-05-06 13:14:47.137  INFO 47732 --- [Thread-15] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
-2020-05-06 13:14:51.688  INFO 47732 --- [Thread-15] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
-2020-05-06 13:14:52.298  INFO 47732 --- [restartedMain] com.infy.demo.FlightManagerApplication   : Starting FlightManagerApplication on USABOS252632L with PID 47732 (C:\Users\marcus.sullins\Downloads\demo\demo\target\classes started by marcus.sullins in C:\Users\marcus.sullins\Downloads\demo\demo)
-2020-05-06 13:14:52.299  INFO 47732 --- [restartedMain] com.infy.demo.FlightManagerApplication   : No active profile set, falling back to default profiles: default
-2020-05-06 13:14:52.885  INFO 47732 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2020-05-06 13:14:52.903  INFO 47732 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 17ms. Found 0 JPA repository interfaces.
-2020-05-06 13:14:53.273  INFO 47732 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8085 (http)
-2020-05-06 13:14:53.275  INFO 47732 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2020-05-06 13:14:53.275  INFO 47732 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.33]
-2020-05-06 13:14:53.313  INFO 47732 --- [restartedMain] o.a.c.c.C.[.[.[/Flight_Manager]          : Initializing Spring embedded WebApplicationContext
-2020-05-06 13:14:53.314  INFO 47732 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1010 ms
-2020-05-06 13:14:53.390  INFO 47732 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Starting...
-2020-05-06 13:14:57.221  INFO 47732 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Start completed.
-2020-05-06 13:14:57.237  INFO 47732 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2020-05-06 13:14:57.243  INFO 47732 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
-2020-05-06 13:15:04.787  INFO 47732 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2020-05-06 13:15:04.787  INFO 47732 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2020-05-06 13:15:05.081  WARN 47732 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2020-05-06 13:15:05.221  INFO 47732 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2020-05-06 13:15:05.361  INFO 47732 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2020-05-06 13:15:05.369  INFO 47732 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2020-05-06 13:15:05.572  INFO 47732 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
-2020-05-06 13:15:05.574  INFO 47732 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
-2020-05-06 13:15:05.578  INFO 47732 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-2020-05-06 13:15:05.676  INFO 47732 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8085 (http) with context path '/Flight_Manager'
-2020-05-06 13:15:05.677  INFO 47732 --- [restartedMain] com.infy.demo.FlightManagerApplication   : Started FlightManagerApplication in 13.431 seconds (JVM running for 882.561)
-2020-05-06 13:15:05.679  INFO 47732 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
-2020-05-06 13:15:09.147  INFO 47732 --- [http-nio-8085-exec-2] o.a.c.c.C.[.[.[/Flight_Manager]          : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2020-05-06 13:15:09.149  INFO 47732 --- [http-nio-8085-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2020-05-06 13:15:09.161  INFO 47732 --- [http-nio-8085-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 11 ms
-2020-05-06 13:15:09.169  INFO 47732 --- [http-nio-8085-exec-2] com.infy.demo.api.AdminAPI               : ADMIN TRYING TO REGISTER WITH EMAIL: marcus.sullinsinfosys.com
-2020-05-06 13:15:10.383  WARN 47732 --- [http-nio-8085-exec-2] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.transaction.TransactionSystemException: Could not commit JPA transaction; nested exception is javax.persistence.RollbackException: Error while committing the transaction]
-2020-05-06 13:20:35.926  INFO 47732 --- [Thread-23] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
-2020-05-06 13:20:35.927  INFO 47732 --- [Thread-23] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2020-05-06 13:20:35.928  INFO 47732 --- [Thread-23] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown initiated...
-2020-05-06 13:20:35.940  INFO 47732 --- [Thread-23] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown completed.
-2020-05-06 13:20:36.641  INFO 47732 --- [restartedMain] com.infy.demo.FlightManagerApplication   : Starting FlightManagerApplication on USABOS252632L with PID 47732 (C:\Users\marcus.sullins\Downloads\demo\demo\target\classes started by marcus.sullins in C:\Users\marcus.sullins\Downloads\demo\demo)
-2020-05-06 13:20:36.641  INFO 47732 --- [restartedMain] com.infy.demo.FlightManagerApplication   : No active profile set, falling back to default profiles: default
-2020-05-06 13:20:37.383  INFO 47732 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2020-05-06 13:20:37.401  INFO 47732 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 16ms. Found 0 JPA repository interfaces.
-2020-05-06 13:20:37.680  INFO 47732 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8085 (http)
-2020-05-06 13:20:37.680  INFO 47732 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2020-05-06 13:20:37.680  INFO 47732 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.33]
-2020-05-06 13:20:37.698  INFO 47732 --- [restartedMain] o.a.c.c.C.[.[.[/Flight_Manager]          : Initializing Spring embedded WebApplicationContext
-2020-05-06 13:20:37.698  INFO 47732 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1041 ms
-2020-05-06 13:20:37.776  INFO 47732 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Starting...
-2020-05-06 13:23:32.943  INFO 66872 --- [main] com.infy.demo.TravelerSearchServiceTest  : Starting TravelerSearchServiceTest on USABOS252632L with PID 66872 (started by marcus.sullins in C:\Users\marcus.sullins\Downloads\demo\demo)
-2020-05-06 13:23:32.949  INFO 66872 --- [main] com.infy.demo.TravelerSearchServiceTest  : No active profile set, falling back to default profiles: default
-2020-05-06 13:23:36.492  INFO 66872 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2020-05-06 13:23:36.564  INFO 66872 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 47ms. Found 0 JPA repository interfaces.
-2020-05-06 13:23:40.218  INFO 66872 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2020-05-06 13:23:48.710  INFO 66872 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2020-05-06 13:23:48.911  INFO 66872 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2020-05-06 13:23:49.133  INFO 66872 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.12.Final
-2020-05-06 13:23:49.242  INFO 66872 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
-2020-05-06 13:23:50.064  INFO 66872 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
-2020-05-06 13:24:00.658  INFO 66872 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2020-05-06 13:24:00.663  INFO 66872 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2020-05-06 13:24:02.323  WARN 66872 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2020-05-06 13:24:03.010  INFO 66872 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2020-05-06 13:24:04.007  INFO 66872 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2020-05-06 13:24:04.711  INFO 66872 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
-2020-05-06 13:24:04.822  INFO 66872 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
-2020-05-06 13:24:04.891  INFO 66872 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-2020-05-06 13:24:05.402  INFO 66872 --- [main] com.infy.demo.TravelerSearchServiceTest  : Started TravelerSearchServiceTest in 33.278 seconds (JVM running for 38.611)
-2020-05-06 13:24:05.768  INFO 66872 --- [main] com.infy.demo.TravelerSearchAPITest      : Starting TravelerSearchAPITest on USABOS252632L with PID 66872 (started by marcus.sullins in C:\Users\marcus.sullins\Downloads\demo\demo)
-2020-05-06 13:24:05.768  INFO 66872 --- [main] com.infy.demo.TravelerSearchAPITest      : No active profile set, falling back to default profiles: default
-2020-05-06 13:24:06.157  INFO 66872 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2020-05-06 13:24:06.248  INFO 66872 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
-2020-05-06 13:24:06.248  INFO 66872 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
-2020-05-06 13:24:06.285  INFO 66872 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 37 ms
-2020-05-06 13:24:06.300  INFO 66872 --- [main] com.infy.demo.TravelerSearchAPITest      : Started TravelerSearchAPITest in 0.598 seconds (JVM running for 39.513)
-2020-05-06 13:24:06.639  INFO 66872 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
-2020-05-06 13:24:09.745  INFO 66872 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
-2020-05-06 13:24:09.752  INFO 66872 --- [SpringContextShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2020-05-06 13:24:09.755  INFO 66872 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2020-05-06 13:24:11.983  INFO 66872 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2020-05-06 14:25:28.710  INFO 57268 --- [main] com.infy.demo.TravelerSearchServiceTest  : Starting TravelerSearchServiceTest on USABOS252632L with PID 57268 (started by marcus.sullins in C:\Users\marcus.sullins\Downloads\demo\demo)
-2020-05-06 14:25:28.710  INFO 57268 --- [main] com.infy.demo.TravelerSearchServiceTest  : No active profile set, falling back to default profiles: default
-2020-05-06 14:25:30.268  INFO 57268 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2020-05-06 14:25:30.341  INFO 57268 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 55ms. Found 0 JPA repository interfaces.
-2020-05-06 14:25:31.758  INFO 57268 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2020-05-06 15:13:52.037  INFO 59664 --- [main] com.infy.demo.TravelerSearchServiceTest  : Starting TravelerSearchServiceTest on USABOS252632L with PID 59664 (started by marcus.sullins in C:\Users\marcus.sullins\Downloads\demo\demo)
-2020-05-06 15:13:52.041  INFO 59664 --- [main] com.infy.demo.TravelerSearchServiceTest  : No active profile set, falling back to default profiles: default
-2020-05-06 15:13:54.129  INFO 59664 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2020-05-06 15:13:54.200  INFO 59664 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 42ms. Found 0 JPA repository interfaces.
-2020-05-06 15:13:56.019  INFO 59664 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2020-05-06 15:14:02.412  INFO 59664 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2020-05-06 15:14:02.549  INFO 59664 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2020-05-06 15:14:02.735  INFO 59664 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.12.Final
-2020-05-06 15:14:02.850  INFO 59664 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
-2020-05-06 15:14:03.550  INFO 59664 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
-2020-05-06 15:14:12.713  INFO 59664 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2020-05-06 15:14:12.731  INFO 59664 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2020-05-06 15:14:13.966  WARN 59664 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2020-05-06 15:14:14.749  INFO 59664 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2020-05-06 15:14:15.779  INFO 59664 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2020-05-06 15:14:16.465  INFO 59664 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
-2020-05-06 15:14:16.532  INFO 59664 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
-2020-05-06 15:14:16.598  INFO 59664 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-2020-05-06 15:14:17.110  INFO 59664 --- [main] com.infy.demo.TravelerSearchServiceTest  : Started TravelerSearchServiceTest in 25.715 seconds (JVM running for 31.073)
-2020-05-06 15:14:17.528  INFO 59664 --- [main] com.infy.demo.TravelerSearchAPITest      : Starting TravelerSearchAPITest on USABOS252632L with PID 59664 (started by marcus.sullins in C:\Users\marcus.sullins\Downloads\demo\demo)
-2020-05-06 15:14:17.530  INFO 59664 --- [main] com.infy.demo.TravelerSearchAPITest      : No active profile set, falling back to default profiles: default
-2020-05-06 15:14:18.030  INFO 59664 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2020-05-06 15:14:18.173  INFO 59664 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
-2020-05-06 15:14:18.174  INFO 59664 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
-2020-05-06 15:14:18.217  INFO 59664 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 43 ms
-2020-05-06 15:14:18.231  INFO 59664 --- [main] com.infy.demo.TravelerSearchAPITest      : Started TravelerSearchAPITest in 0.784 seconds (JVM running for 32.193)
-2020-05-06 15:14:18.481  INFO 59664 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
-2020-05-06 15:14:22.182  INFO 59664 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
-2020-05-06 15:14:22.186  INFO 59664 --- [SpringContextShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2020-05-06 15:14:22.190  INFO 59664 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2020-05-06 15:14:26.208  INFO 59664 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2020-05-07 12:25:56.661  INFO 78728 --- [main] com.infy.demo.TravelerSearchServiceTest  : Starting TravelerSearchServiceTest on USABOS252632L with PID 78728 (started by marcus.sullins in C:\Users\marcus.sullins\Downloads\demo\demo)
+2020-05-07 12:25:56.692  INFO 78728 --- [main] com.infy.demo.TravelerSearchServiceTest  : No active profile set, falling back to default profiles: default
+2020-05-07 12:25:58.797  INFO 78728 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2020-05-07 12:25:58.835  INFO 78728 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 29ms. Found 0 JPA repository interfaces.
+2020-05-07 12:26:00.976  INFO 78728 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-05-07 12:26:08.655  INFO 78728 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-05-07 12:26:08.914  INFO 78728 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-05-07 12:26:09.191  INFO 78728 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.12.Final
+2020-05-07 12:26:09.546  INFO 78728 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-05-07 12:26:10.734  INFO 78728 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2020-05-07 12:26:21.311  INFO 78728 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-05-07 12:26:21.331  INFO 78728 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-05-07 12:26:22.674  WARN 78728 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-05-07 12:26:23.337  INFO 78728 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2020-05-07 12:26:24.621  INFO 78728 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-05-07 12:26:25.386  INFO 78728 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2020-05-07 12:26:25.492  INFO 78728 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2020-05-07 12:26:25.566  INFO 78728 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2020-05-07 12:26:26.056  INFO 78728 --- [main] com.infy.demo.TravelerSearchServiceTest  : Started TravelerSearchServiceTest in 30.082 seconds (JVM running for 37.757)
+2020-05-07 12:26:26.453  INFO 78728 --- [main] com.infy.demo.TravelerSearchAPITest      : Starting TravelerSearchAPITest on USABOS252632L with PID 78728 (started by marcus.sullins in C:\Users\marcus.sullins\Downloads\demo\demo)
+2020-05-07 12:26:26.453  INFO 78728 --- [main] com.infy.demo.TravelerSearchAPITest      : No active profile set, falling back to default profiles: default
+2020-05-07 12:26:27.057  INFO 78728 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-05-07 12:26:27.167  INFO 78728 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2020-05-07 12:26:27.167  INFO 78728 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2020-05-07 12:26:27.197  INFO 78728 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 30 ms
+2020-05-07 12:26:27.207  INFO 78728 --- [main] com.infy.demo.TravelerSearchAPITest      : Started TravelerSearchAPITest in 0.842 seconds (JVM running for 38.915)
+2020-05-07 12:26:27.497  INFO 78728 --- [main] o.s.mock.web.MockServletContext          : Initializing Spring TestDispatcherServlet ''
+2020-05-07 12:26:27.498  INFO 78728 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2020-05-07 12:26:27.498  INFO 78728 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2020-05-07 12:26:27.507  INFO 78728 --- [main] com.infy.demo.api.AdminAPI               : TRAVELLER TRYING TO LOGIN WITH EMAIL: marcus@marcus.com
+2020-05-07 12:26:27.553  INFO 78728 --- [main] o.s.mock.web.MockServletContext          : Initializing Spring TestDispatcherServlet ''
+2020-05-07 12:26:27.554  INFO 78728 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2020-05-07 12:26:27.554  INFO 78728 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2020-05-07 12:26:27.561  INFO 78728 --- [main] com.infy.demo.api.AdminAPI               : TRAVELLER TRYING TO LOGIN WITH EMAIL: marcus@marcus.com
+2020-05-07 12:26:27.603  INFO 78728 --- [main] o.s.mock.web.MockServletContext          : Initializing Spring TestDispatcherServlet ''
+2020-05-07 12:26:27.605  INFO 78728 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2020-05-07 12:26:27.605  INFO 78728 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2020-05-07 12:26:27.613  INFO 78728 --- [main] com.infy.demo.api.AdminAPI               : TRAVELLER TRYING TO REGISTER WITH EMAIL: marcus@marcus.com
+2020-05-07 12:26:27.614  INFO 78728 --- [main] com.infy.demo.api.AdminAPI               : TRAVELLER REGISTERED SUCCESSFULLY WITH EMAIL: marcus@marcus.com
+2020-05-07 12:26:27.656  INFO 78728 --- [main] o.s.mock.web.MockServletContext          : Initializing Spring TestDispatcherServlet ''
+2020-05-07 12:26:27.656  INFO 78728 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2020-05-07 12:26:27.656  INFO 78728 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2020-05-07 12:26:27.660  INFO 78728 --- [main] com.infy.demo.api.AdminAPI               : TRAVELLER TRYING TO LOGIN WITH EMAIL: marcus@marcus.com
+2020-05-07 12:26:27.660  INFO 78728 --- [main] com.infy.demo.api.AdminAPI               : TRAVELLER LOGGED IN SUCCESSFULLY WITH EMAIL: marcus@marcus.com
+2020-05-07 12:26:27.700  INFO 78728 --- [main] o.s.mock.web.MockServletContext          : Initializing Spring TestDispatcherServlet ''
+2020-05-07 12:26:27.700  INFO 78728 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2020-05-07 12:26:27.700  INFO 78728 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2020-05-07 12:26:27.700  INFO 78728 --- [main] com.infy.demo.api.AdminAPI               : TRAVELLER TRYING TO REGISTER WITH EMAIL: marcus@marcus.com
+2020-05-07 12:26:27.731  INFO 78728 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-05-07 12:26:31.892  INFO 78728 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-05-07 12:26:31.896  INFO 78728 --- [SpringContextShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-05-07 12:26:31.900  INFO 78728 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2020-05-07 12:26:34.782  INFO 78728 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2020-05-07 12:49:55.442  INFO 88944 --- [main] com.infy.demo.TravelerSearchServiceTest  : Starting TravelerSearchServiceTest on USABOS252632L with PID 88944 (started by marcus.sullins in C:\Users\marcus.sullins\Downloads\demo\demo)
+2020-05-07 12:49:55.444  INFO 88944 --- [main] com.infy.demo.TravelerSearchServiceTest  : No active profile set, falling back to default profiles: default
+2020-05-07 12:49:56.870  INFO 88944 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2020-05-07 12:49:56.938  INFO 88944 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 41ms. Found 0 JPA repository interfaces.
+2020-05-07 12:49:58.784  INFO 88944 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-05-07 12:50:03.971  INFO 88944 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-05-07 12:50:04.105  INFO 88944 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-05-07 12:50:04.322  INFO 88944 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.12.Final
+2020-05-07 12:50:04.427  INFO 88944 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-05-07 12:50:05.316  INFO 88944 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2020-05-07 12:50:13.501  INFO 88944 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-05-07 12:50:13.519  INFO 88944 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-05-07 12:50:14.579  WARN 88944 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-05-07 12:50:15.213  INFO 88944 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2020-05-07 12:50:16.267  INFO 88944 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-05-07 12:50:16.857  INFO 88944 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2020-05-07 12:50:16.928  INFO 88944 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2020-05-07 12:50:16.988  INFO 88944 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2020-05-07 12:50:17.401  INFO 88944 --- [main] com.infy.demo.TravelerSearchServiceTest  : Started TravelerSearchServiceTest in 22.375 seconds (JVM running for 30.452)
+2020-05-07 12:50:17.741  INFO 88944 --- [main] com.infy.demo.TravelerSearchAPITest      : Starting TravelerSearchAPITest on USABOS252632L with PID 88944 (started by marcus.sullins in C:\Users\marcus.sullins\Downloads\demo\demo)
+2020-05-07 12:50:17.743  INFO 88944 --- [main] com.infy.demo.TravelerSearchAPITest      : No active profile set, falling back to default profiles: default
+2020-05-07 12:50:18.164  INFO 88944 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-05-07 12:50:18.250  INFO 88944 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2020-05-07 12:50:18.251  INFO 88944 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2020-05-07 12:50:18.278  INFO 88944 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 27 ms
+2020-05-07 12:50:18.290  INFO 88944 --- [main] com.infy.demo.TravelerSearchAPITest      : Started TravelerSearchAPITest in 0.606 seconds (JVM running for 31.341)
+2020-05-07 12:50:18.447  INFO 88944 --- [main] o.s.mock.web.MockServletContext          : Initializing Spring TestDispatcherServlet ''
+2020-05-07 12:50:18.447  INFO 88944 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2020-05-07 12:50:18.448  INFO 88944 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2020-05-07 12:50:18.453  INFO 88944 --- [main] com.infy.demo.api.AdminAPI               : TRAVELLER TRYING TO LOGIN WITH EMAIL: marcus@marcus.com
+2020-05-07 12:50:18.478  INFO 88944 --- [main] o.s.mock.web.MockServletContext          : Initializing Spring TestDispatcherServlet ''
+2020-05-07 12:50:18.478  INFO 88944 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2020-05-07 12:50:18.479  INFO 88944 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2020-05-07 12:50:18.483  INFO 88944 --- [main] com.infy.demo.api.AdminAPI               : TRAVELLER TRYING TO LOGIN WITH EMAIL: marcus@marcus.com
+2020-05-07 12:50:18.513  INFO 88944 --- [main] o.s.mock.web.MockServletContext          : Initializing Spring TestDispatcherServlet ''
+2020-05-07 12:50:18.513  INFO 88944 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2020-05-07 12:50:18.513  INFO 88944 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2020-05-07 12:50:18.518  INFO 88944 --- [main] com.infy.demo.api.AdminAPI               : TRAVELLER TRYING TO REGISTER WITH EMAIL: marcus@marcus.com
+2020-05-07 12:50:18.519  INFO 88944 --- [main] com.infy.demo.api.AdminAPI               : TRAVELLER REGISTERED SUCCESSFULLY WITH EMAIL: marcus@marcus.com
+2020-05-07 12:50:18.545  INFO 88944 --- [main] o.s.mock.web.MockServletContext          : Initializing Spring TestDispatcherServlet ''
+2020-05-07 12:50:18.546  INFO 88944 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2020-05-07 12:50:18.546  INFO 88944 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2020-05-07 12:50:18.550  INFO 88944 --- [main] com.infy.demo.api.AdminAPI               : TRAVELLER TRYING TO LOGIN WITH EMAIL: marcus@marcus.com
+2020-05-07 12:50:18.550  INFO 88944 --- [main] com.infy.demo.api.AdminAPI               : TRAVELLER LOGGED IN SUCCESSFULLY WITH EMAIL: marcus@marcus.com
+2020-05-07 12:50:18.576  INFO 88944 --- [main] o.s.mock.web.MockServletContext          : Initializing Spring TestDispatcherServlet ''
+2020-05-07 12:50:18.576  INFO 88944 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2020-05-07 12:50:18.576  INFO 88944 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2020-05-07 12:50:18.581  INFO 88944 --- [main] com.infy.demo.api.AdminAPI               : TRAVELLER TRYING TO REGISTER WITH EMAIL: marcus@marcus.com
+2020-05-07 12:50:18.597  INFO 88944 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-05-07 12:50:22.667  INFO 88944 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-05-07 12:50:22.672  INFO 88944 --- [SpringContextShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-05-07 12:50:22.676  INFO 88944 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2020-05-07 12:50:25.274  INFO 88944 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2020-05-07 13:07:01.404  INFO 64880 --- [main] com.infy.demo.TravelerSearchServiceTest  : Starting TravelerSearchServiceTest on USABOS252632L with PID 64880 (started by marcus.sullins in C:\Users\marcus.sullins\Downloads\demo\demo)
+2020-05-07 13:07:01.406  INFO 64880 --- [main] com.infy.demo.TravelerSearchServiceTest  : No active profile set, falling back to default profiles: default
+2020-05-07 13:07:12.934  INFO 64880 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2020-05-07 13:07:12.987  INFO 64880 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 41ms. Found 0 JPA repository interfaces.
+2020-05-07 13:07:14.279  INFO 64880 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-05-07 13:07:19.014  INFO 64880 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-05-07 13:07:19.112  INFO 64880 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-05-07 13:07:19.228  INFO 64880 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.12.Final
+2020-05-07 13:07:19.473  INFO 64880 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-05-07 13:07:20.144  INFO 64880 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2020-05-07 13:07:28.089  INFO 64880 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-05-07 13:07:28.103  INFO 64880 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-05-07 13:07:29.259  WARN 64880 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-05-07 13:07:30.176  INFO 64880 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2020-05-07 13:07:31.101  INFO 64880 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-05-07 13:07:31.793  INFO 64880 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2020-05-07 13:07:31.863  INFO 64880 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2020-05-07 13:07:31.941  INFO 64880 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2020-05-07 13:07:32.853  INFO 64880 --- [main] com.infy.demo.TravelerSearchServiceTest  : Started TravelerSearchServiceTest in 31.954 seconds (JVM running for 33.282)
+2020-05-07 13:07:37.240  INFO 64880 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-05-07 13:07:37.246  INFO 64880 --- [SpringContextShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-05-07 13:07:37.252  INFO 64880 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2020-05-07 13:07:39.569  INFO 64880 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2020-05-07 13:09:29.298  INFO 82044 --- [main] com.infy.demo.TravelerSearchServiceTest  : Starting TravelerSearchServiceTest on USABOS252632L with PID 82044 (started by marcus.sullins in C:\Users\marcus.sullins\Downloads\demo\demo)
+2020-05-07 13:09:29.300  INFO 82044 --- [main] com.infy.demo.TravelerSearchServiceTest  : No active profile set, falling back to default profiles: default
+2020-05-07 13:09:30.689  INFO 82044 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2020-05-07 13:09:30.737  INFO 82044 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 36ms. Found 0 JPA repository interfaces.
+2020-05-07 13:09:32.022  INFO 82044 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-05-07 13:09:37.845  INFO 82044 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-05-07 13:09:37.959  INFO 82044 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-05-07 13:09:38.063  INFO 82044 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.12.Final
+2020-05-07 13:09:38.338  INFO 82044 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-05-07 13:09:38.929  INFO 82044 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2020-05-07 13:09:44.727  INFO 82044 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-05-07 13:09:44.740  INFO 82044 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-05-07 13:09:45.844  WARN 82044 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-05-07 13:09:46.692  INFO 82044 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2020-05-07 13:09:47.717  INFO 82044 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-05-07 13:09:48.434  INFO 82044 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2020-05-07 13:09:48.484  INFO 82044 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2020-05-07 13:09:48.540  INFO 82044 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2020-05-07 13:09:48.958  INFO 82044 --- [main] com.infy.demo.TravelerSearchServiceTest  : Started TravelerSearchServiceTest in 20.168 seconds (JVM running for 21.499)
+2020-05-07 13:09:49.612  INFO 82044 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-05-07 13:09:49.618  INFO 82044 --- [SpringContextShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-05-07 13:09:49.622  INFO 82044 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2020-05-07 13:09:51.373  INFO 82044 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2020-05-07 13:47:10.253  INFO 72220 --- [main] com.infy.demo.TravelerSearchAPITest      : Starting TravelerSearchAPITest on USABOS252632L with PID 72220 (started by marcus.sullins in C:\Users\marcus.sullins\Downloads\demo\demo)
+2020-05-07 13:47:10.274  INFO 72220 --- [main] com.infy.demo.TravelerSearchAPITest      : No active profile set, falling back to default profiles: default
+2020-05-07 13:47:12.623  INFO 72220 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-05-07 13:47:13.002  INFO 72220 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2020-05-07 13:47:13.002  INFO 72220 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2020-05-07 13:47:13.034  INFO 72220 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 32 ms
+2020-05-07 13:47:13.082  INFO 72220 --- [main] com.infy.demo.TravelerSearchAPITest      : Started TravelerSearchAPITest in 3.411 seconds (JVM running for 14.274)
+2020-05-07 13:47:13.317  INFO 72220 --- [main] o.s.mock.web.MockServletContext          : Initializing Spring TestDispatcherServlet ''
+2020-05-07 13:47:13.317  INFO 72220 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2020-05-07 13:47:13.318  INFO 72220 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2020-05-07 13:47:13.324  INFO 72220 --- [main] com.infy.demo.api.AdminAPI               : TRAVELLER TRYING TO LOGIN WITH EMAIL: marcus@marcus.com
+2020-05-07 13:47:13.349  INFO 72220 --- [main] o.s.mock.web.MockServletContext          : Initializing Spring TestDispatcherServlet ''
+2020-05-07 13:47:13.350  INFO 72220 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2020-05-07 13:47:13.350  INFO 72220 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2020-05-07 13:47:13.355  INFO 72220 --- [main] com.infy.demo.api.AdminAPI               : TRAVELLER TRYING TO LOGIN WITH EMAIL: marcus@marcus.com
+2020-05-07 13:47:13.386  INFO 72220 --- [main] o.s.mock.web.MockServletContext          : Initializing Spring TestDispatcherServlet ''
+2020-05-07 13:47:13.387  INFO 72220 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2020-05-07 13:47:13.387  INFO 72220 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2020-05-07 13:47:13.392  INFO 72220 --- [main] com.infy.demo.api.AdminAPI               : TRAVELLER TRYING TO REGISTER WITH EMAIL: marcus@marcus.com
+2020-05-07 13:47:13.393  INFO 72220 --- [main] com.infy.demo.api.AdminAPI               : TRAVELLER REGISTERED SUCCESSFULLY WITH EMAIL: marcus@marcus.com
+2020-05-07 13:47:13.426  INFO 72220 --- [main] o.s.mock.web.MockServletContext          : Initializing Spring TestDispatcherServlet ''
+2020-05-07 13:47:13.426  INFO 72220 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2020-05-07 13:47:13.427  INFO 72220 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2020-05-07 13:47:13.432  INFO 72220 --- [main] com.infy.demo.api.AdminAPI               : TRAVELLER TRYING TO LOGIN WITH EMAIL: marcus@marcus.com
+2020-05-07 13:47:13.432  INFO 72220 --- [main] com.infy.demo.api.AdminAPI               : TRAVELLER LOGGED IN SUCCESSFULLY WITH EMAIL: marcus@marcus.com
+2020-05-07 13:47:13.464  INFO 72220 --- [main] o.s.mock.web.MockServletContext          : Initializing Spring TestDispatcherServlet ''
+2020-05-07 13:47:13.465  INFO 72220 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2020-05-07 13:47:13.465  INFO 72220 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2020-05-07 13:47:13.470  INFO 72220 --- [main] com.infy.demo.api.AdminAPI               : TRAVELLER TRYING TO REGISTER WITH EMAIL: marcus@marcus.com
+2020-05-07 13:47:13.499  INFO 72220 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-05-07 14:40:23.973  INFO 9028 --- [main] com.infy.demo.TravelerSearchAPITest      : Starting TravelerSearchAPITest on USABOS252632L with PID 9028 (started by marcus.sullins in C:\Users\marcus.sullins\Downloads\demo\demo)
+2020-05-07 14:40:23.990  INFO 9028 --- [main] com.infy.demo.TravelerSearchAPITest      : No active profile set, falling back to default profiles: default
+2020-05-07 14:40:26.790  INFO 9028 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-05-07 14:40:27.139  INFO 9028 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2020-05-07 14:40:27.139  INFO 9028 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2020-05-07 14:40:27.164  INFO 9028 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 25 ms
+2020-05-07 14:40:27.204  INFO 9028 --- [main] com.infy.demo.TravelerSearchAPITest      : Started TravelerSearchAPITest in 4.14 seconds (JVM running for 21.425)
+2020-05-07 14:40:27.468  INFO 9028 --- [main] o.s.mock.web.MockServletContext          : Initializing Spring TestDispatcherServlet ''
+2020-05-07 14:40:27.469  INFO 9028 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2020-05-07 14:40:27.470  INFO 9028 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2020-05-07 14:40:27.477  INFO 9028 --- [main] com.infy.demo.api.AdminAPI               : TRAVELLER TRYING TO LOGIN WITH EMAIL: marcus@marcus.com
+2020-05-07 14:40:27.504  INFO 9028 --- [main] o.s.mock.web.MockServletContext          : Initializing Spring TestDispatcherServlet ''
+2020-05-07 14:40:27.505  INFO 9028 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2020-05-07 14:40:27.506  INFO 9028 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2020-05-07 14:40:27.512  INFO 9028 --- [main] com.infy.demo.api.AdminAPI               : TRAVELLER TRYING TO LOGIN WITH EMAIL: marcus@marcus.com
+2020-05-07 14:40:27.544  INFO 9028 --- [main] o.s.mock.web.MockServletContext          : Initializing Spring TestDispatcherServlet ''
+2020-05-07 14:40:27.545  INFO 9028 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2020-05-07 14:40:27.545  INFO 9028 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2020-05-07 14:40:27.550  INFO 9028 --- [main] com.infy.demo.api.AdminAPI               : TRAVELLER TRYING TO REGISTER WITH EMAIL: marcus@marcus.com
+2020-05-07 14:40:27.551  INFO 9028 --- [main] com.infy.demo.api.AdminAPI               : TRAVELLER REGISTERED SUCCESSFULLY WITH EMAIL: marcus@marcus.com
+2020-05-07 14:40:27.585  INFO 9028 --- [main] o.s.mock.web.MockServletContext          : Initializing Spring TestDispatcherServlet ''
+2020-05-07 14:40:27.585  INFO 9028 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2020-05-07 14:40:27.586  INFO 9028 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2020-05-07 14:40:27.591  INFO 9028 --- [main] com.infy.demo.api.AdminAPI               : TRAVELLER TRYING TO LOGIN WITH EMAIL: marcus@marcus.com
+2020-05-07 14:40:27.592  INFO 9028 --- [main] com.infy.demo.api.AdminAPI               : TRAVELLER LOGGED IN SUCCESSFULLY WITH EMAIL: marcus@marcus.com
+2020-05-07 14:40:27.617  INFO 9028 --- [main] o.s.mock.web.MockServletContext          : Initializing Spring TestDispatcherServlet ''
+2020-05-07 14:40:27.617  INFO 9028 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2020-05-07 14:40:27.618  INFO 9028 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2020-05-07 14:40:27.622  INFO 9028 --- [main] com.infy.demo.api.AdminAPI               : TRAVELLER TRYING TO REGISTER WITH EMAIL: marcus@marcus.com
+2020-05-07 14:40:29.943  INFO 9028 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
