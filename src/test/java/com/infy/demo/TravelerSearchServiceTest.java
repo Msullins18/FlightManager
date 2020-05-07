@@ -38,6 +38,9 @@ public class TravelerSearchServiceTest {
 	@InjectMocks
 	private TravelerSearchService travelerSearchService = new TravelerSearchServiceImpl();
 	
+	@Rule
+	public ExpectedException expectedException=ExpectedException.none();
+	
 	@Test
 	public void testGetFlights() throws Exception{
 		LocalDate date = LocalDate.now().plusDays(14);
@@ -101,5 +104,16 @@ public class TravelerSearchServiceTest {
 		Assert.assertNotNull(destinationList);
 	}
 	
+	@Test(expected=NoFlightsAvailableException.class)
+	public void testGetFlightsNoavailable() throws Exception{
+		LocalDate date = LocalDate.now().plusDays(14);
+		Integer airport = 1000;
+		String destination = "New York";
+		Integer numberOfTickets = 2;
+		List<Flight> flightList = new ArrayList<>();
+		Mockito.when(travelerSearchDAO.getFlights(date, airport, destination, numberOfTickets)).thenReturn(flightList);
+		travelerSearchService.getFlights(date, airport, destination, numberOfTickets);
+		
+	}
 
 }

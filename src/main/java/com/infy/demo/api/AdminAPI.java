@@ -26,13 +26,18 @@ import com.infy.demo.exceptions.UserNotFoundException;
 import com.infy.demo.model.Admin;
 import com.infy.demo.model.Airport;
 import com.infy.demo.service.AdminService;
+<<<<<<< HEAD
 @Controller
+=======
+
+import lombok.extern.slf4j.Slf4j;
+
+>>>>>>> 49d26f658d96bf4867a9cca40964036672efcc45
 @CrossOrigin
 @RestController
 @RequestMapping("Admin")
+@Slf4j
 public class AdminAPI {
-	
-	static Logger logger = LogManager.getLogger(AdminAPI.class.getName());
 	
 	@Autowired
 	AdminService adminService;
@@ -43,21 +48,21 @@ public class AdminAPI {
 	@PostMapping(value = "Login")
 	public ResponseEntity<Admin> loginAdmin(@RequestBody Admin admin) throws Exception
 	{
-		logger.info("ADMIN TRYING TO LOGIN WITH EMAIL: " + admin.getEmailId());
+		log.info("ADMIN TRYING TO LOGIN WITH EMAIL: " + admin.getEmailId());
 		Admin authenticated = adminService.loginAdmin(admin);
 		ResponseEntity<Admin> re = new ResponseEntity<Admin>(authenticated,HttpStatus.OK);
-		logger.info("ADMIN LOGGED IN SUCCESSFULLY WITH EMAIL: "+ authenticated.getEmailId());
+		log.info("ADMIN LOGGED IN SUCCESSFULLY WITH EMAIL: "+ authenticated.getEmailId());
 		return re;
 	}
 	
 	@PostMapping(value = "Register")
 	public ResponseEntity<String> registerAdmin(@RequestBody Admin admin) throws Exception
 	{
-		logger.info("ADMIN TRYING TO REGISTER WITH EMAIL: "+ admin.getEmailId());
+		log.info("ADMIN TRYING TO REGISTER WITH EMAIL: "+ admin.getEmailId());
 		String registered = adminService.registerAdmin(admin);
 		System.out.println(registered);
 		ResponseEntity<String> re = new ResponseEntity<String>(registered,HttpStatus.OK);
-		logger.info("ADMIN SUCCESSFULLY REGISTERED WITH EMAIL: "+ registered);
+		log.info("ADMIN SUCCESSFULLY REGISTERED WITH EMAIL: "+ registered);
 		return re;
 	}
 	
@@ -67,7 +72,7 @@ public class AdminAPI {
 		{
 			Integer id = adminService.addAirport(airport);
 			String message = "The following Airport has been successfully added with Airport Id: " + id;
-			logger.info(message);
+			log.info(message);
 			return new ResponseEntity<String>(message, HttpStatus.OK);
 			
 		}
@@ -83,7 +88,7 @@ public class AdminAPI {
 		try
 		{
 			Integer result = adminService.deleteAirport(airportId);
-			logger.info("The following Airport has been successfully deleted with Airport Id:" + result);
+			log.info("The following Airport has been successfully deleted with Airport Id:" + result);
 			return new ResponseEntity<Integer>(result, HttpStatus.OK);
 		}
 		catch (Exception e) {

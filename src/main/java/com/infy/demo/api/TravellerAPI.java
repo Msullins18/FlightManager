@@ -19,31 +19,58 @@ import com.infy.demo.exceptions.UserNotFoundException;
 import com.infy.demo.model.Traveller;
 import com.infy.demo.service.TravellerService;
 
+<<<<<<< HEAD
+=======
+import lombok.extern.slf4j.Slf4j;
+>>>>>>> 49d26f658d96bf4867a9cca40964036672efcc45
 @CrossOrigin
 @RestController
 @RequestMapping("Traveller")
+@Slf4j
 public class TravellerAPI {
+<<<<<<< HEAD
 
 	static Logger logger = LogManager.getLogger(AdminAPI.class.getName());
+=======
+	
+>>>>>>> 49d26f658d96bf4867a9cca40964036672efcc45
 
 	@Autowired
 	TravellerService travellerService;
 
 	@PostMapping(value = "Login")
+<<<<<<< HEAD
 	public ResponseEntity<Traveller> loginTraveller(@RequestBody Traveller traveller) throws Exception {
 		logger.info("TRAVELLER TRYING TO LOGIN WITH EMAIL: " + traveller.getEmailId());
 		Traveller authenticated = travellerService.loginTraveller(traveller);
 		ResponseEntity<Traveller> re = new ResponseEntity<Traveller>(authenticated, HttpStatus.OK);
 		logger.info("TRAVELLER LOGGED IN SUCCESSFULLY WITH EMAIL: " + authenticated.getEmailId());
+=======
+	public ResponseEntity<Traveller> loginTraveller(@RequestBody Traveller traveller) throws Exception
+	{
+		log.info("TRAVELLER TRYING TO LOGIN WITH EMAIL: " + traveller.getEmailId());
+		Traveller authenticated = travellerService.loginTraveller(traveller);
+		ResponseEntity<Traveller> re = new ResponseEntity<Traveller>(authenticated,HttpStatus.OK);
+		log.info("TRAVELLER LOGGED IN SUCCESSFULLY WITH EMAIL: "+ authenticated.getEmailId());
+>>>>>>> 49d26f658d96bf4867a9cca40964036672efcc45
 		return re;
 	}
 
 	@PostMapping(value = "Register")
+<<<<<<< HEAD
 	public ResponseEntity<String> registerTraveller(@RequestBody Traveller traveller) throws Exception {
 		logger.info("TRAVELLER TRYING TO REGISTER WITH EMAIL: " + traveller.getEmailId());
 		String registered = travellerService.registerTraveller(traveller);
 		ResponseEntity<String> re = new ResponseEntity<String>(registered, HttpStatus.OK);
 		logger.info("TRAVELLER REGISTERED SUCCESSFULLY WITH EMAIL: " + registered);
+=======
+	public ResponseEntity<String> registerTraveller(@RequestBody Traveller traveller) throws Exception
+	{
+		log.info("TRAVELLER TRYING TO REGISTER WITH EMAIL: " + traveller.getEmailId());
+		String registered = travellerService.registerTraveller(traveller);
+		ResponseEntity<String> re = new ResponseEntity<String>(registered,HttpStatus.OK);
+		log.info("TRAVELLER REGISTERED SUCCESSFULLY WITH EMAIL: "+ registered);
+>>>>>>> 49d26f658d96bf4867a9cca40964036672efcc45
 		return re;
 	}
 
