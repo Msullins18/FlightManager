@@ -71,7 +71,7 @@ public class TravelerSearchDAOImpl implements TravelerSearchDAO {
 				Airport airport = new Airport();
 				airport.setAirportId(airportEntity.getAirportId());
 				airport.setCity(airportEntity.getCity());
-				airport.setAirportName(airportEntity.getAirportName());
+				airport.setName(airportEntity.getName());
 				originList.add(airport);
 			}
 			airportList = originList.stream()

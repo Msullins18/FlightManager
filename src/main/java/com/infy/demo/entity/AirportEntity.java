@@ -12,7 +12,10 @@ import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter @Setter
 @Entity
 @Table(name="AIRPORT")
 public class AirportEntity {
@@ -31,38 +34,6 @@ public class AirportEntity {
 	@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name="AIRPORT_ID")
 	private List<FlightEntity> flightEntities;
-
-	public Integer getAirportId() {
-		return airportId;
-	}
-
-	public void setAirportId(Integer airId) {
-		this.airportId = airId;
-	}
-
-	public String getAirportName() {
-		return name;
-	}
-
-	public void setAirportName(String name) {
-		this.name = name;
-	}
-
-	public String getCity() {
-		return city;
-	}
-
-	public void setCity(String city) {
-		this.city = city;
-	}
-
-	public List<FlightEntity> getFlightEntities() {
-		return flightEntities;
-	}
-
-	public void setFlightEntities(List<FlightEntity> flightEntities) {
-		this.flightEntities = flightEntities;
-	}
 	
 	
 }
