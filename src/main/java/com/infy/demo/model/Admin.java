@@ -4,6 +4,9 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Getter @Setter
+import lombok.Data;
+
+@Data
 public class Admin {
 	private String firstName;
 	private String lastName;

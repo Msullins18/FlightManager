@@ -16,6 +16,9 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Getter @Setter
+import lombok.Data;
+
+@Data
 @Entity
 @Table(name="AIRPORT")
 public class AirportEntity {
@@ -26,7 +29,7 @@ public class AirportEntity {
 	private Integer airportId;
 	
 	@Column(name="NAME")
-	private String name;
+	private String airportName;
 	
 	@Column(name="CITY")
 	private String city;

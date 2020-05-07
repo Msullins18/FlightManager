@@ -19,9 +19,12 @@ import org.springframework.web.server.ResponseStatusException;
 import com.infy.demo.model.Flight;
 import com.infy.demo.service.AirportService;
 
+import lombok.extern.slf4j.Slf4j;
+
 @CrossOrigin
 @RestController
 @RequestMapping("AirportAPI")
+@Slf4j
 public class AirportAPI {
 	
 	@Autowired
@@ -29,8 +32,7 @@ public class AirportAPI {
 	
 	@Autowired
 	private Environment environment;
-	
-	static Logger logger = LogManager.getLogger(AirportAPI.class.getName());
+
 	@PostMapping(value = "addFlight")
 	public ResponseEntity<String> addFlight(@RequestBody Flight flight) throws Exception {
 		try
@@ -54,7 +56,7 @@ public class AirportAPI {
 		try
 		{
 			Integer result = airportService.deleteFlight(flightId);
-			logger.info(environment.getProperty("DealsForTodayAPI.DELETE_SUCCESS") + result);
+			log.info(environment.getProperty("DealsForTodayAPI.DELETE_SUCCESS") + result);
 			return new ResponseEntity<Integer>(result, HttpStatus.OK);
 		}
 		catch (Exception e) {

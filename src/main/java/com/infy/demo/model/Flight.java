@@ -2,10 +2,9 @@ package com.infy.demo.model;
 
 import java.time.LocalDate;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
-@Setter @Getter
+@Data
 public class Flight {
 	private Integer flightId;
     private String flightType;
@@ -17,7 +16,4 @@ public class Flight {
     private Integer airportId;
     private double flightFare;
     private double flightTax;
-    
-
-
 }

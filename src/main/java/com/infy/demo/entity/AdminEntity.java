@@ -12,6 +12,8 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Getter @Setter
+import lombok.Data;
+@Data
 @Entity
 @Table(name = "Admin")
 public class AdminEntity {

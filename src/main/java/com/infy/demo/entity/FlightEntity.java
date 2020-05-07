@@ -15,6 +15,8 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Setter @Getter
+import lombok.Data;
+@Data
 @Entity
 @Table (name="FLIGHT")
 public class FlightEntity {

@@ -2,16 +2,13 @@ package com.infy.demo.model;
 
 import java.util.List;
 
-import lombok.Getter;
-import lombok.Setter;
-
-@Setter @Getter
+import lombok.Data;
+@Data
 public class Airport {
 	private Integer airportId;
-	private String name;
+	private String airportName;
 	private String city;
 	private List<Flight> flights;
-	
 }
 
 

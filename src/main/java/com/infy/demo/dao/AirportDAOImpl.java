@@ -79,4 +79,19 @@ public class AirportDAOImpl implements AirportDAO {
 		return flights;
 	}
 
+	@Override
+	public boolean airportExists(Integer airportId) {
+		// TODO Auto-generated method stub
+		AirportEntity airport = entityManager.find(AirportEntity.class, airportId);
+		if(airport != null)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+		
+	}
+
 }

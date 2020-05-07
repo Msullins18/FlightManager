@@ -1,9 +1,8 @@
 package com.infy.demo.model;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
-@Setter @Getter
+@Data
 public class Traveller {
 	private String firstName;
 	private String lastName;

@@ -18,20 +18,24 @@ public class AirportServiceImpl implements AirportService {
 	AirportDAO airportDAO;
 	
 	@Override
-	public Integer addFlight(Flight flight) {
+	public Integer addFlight(Flight flight) throws Exception {
 		// TODO Auto-generated method stub
-		try {
-			AirportValidator.validateFlight(flight);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			System.out.println(e.getMessage());
+		AirportValidator.validateFlight(flight);
+		boolean doesExist = airportDAO.airportExists(flight.getAirportId());
+		if(doesExist)
+		{
+			Integer flightId = airportDAO.addFlight(flight);
+			return flightId;
 		}
-		Integer flightId = airportDAO.addFlight(flight);
-		return flightId;
+		else
+		{
+			throw new Exception("Airport Does Not Exist");
+		}
+		
 	}
 
 	@Override
-	public Integer deleteFlight(Integer flightId) {
+	public Integer deleteFlight(Integer flightId) throws Exception {
 		// TODO Auto-generated method stub
 		return airportDAO.deleteFlight(flightId);
 	}
