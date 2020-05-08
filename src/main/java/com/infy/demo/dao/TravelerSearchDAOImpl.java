@@ -16,6 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import com.infy.demo.entity.AirportEntity;
 import com.infy.demo.entity.FlightEntity;
+import com.infy.demo.exceptions.NotEnoughTicketsException;
 import com.infy.demo.model.Airport;
 import com.infy.demo.model.Flight;
 
@@ -52,7 +53,7 @@ public class TravelerSearchDAOImpl implements TravelerSearchDAO {
 				flight.setFlightType(flightEntity.getFlightType());
 				flight.setSeatsAvailable(flightEntity.getSeatsAvailable());
 				if(numberOfTickets>flight.getSeatsAvailable()){
-					throw new Exception("TravelerSearchDAO.Not_Engough_Tickets_Available");
+					throw new NotEnoughTicketsException();
 				}
 				flightList.add(flight);
 			}

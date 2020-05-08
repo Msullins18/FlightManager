@@ -18,20 +18,20 @@ import com.infy.demo.exceptions.InvalidCredentialsException;
 import com.infy.demo.exceptions.UserNotFoundException;
 import com.infy.demo.model.Traveller;
 import com.infy.demo.service.TravellerService;
-
 import lombok.extern.slf4j.Slf4j;
+
 @CrossOrigin
 @RestController
 @RequestMapping("Traveller")
 @Slf4j
 public class TravellerAPI {
-	
+
+
+	static Logger logger = LogManager.getLogger(AdminAPI.class.getName());
 
 	@Autowired
 	TravellerService travellerService;
-	
-//	@Autowired
-//	Environment environment;
+
 	@PostMapping(value = "Login")
 	public ResponseEntity<Traveller> loginTraveller(@RequestBody Traveller traveller) throws Exception
 	{
@@ -41,7 +41,7 @@ public class TravellerAPI {
 		log.info("TRAVELLER LOGGED IN SUCCESSFULLY WITH EMAIL: "+ authenticated.getEmailId());
 		return re;
 	}
-	
+
 	@PostMapping(value = "Register")
 	public ResponseEntity<String> registerTraveller(@RequestBody Traveller traveller) throws Exception
 	{
@@ -49,30 +49,28 @@ public class TravellerAPI {
 		String registered = travellerService.registerTraveller(traveller);
 		ResponseEntity<String> re = new ResponseEntity<String>(registered,HttpStatus.OK);
 		log.info("TRAVELLER REGISTERED SUCCESSFULLY WITH EMAIL: "+ registered);
+
 		return re;
 	}
-	
-    @ExceptionHandler(UserNotFoundException.class)
-    public ResponseEntity<Object> handleException(UserNotFoundException  e) {
-    	//throw new ResponseStatusException(HttpStatus.NOT_FOUND,e.getMessage());
-    	return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
-    }
-    
-    @ExceptionHandler(InvalidCredentialsException.class)
-    public ResponseEntity<Object> handleException(InvalidCredentialsException  e) {
-    	//throw new ResponseStatusException(HttpStatus.UNAUTHORIZED,e.getMessage());
-    	return new ResponseEntity<>(e.getMessage(), HttpStatus.UNAUTHORIZED);
-    }
-    
-    @ExceptionHandler(EmailUnavailableException.class)
-    public ResponseEntity<Object> handleException(EmailUnavailableException  e) {
-    	//throw new ResponseStatusException(HttpStatus.UNAUTHORIZED,e.getMessage());
-    	return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
-    }
-    @ExceptionHandler(TransactionSystemException.class)
-    public ResponseEntity<Object> handleException(TransactionSystemException  e) {
-    	//throw new ResponseStatusException(HttpStatus.UNAUTHORIZED,e.getMessage());
-    	return new ResponseEntity<>("Invalid inputs! Please try again.", HttpStatus.BAD_REQUEST);
-    }
+
+	@ExceptionHandler(UserNotFoundException.class)
+	public ResponseEntity<Object> handleException(UserNotFoundException e) {
+		return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
+	}
+
+	@ExceptionHandler(InvalidCredentialsException.class)
+	public ResponseEntity<Object> handleException(InvalidCredentialsException e) {
+		return new ResponseEntity<>(e.getMessage(), HttpStatus.UNAUTHORIZED);
+	}
+
+	@ExceptionHandler(EmailUnavailableException.class)
+	public ResponseEntity<Object> handleException(EmailUnavailableException e) {
+		return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
+	}
+
+	@ExceptionHandler(TransactionSystemException.class)
+	public ResponseEntity<Object> handleException(TransactionSystemException e) {
+		return new ResponseEntity<>("Invalid inputs! Please try again.", HttpStatus.BAD_REQUEST);
+	}
 
 }

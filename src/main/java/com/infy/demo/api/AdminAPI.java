@@ -1,9 +1,6 @@
 package com.infy.demo.api;
 
 import java.util.List;
-
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
@@ -27,6 +24,7 @@ import com.infy.demo.model.Airport;
 import com.infy.demo.service.AdminService;
 
 import lombok.extern.slf4j.Slf4j;
+
 
 @CrossOrigin
 @RestController
@@ -55,6 +53,7 @@ public class AdminAPI {
 	{
 		log.info("ADMIN TRYING TO REGISTER WITH EMAIL: "+ admin.getEmailId());
 		String registered = adminService.registerAdmin(admin);
+		System.out.println(registered);
 		ResponseEntity<String> re = new ResponseEntity<String>(registered,HttpStatus.OK);
 		log.info("ADMIN SUCCESSFULLY REGISTERED WITH EMAIL: "+ registered);
 		return re;

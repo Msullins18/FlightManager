@@ -24,7 +24,10 @@ public class TravelerSearchServiceImpl implements TravelerSearchService {
 		TravelValidator.validateTravel(date);;
 		List<Flight> flightList = travelerSearchDAO.getFlights(date, airportId, destination, numberOfTickets);
 		if(flightList.isEmpty())
+		{
 			throw new NoFlightsAvailableException();
+		}
+			
 		return flightList;
 	}
 
