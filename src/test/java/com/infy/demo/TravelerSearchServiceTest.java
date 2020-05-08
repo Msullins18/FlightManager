@@ -63,7 +63,7 @@ public class TravelerSearchServiceTest {
 		List<Airport> origins = new ArrayList<>();
 		Airport airport = new Airport();
 		airport.setAirportId(1000);
-		airport.setName("DFW");
+		airport.setAirportName("DFW");
 		airport.setCity("Dallas");
 		origins.add(airport);
 

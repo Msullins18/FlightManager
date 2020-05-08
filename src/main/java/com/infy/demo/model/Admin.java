@@ -3,7 +3,6 @@ package com.infy.demo.model;
 import lombok.Getter;
 import lombok.Setter;
 
-@Getter @Setter
 import lombok.Data;
 
 @Data

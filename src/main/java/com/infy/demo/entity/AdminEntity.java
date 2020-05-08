@@ -11,7 +11,7 @@ import com.infy.demo.validator.Password;
 import lombok.Getter;
 import lombok.Setter;
 
-@Getter @Setter
+
 import lombok.Data;
 @Data
 @Entity

@@ -85,7 +85,7 @@ public class AdminDAOImpl implements AdminDAO {
 		AirportEntity newAirport = new AirportEntity();
 		
 		newAirport.setCity(airport.getCity());
-		newAirport.setName(airport.getName());
+		newAirport.setAirportName(airport.getAirportName());
 		List<FlightEntity> listOfFlights = new ArrayList<>();
 		
 		newAirport.setFlightEntities(listOfFlights);
@@ -121,7 +121,7 @@ public class AdminDAOImpl implements AdminDAO {
 			for(AirportEntity a : airportList){
 				Airport airport = new Airport();
 				airport.setAirportId(a.getAirportId());
-				airport.setName(a.getName());
+				airport.setAirportName(a.getAirportName());
 				airport.setCity(a.getCity());
 				airport.setFlights(new ArrayList<Flight>());
 				airports.add(airport);
