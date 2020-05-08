@@ -16,8 +16,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
+import com.infy.demo.exceptions.AirportNotFoundException;
 import com.infy.demo.exceptions.EmailUnavailableException;
 import com.infy.demo.exceptions.InvalidCredentialsException;
+import com.infy.demo.exceptions.NoAirportsAvailableException;
 import com.infy.demo.exceptions.UserNotFoundException;
 import com.infy.demo.model.Admin;
 import com.infy.demo.model.Airport;
@@ -63,6 +65,7 @@ public class AdminAPI {
 	public ResponseEntity<String> addAirport(@RequestBody Airport airport) throws Exception {
 		try
 		{
+			log.info("Admin trying to add the airport: " + airport.getAirportName());
 			Integer id = adminService.addAirport(airport);
 			String message = "The following Airport has been successfully added with Airport Id: " + id;
 			log.info(message);
@@ -80,6 +83,7 @@ public class AdminAPI {
 		
 		try
 		{
+			log.info("ADMIN TRYING TO DELETE AIRPORT WITH AIRPORT ID: " + airportId);
 			Integer result = adminService.deleteAirport(airportId);
 			log.info("The following Airport has been successfully deleted with Airport Id:" + result);
 			return new ResponseEntity<Integer>(result, HttpStatus.OK);
@@ -125,6 +129,18 @@ public class AdminAPI {
     public ResponseEntity<Object> handleException(TransactionSystemException  e) {
     	//throw new ResponseStatusException(HttpStatus.UNAUTHORIZED,e.getMessage());
     	return new ResponseEntity<>("Invalid inputs! Please try again.", HttpStatus.BAD_REQUEST);
+    }
+    
+    @ExceptionHandler(AirportNotFoundException.class)
+    public ResponseEntity<Object> handleException(AirportNotFoundException  e) {
+    	//throw new ResponseStatusException(HttpStatus.UNAUTHORIZED,e.getMessage());
+    	return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
+    }
+    
+    @ExceptionHandler(NoAirportsAvailableException.class)
+    public ResponseEntity<Object> handleException(NoAirportsAvailableException  e) {
+    	//throw new ResponseStatusException(HttpStatus.UNAUTHORIZED,e.getMessage());
+    	return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
     }
 
 }

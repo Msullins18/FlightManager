@@ -1,0 +1,12 @@
+2020-05-07 22:07:39.020  INFO 60048 --- [main] com.infy.demo.TravelerSearchAPITest      : Starting TravelerSearchAPITest on USABOS287408L with PID 60048 (started by manoj.khatri in D:\HTML files\Flight Project\Back End\FlightManager)
+2020-05-07 22:07:39.031  INFO 60048 --- [main] com.infy.demo.TravelerSearchAPITest      : No active profile set, falling back to default profiles: default
+2020-05-07 22:07:42.554  INFO 60048 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2020-05-07 22:07:43.136  INFO 60048 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-05-07 22:07:43.452  INFO 60048 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2020-05-07 22:07:43.453  INFO 60048 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2020-05-07 22:07:43.486  INFO 60048 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 32 ms
+2020-05-07 22:07:43.551  INFO 60048 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2020-05-07 22:07:43.612  INFO 60048 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2020-05-07 22:07:43.669  INFO 60048 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2020-05-07 22:07:44.007  INFO 60048 --- [main] com.infy.demo.TravelerSearchAPITest      : Started TravelerSearchAPITest in 15.52 seconds (JVM running for 20.136)
+2020-05-07 22:07:44.271  INFO 60048 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'

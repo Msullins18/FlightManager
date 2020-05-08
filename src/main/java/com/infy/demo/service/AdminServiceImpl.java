@@ -9,8 +9,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.infy.demo.dao.AdminDAO;
 import com.infy.demo.entity.AirportEntity;
+import com.infy.demo.exceptions.AirportNotFoundException;
 import com.infy.demo.exceptions.EmailUnavailableException;
 import com.infy.demo.exceptions.InvalidCredentialsException;
+import com.infy.demo.exceptions.NoAirportsAvailableException;
 import com.infy.demo.exceptions.UserNotFoundException;
 import com.infy.demo.model.Admin;
 import com.infy.demo.model.Airport;
@@ -85,7 +87,8 @@ public class AdminServiceImpl implements AdminService {
 		// TODO Auto-generated method stub
 		Integer id = adminDAO.deleteAirport(airportId);
 		if(id==null){
-			throw new Exception("AdminService.AIRPORT_NOT_EXISTS");
+		//	throw new Exception("AdminService.AIRPORT_NOT_EXISTS");
+			throw new AirportNotFoundException(airportId);
 		}
 		return adminDAO.deleteAirport(airportId);
 	}
@@ -95,7 +98,8 @@ public class AdminServiceImpl implements AdminService {
 		// TODO Auto-generated method stub
 		List<Airport> airports = adminDAO.getAirports();
 		if(airports==null){
-			throw new Exception("Sorry no Airports are available at the moment");
+		//	throw new Exception("Sorry no Airports are available at the moment");
+			throw new NoAirportsAvailableException();
 		}
 		return airports;
 	}

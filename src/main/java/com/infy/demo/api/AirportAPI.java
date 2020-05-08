@@ -66,7 +66,7 @@ public class AirportAPI {
 	}
 	
 	@GetMapping(value = "getFlights")
-	public ResponseEntity<List<Flight>> getDealsForToday() throws Exception {
+	public ResponseEntity<List<Flight>> getFlights() throws Exception {
 		List<Flight> list = null;
 		try {
 			list = airportService.getFlights();
