@@ -65,10 +65,6 @@ public class TravelerSearchDAOTest {
 		Assert.assertTrue(true);
 	}
 	
-//	@Test
-//	public void getFlightsNotEnoughTicketsException() throws Exception{
-//		
-//	}
 	
 	@Test
 	public void getAllOrigins(){
