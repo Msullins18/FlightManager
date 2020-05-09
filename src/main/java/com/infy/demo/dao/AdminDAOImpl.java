@@ -2,6 +2,7 @@ package com.infy.demo.dao;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
@@ -101,7 +102,8 @@ public class AdminDAOImpl implements AdminDAO {
 		Integer id = null;
 		AirportEntity airport = entityManager.find(AirportEntity.class, airportId);
 		airport.setFlightEntities(null);
-		if(airport!=null){
+		Optional<AirportEntity> checkNull = Optional.ofNullable(airport);
+		if(checkNull.isPresent()){
 			id = airport.getAirportId();
 			entityManager.remove(airport);
 		}
@@ -117,7 +119,8 @@ public class AdminDAOImpl implements AdminDAO {
 		Query query = entityManager.createQuery(dft);
 		List<AirportEntity> airportList = query.getResultList();
 		airports = new ArrayList<Airport>();
-		if(!airportList.isEmpty()){
+		Optional<List<AirportEntity>> checkNull = Optional.ofNullable(airportList);
+		if(checkNull.isPresent()){
 			for(AirportEntity a : airportList){
 				Airport airport = new Airport();
 				airport.setAirportId(a.getAirportId());

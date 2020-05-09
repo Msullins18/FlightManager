@@ -8,6 +8,7 @@ import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,6 +17,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
+import com.infy.demo.exceptions.AirportNotFoundException;
+import com.infy.demo.exceptions.FlightNotFoundException;
+import com.infy.demo.exceptions.NoAirportsAvailableException;
+import com.infy.demo.exceptions.NoFlightsAvailableException;
 import com.infy.demo.model.Flight;
 import com.infy.demo.service.AirportService;
 
@@ -53,29 +58,30 @@ public class AirportAPI {
 	@PostMapping(value = "deleteFlight/{flightId}")
 	public ResponseEntity<Integer> deleteFlight(@PathVariable("flightId") Integer flightId) throws Exception{
 		
-		try
-		{
 			Integer result = airportService.deleteFlight(flightId);
 			log.info(environment.getProperty("DealsForTodayAPI.DELETE_SUCCESS") + result);
 			return new ResponseEntity<Integer>(result, HttpStatus.OK);
-		}
-		catch (Exception e) {
-			
-			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, environment.getProperty(e.getMessage()));
-		}
+		
 	}
 	
 	@GetMapping(value = "getFlights")
 	public ResponseEntity<List<Flight>> getFlights() throws Exception {
 		List<Flight> list = null;
-		try {
 			list = airportService.getFlights();
 			ResponseEntity<List<Flight>> response = new ResponseEntity<List<Flight>>(list, HttpStatus.OK);
 			return response;
-		} catch (Exception e) {
-
-			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, environment.getProperty(e.getMessage()));
-		}
 
 	}
+	
+	  @ExceptionHandler(FlightNotFoundException.class)
+	    public ResponseEntity<Object> handleException(FlightNotFoundException  e) {
+	    	//throw new ResponseStatusException(HttpStatus.UNAUTHORIZED,e.getMessage());
+	    	return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
+	    }
+	    
+	    @ExceptionHandler(NoFlightsAvailableException.class)
+	    public ResponseEntity<Object> handleException(NoAirportsAvailableException  e) {
+	    	//throw new ResponseStatusException(HttpStatus.UNAUTHORIZED,e.getMessage());
+	    	return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
+	    }
 }

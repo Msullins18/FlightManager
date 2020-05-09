@@ -80,31 +80,20 @@ public class AdminAPI {
 	
 	@PostMapping(value = "deleteAirport/{airportId}")
 	public ResponseEntity<Integer> deleteAirport(@PathVariable("airportId") Integer airportId) throws Exception{
-		
-		try
-		{
 			log.info("ADMIN TRYING TO DELETE AIRPORT WITH AIRPORT ID: " + airportId);
 			Integer result = adminService.deleteAirport(airportId);
 			log.info("The following Airport has been successfully deleted with Airport Id:" + result);
 			return new ResponseEntity<Integer>(result, HttpStatus.OK);
-		}
-		catch (Exception e) {
-			
-			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, environment.getProperty(e.getMessage()));
-		}
 	}
 	
 	@GetMapping(value = "getAirports")
 	public ResponseEntity<List<Airport>> getAirports() throws Exception {
-		List<Airport> list = null;
-		try {
+			log.info("ADMIN TRYING TO FETCH ALL THE AIRPORTS");
+			List<Airport> list = null;
 			list = adminService.getAirports();
+			log.info("LIST OF AIRPORTS FETCHED");
 			ResponseEntity<List<Airport>> response = new ResponseEntity<List<Airport>>(list, HttpStatus.OK);
 			return response;
-		} catch (Exception e) {
-
-			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, environment.getProperty(e.getMessage()));
-		}
 
 	}
     @ExceptionHandler(UserNotFoundException.class)
@@ -134,7 +123,7 @@ public class AdminAPI {
     @ExceptionHandler(AirportNotFoundException.class)
     public ResponseEntity<Object> handleException(AirportNotFoundException  e) {
     	//throw new ResponseStatusException(HttpStatus.UNAUTHORIZED,e.getMessage());
-    	return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
+    	return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
     }
     
     @ExceptionHandler(NoAirportsAvailableException.class)
