@@ -89,15 +89,14 @@ public class TravelerSearchAPITest {
 		mockMvc.perform(MockMvcRequestBuilders.get("/Search/getDestinations")).andExpect(MockMvcResultMatchers.status().isOk());
 	}
 	
-	@Test
-	public void travelerSearchGetFlights() throws Exception {
-		String json = new ObjectMapper().writeValueAsString(searchFlights);
-		
-		Mockito.when(travelerSearchService.getFlights(searchFlights.getDate(), searchFlights.getAirportId(), searchFlights.getDestination(), searchFlights.getNumberOfTickets()))
-		.thenReturn(flightList);
-		mockMvc.perform(MockMvcRequestBuilders.post("/Search/getFlights").contentType(APPLICATION_JSON_UTF8).content(json))
-				.andExpect(MockMvcResultMatchers.status().isOk());
-	}
+//	@Test
+//	public void travelerSearchGetFlights() throws Exception {
+//		String json = new ObjectMapper().writeValueAsString(searchFlights);		
+//		Mockito.when(travelerSearchService.getFlights(searchFlights.getDate(), searchFlights.getAirportId(), searchFlights.getDestination(), searchFlights.getNumberOfTickets()))
+//		.thenReturn(flightList);
+//		mockMvc.perform(MockMvcRequestBuilders.post("/Search/getFlights").contentType(APPLICATION_JSON_UTF8).content(json))
+//				.andExpect(MockMvcResultMatchers.status().isOk());
+//	}
 	
 //	@Test
 //	public void travelerSearchGetFlightsFlightNotFound() throws Exception {
