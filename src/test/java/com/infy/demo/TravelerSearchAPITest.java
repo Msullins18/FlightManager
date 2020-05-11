@@ -20,6 +20,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.infy.demo.api.TravelerSearchAPI;
+import com.infy.demo.exceptions.InvalidDateException;
 import com.infy.demo.exceptions.NoFlightsAvailableException;
 import com.infy.demo.model.Airport;
 import com.infy.demo.model.Flight;
@@ -89,7 +90,8 @@ public class TravelerSearchAPITest {
 	
 	@Test
 	public void travelerSearchGetFlights() throws Exception {
-		String json = new ObjectMapper().writeValueAsString(searchFlights);		
+		String json = new ObjectMapper().writeValueAsString(searchFlights);
+		
 		Mockito.when(travelerSearchService.getFlights(searchFlights.getDate(), searchFlights.getAirportId(), searchFlights.getDestination(), searchFlights.getNumberOfTickets()))
 		.thenReturn(flightList);
 		mockMvc.perform(MockMvcRequestBuilders.post("/Search/getFlights").contentType(APPLICATION_JSON_UTF8).content(json))
@@ -103,6 +105,15 @@ public class TravelerSearchAPITest {
 		.thenThrow(NoFlightsAvailableException.class);
 		mockMvc.perform(MockMvcRequestBuilders.post("/Search/getFlights").contentType(APPLICATION_JSON_UTF8).content(json))
 				.andExpect(MockMvcResultMatchers.status().isNotFound());
+	}
+	
+	@Test
+	public void travelerSearchGetFlightsInvalidDate() throws Exception {
+		String json = new ObjectMapper().writeValueAsString(searchFlights);
+		Mockito.when(travelerSearchService.getFlights(date, airportId, destination, numberOfTickets))
+		.thenThrow(InvalidDateException.class);
+		mockMvc.perform(MockMvcRequestBuilders.post("/Search/getFlights").contentType(APPLICATION_JSON_UTF8).content(json))
+				.andExpect(MockMvcResultMatchers.status().isBadRequest());
 	}
 
 	
