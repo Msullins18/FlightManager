@@ -13,10 +13,10 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.infy.demo.dao.AdminDAO;
+import com.infy.demo.dao.UserDAO;
 import com.infy.demo.model.Airport;
-import com.infy.demo.service.AdminService;
-import com.infy.demo.service.AdminServiceImpl;
+import com.infy.demo.service.UserService;
+import com.infy.demo.service.UserServiceImpl;
 
 @RunWith(SpringRunner.class)
 public class AdminAirportTests {
@@ -24,10 +24,10 @@ public class AdminAirportTests {
 	public ExpectedException expectedException=ExpectedException.none();
 	
    	@Mock
-	AdminDAO adminDAO;
+	UserDAO adminDAO;
    	
 	@InjectMocks
-	AdminService adminService = new AdminServiceImpl();
+	UserService adminService = new UserServiceImpl();
 	
 	@Test
 	public void addAirportTest() throws Exception 

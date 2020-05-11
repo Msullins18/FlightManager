@@ -10,12 +10,14 @@ import org.springframework.test.context.junit4.SpringRunner;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 
-import com.infy.demo.dao.AdminDAO;
+import java.util.Optional;
+
+import com.infy.demo.dao.UserDAO;
 import com.infy.demo.exceptions.InvalidCredentialsException;
 import com.infy.demo.exceptions.UserNotFoundException;
-import com.infy.demo.model.Admin;
-import com.infy.demo.service.AdminService;
-import com.infy.demo.service.AdminServiceImpl;
+import com.infy.demo.model.User;
+import com.infy.demo.service.UserService;
+import com.infy.demo.service.UserServiceImpl;
 import com.infy.demo.utility.HashingUtility;
 
 @RunWith(SpringRunner.class)
@@ -25,25 +27,25 @@ public class AdminLoginTests {
 	public ExpectedException expectedException=ExpectedException.none();
 	
    	@Mock
-	AdminDAO adminDAO;
+	UserDAO adminDAO;
 	@InjectMocks
-	AdminService adminService = new AdminServiceImpl();
+	UserService adminService = new UserServiceImpl();
 	
 	@Test
 	public void authenticateAdminLoginValidCredentials() throws Exception 
 	{
-		Admin admin = new Admin();
-		Admin returned = new Admin();
+		User admin = new User();
+		User returned = new User();
 		admin.setEmailId("marcus@marcus.com");
 		admin.setPassword("Me@123");
 		
 		returned.setEmailId("marcus@marcus.com");
 		returned.setPassword(HashingUtility.getHash("Me@123"));
 		
-		when(adminDAO.getPasswordOfAdmin("marcus@marcus.com")).thenReturn(HashingUtility.getHash("Me@123"));
+		when(adminDAO.getPasswordOfAdmin("marcus@marcus.com")).thenReturn(Optional.of(HashingUtility.getHash("Me@123")));
 		when(adminDAO.getAdminByEmailId("marcus@marcus.com")).thenReturn(returned);
 		
-		Admin adminFromDAO = adminService.loginAdmin(admin);
+		User adminFromDAO = adminService.loginAdmin(admin);
 		assertEquals("marcus@marcus.com", adminFromDAO.getEmailId());
 	}
 	
@@ -51,13 +53,13 @@ public class AdminLoginTests {
 	public void authenticateAdminLoginInvalidCredentials() throws Exception 
 	{
 		expectedException.expect(InvalidCredentialsException.class);
-		Admin admin = new Admin();
+		User admin = new User();
 		admin.setEmailId("marcus@marcus.com");
 		admin.setPassword("Me@12");
 		
-		when(adminDAO.getPasswordOfAdmin("marcus@marcus.com")).thenReturn(HashingUtility.getHash("Me@123"));
+		when(adminDAO.getPasswordOfAdmin("marcus@marcus.com")).thenReturn(Optional.of(HashingUtility.getHash("Me@123")));
 		
-		Admin adminFromDAO = adminService.loginAdmin(admin);
+		User adminFromDAO = adminService.loginAdmin(admin);
 		assertEquals(null, adminFromDAO);
 	}
 	
@@ -65,13 +67,13 @@ public class AdminLoginTests {
 	public void authenticateAdminLoginUserNotFound() throws Exception 
 	{
 		expectedException.expect(UserNotFoundException.class);
-		Admin admin = new Admin();
+		User admin = new User();
 		admin.setEmailId("marcus@marcus.com");
 		admin.setPassword("Me@123");
+		Optional <String> empty = Optional.empty(); 
+		when(adminDAO.getPasswordOfAdmin("marcus@marcus.com")).thenReturn(empty);
 		
-		when(adminDAO.getPasswordOfAdmin("marcus@marcus.com")).thenReturn(null);
-		
-		Admin adminFromDAO = adminService.loginAdmin(admin);
+		User adminFromDAO = adminService.loginAdmin(admin);
 		assertEquals(null, adminFromDAO);
 	}
 }

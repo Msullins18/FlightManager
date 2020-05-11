@@ -10,4 +10,7 @@ public interface AirportDAO {
 	public abstract Integer addFlight(Flight flight);
 	public abstract Integer deleteFlight(Integer flightId);
 	public abstract List<Flight> getFlights();
+	public abstract Integer addAirport(Airport airport);
+	public abstract Integer deleteAirport(Integer airportId);
+	public abstract List<Airport> getAirports();
 }

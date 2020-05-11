@@ -1,6 +1,7 @@
 package com.infy.demo.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.transaction.Transactional;
 
@@ -8,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.infy.demo.dao.AirportDAO;
+import com.infy.demo.model.Airport;
 import com.infy.demo.model.Flight;
 import com.infy.demo.validator.AirportValidator;
 
@@ -48,6 +50,33 @@ public class AirportServiceImpl implements AirportService {
 			throw new Exception("No Flights Available");
 		}
 		return flightList;
+	}
+	
+	@Override
+	public Integer addAirport(Airport airport) throws Exception {
+		// TODO Auto-generated method stub
+		Integer id = airportDAO.addAirport(airport);
+		return id;
+	}
+
+	@Override
+	public Integer deleteAirport(Integer airportId) throws Exception {
+		// TODO Auto-generated method stub
+		Optional<Integer> id = Optional.of(airportDAO.deleteAirport(airportId));
+		if (!id.isPresent()) {
+			throw new Exception("userService.AIRPORT_NOT_EXISTS");
+		}
+		return id.get();
+	}
+
+	@Override
+	public List<Airport> getAirports() throws Exception {
+		// TODO Auto-generated method stub
+		Optional<List<Airport>> airports = Optional.of(airportDAO.getAirports());
+		if (!airports.isPresent()) {
+			throw new Exception("Sorry no Airports are available at the moment");
+		}
+		return airports.get();
 	}
 
 }

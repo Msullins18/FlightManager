@@ -18,13 +18,13 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.transaction.TransactionSystemException;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.infy.demo.api.AdminAPI;
+import com.infy.demo.api.UserAPI;
 import com.infy.demo.exceptions.EmailUnavailableException;
 import com.infy.demo.exceptions.InvalidCredentialsException;
 import com.infy.demo.exceptions.UserNotFoundException;
-import com.infy.demo.model.Admin;
+import com.infy.demo.model.User;
 import com.infy.demo.model.Airport;
-import com.infy.demo.service.AdminService;
+import com.infy.demo.service.UserService;
 import com.infy.demo.utility.HashingUtility;
 
 import java.nio.charset.Charset;
@@ -36,13 +36,14 @@ public class AdminAPITest {
 
 	public static final MediaType APPLICATION_JSON_UTF8 = new MediaType(MediaType.APPLICATION_JSON.getType(),
 			MediaType.APPLICATION_JSON.getSubtype(), Charset.forName("utf8"));
+	
 	private MockMvc mockMvc;
 
 	@InjectMocks
-	private AdminAPI adminAPI;
+	private UserAPI adminAPI;
 
 	@Mock
-	AdminService adminService;
+	UserService adminService;
 
 	@Before
 	public void setup() {
@@ -52,7 +53,7 @@ public class AdminAPITest {
 
 	@Test
 	public void registerAdminValidTest() throws Exception {
-		Admin admin = new Admin();
+		User admin = new User();
 		admin.setEmailId("marcus@marcus.com");
 		admin.setFirstName("Marcus");
 		admin.setLastName("Sullins");
@@ -68,7 +69,7 @@ public class AdminAPITest {
 
 	@Test
 	public void registerAdminInvalidTest() throws Exception {
-		Admin admin = new Admin();
+		User admin = new User();
 		admin.setEmailId("marcus@marcus.com");
 		admin.setFirstName("Marcus");
 		admin.setLastName("Sullins");
@@ -84,7 +85,7 @@ public class AdminAPITest {
 
 	@Test
 	public void loginAdminValidTest() throws Exception {
-		Admin admin = new Admin();
+		User admin = new User();
 		admin.setEmailId("marcus@marcus.com");
 		admin.setFirstName("Marcus");
 		admin.setLastName("Sullins");
@@ -100,7 +101,7 @@ public class AdminAPITest {
 
 	@Test
 	public void loginAdminInvalidTest() throws Exception {
-		Admin admin = new Admin();
+		User admin = new User();
 		admin.setEmailId("marcus@marcus.com");
 		admin.setFirstName("Marcus");
 		admin.setLastName("Sullins");
@@ -116,7 +117,7 @@ public class AdminAPITest {
 
 	@Test
 	public void loginAdminDoesNotExistTest() throws Exception {
-		Admin admin = new Admin();
+		User admin = new User();
 		admin.setEmailId("marcus@marcus.com");
 		admin.setFirstName("Marcus");
 		admin.setLastName("Sullins");
@@ -125,14 +126,14 @@ public class AdminAPITest {
 
 		String json = new ObjectMapper().writeValueAsString(admin);
 
-		Mockito.when(adminService.loginAdmin(Mockito.any(Admin.class))).thenThrow(UserNotFoundException.class);
+		Mockito.when(adminService.loginAdmin(Mockito.any(User.class))).thenThrow(UserNotFoundException.class);
 		mockMvc.perform(MockMvcRequestBuilders.post("/Admin/Login").contentType(APPLICATION_JSON_UTF8).content(json))
 				.andExpect(MockMvcResultMatchers.status().isNotFound());
 	}
 	
 	@Test
 	public void registerAdminInvalidEmailTest() throws Exception {
-		Admin admin = new Admin();
+		User admin = new User();
 		admin.setEmailId("marcusmarcus.com");
 		admin.setFirstName("Marcus");
 		admin.setLastName("Sullins");
@@ -161,17 +162,8 @@ public class AdminAPITest {
 	
 	@Test
 	public void deleteAirportValidTest() throws Exception {
-		Admin admin = new Admin();
-		admin.setEmailId("marcus@marcus.com");
-		admin.setFirstName("Marcus");
-		admin.setLastName("Sullins");
-		admin.setPassword(HashingUtility.getHash("Me@123"));
-		admin.setPhoneNumber("5552225555");
-
-		String json = new ObjectMapper().writeValueAsString(admin);
-
 		Mockito.when(adminService.deleteAirport(1001)).thenReturn(1001);
-		mockMvc.perform(MockMvcRequestBuilders.post("/Admin/deleteAirport/{1001}",1001).contentType(APPLICATION_JSON_UTF8).content(json))
+		mockMvc.perform(MockMvcRequestBuilders.post("/Admin/deleteAirport/{1001}",1001))
 				.andExpect(MockMvcResultMatchers.status().isOk());
 	}
 	
