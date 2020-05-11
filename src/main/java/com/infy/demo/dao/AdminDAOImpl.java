@@ -87,7 +87,6 @@ public class AdminDAOImpl implements AdminDAO {
 		
 		newAirport.setCity(airport.getCity());
 		newAirport.setAirportName(airport.getAirportName());
-		
 		List<FlightEntity> listOfFlights = new ArrayList<>();
 		
 		newAirport.setFlightEntities(listOfFlights);
@@ -101,12 +100,21 @@ public class AdminDAOImpl implements AdminDAO {
 	public Integer deleteAirport(Integer airportId) {
 		// TODO Auto-generated method stub
 		Integer id = null;
+<<<<<<< HEAD
 		Optional<AirportEntity> airport = Optional.of(entityManager.find(AirportEntity.class, airportId));
 		if(airport.isPresent()){
 			AirportEntity ae = airport.get();
 			ae.setFlightEntities(null);
 			id = ae.getAirportId();
 			entityManager.remove(ae);
+=======
+		AirportEntity airport = entityManager.find(AirportEntity.class, airportId);
+		airport.setFlightEntities(null);
+		Optional<AirportEntity> checkNull = Optional.ofNullable(airport);
+		if(checkNull.isPresent()){
+			id = airport.getAirportId();
+			entityManager.remove(airport);
+>>>>>>> 10bdc8289b8da825c3bfeed7f245566657d738f1
 		}
 		return id;
 	}
@@ -120,7 +128,8 @@ public class AdminDAOImpl implements AdminDAO {
 		Query query = entityManager.createQuery(dft);
 		List<AirportEntity> airportList = query.getResultList();
 		airports = new ArrayList<Airport>();
-		if(!airportList.isEmpty()){
+		Optional<List<AirportEntity>> checkNull = Optional.ofNullable(airportList);
+		if(checkNull.isPresent()){
 			for(AirportEntity a : airportList){
 				Airport airport = new Airport();
 				airport.setAirportId(a.getAirportId());
