@@ -50,12 +50,10 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
-<<<<<<< HEAD
 		<dependency>
 		    <groupId>org.springframework.boot</groupId>
 		    <artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
-=======
 		
 		<!-- https://mvnrepository.com/artifact/io.springfox/springfox-swagger2 -->
 		<dependency>
@@ -71,7 +69,6 @@
     		<version>2.9.2</version>
 		</dependency>
 		
->>>>>>> 87217a6a96853d542da92c98df252dfdcff201f6
 		<dependency>
 		    <groupId>junit</groupId>
 		    <artifactId>junit</artifactId>

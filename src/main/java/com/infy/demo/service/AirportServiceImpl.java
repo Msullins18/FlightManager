@@ -2,51 +2,42 @@ package com.infy.demo.service;
 
 import java.util.List;
 import java.util.Optional;
-
 import javax.transaction.Transactional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.infy.demo.dao.AirportDAO;
-<<<<<<< HEAD
 import com.infy.demo.model.Airport;
-=======
 import com.infy.demo.exceptions.AirportNotFoundException;
 import com.infy.demo.exceptions.FlightNotFoundException;
 import com.infy.demo.exceptions.NoFlightsAvailableException;
->>>>>>> 87217a6a96853d542da92c98df252dfdcff201f6
 import com.infy.demo.model.Flight;
 import com.infy.demo.validator.AirportValidator;
 
-@Service( value = "AirportService" )
+@Service(value = "AirportService")
 @Transactional
 public class AirportServiceImpl implements AirportService {
 	@Autowired
 	AirportDAO airportDAO;
-	
+
 	@Override
 	public Integer addFlight(Flight flight) throws Exception {
 		// TODO Auto-generated method stub
 		AirportValidator.validateFlight(flight);
 		boolean doesExist = airportDAO.airportExists(flight.getAirportId());
-		if(doesExist)
-		{
+		if (doesExist) {
 			Integer flightId = airportDAO.addFlight(flight);
 			return flightId;
-		}
-		else
-		{
+		} else {
 			throw new AirportNotFoundException(flight.getAirportId());
 		}
-		
+
 	}
 
 	@Override
 	public Integer deleteFlight(Integer flightId) throws Exception {
 		// TODO Auto-generated method stub
 		Integer id = airportDAO.deleteFlight(flightId);
-		if(id==null){
+		if (id == null) {
 			throw new FlightNotFoundException(flightId);
 		}
 		return airportDAO.deleteFlight(flightId);
@@ -56,12 +47,12 @@ public class AirportServiceImpl implements AirportService {
 	public List<Flight> getFlights() throws Exception {
 		// TODO Auto-generated method stub
 		List<Flight> flightList = airportDAO.getFlights();
-		if(flightList==null){
+		if (flightList == null) {
 			throw new NoFlightsAvailableException();
 		}
 		return flightList;
 	}
-	
+
 	@Override
 	public Integer addAirport(Airport airport) throws Exception {
 		// TODO Auto-generated method stub
