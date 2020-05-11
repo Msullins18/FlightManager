@@ -28,8 +28,6 @@ import lombok.extern.slf4j.Slf4j;
 @RequestMapping(value ="Search")
 @Slf4j
 public class TravelerSearchAPI {
-	@Autowired
-	public Environment environment;
 	
 	@Autowired
 	private TravelerSearchService travelerSearchService;
