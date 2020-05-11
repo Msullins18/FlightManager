@@ -9,7 +9,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.infy.demo.dao.AirportDAO;
+<<<<<<< HEAD
 import com.infy.demo.model.Airport;
+=======
+import com.infy.demo.exceptions.AirportNotFoundException;
+import com.infy.demo.exceptions.FlightNotFoundException;
+import com.infy.demo.exceptions.NoFlightsAvailableException;
+>>>>>>> 87217a6a96853d542da92c98df252dfdcff201f6
 import com.infy.demo.model.Flight;
 import com.infy.demo.validator.AirportValidator;
 
@@ -31,7 +37,7 @@ public class AirportServiceImpl implements AirportService {
 		}
 		else
 		{
-			throw new Exception("Airport Does Not Exist");
+			throw new AirportNotFoundException(flight.getAirportId());
 		}
 		
 	}
@@ -39,6 +45,10 @@ public class AirportServiceImpl implements AirportService {
 	@Override
 	public Integer deleteFlight(Integer flightId) throws Exception {
 		// TODO Auto-generated method stub
+		Integer id = airportDAO.deleteFlight(flightId);
+		if(id==null){
+			throw new FlightNotFoundException(flightId);
+		}
 		return airportDAO.deleteFlight(flightId);
 	}
 
@@ -47,7 +57,7 @@ public class AirportServiceImpl implements AirportService {
 		// TODO Auto-generated method stub
 		List<Flight> flightList = airportDAO.getFlights();
 		if(flightList==null){
-			throw new Exception("No Flights Available");
+			throw new NoFlightsAvailableException();
 		}
 		return flightList;
 	}

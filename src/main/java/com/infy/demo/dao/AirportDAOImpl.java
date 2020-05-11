@@ -59,7 +59,8 @@ public class AirportDAOImpl implements AirportDAO {
 		String dft = "SELECT f FROM FlightEntity f";
 		Query query = entityManager.createQuery(dft);
 		List<FlightEntity> flightEntity = query.getResultList();
-		if(!flightEntity.isEmpty()){
+		Optional<List<FlightEntity>> checkNull = Optional.ofNullable(flightEntity);
+		if(checkNull.isPresent()){
 			flights = new ArrayList<Flight>();
 			for(FlightEntity f : flightEntity){
 				Flight flight = new Flight();
@@ -84,7 +85,8 @@ public class AirportDAOImpl implements AirportDAO {
 	public boolean airportExists(Integer airportId) {
 		// TODO Auto-generated method stub
 		AirportEntity airport = entityManager.find(AirportEntity.class, airportId);
-		if(airport != null)
+		Optional<AirportEntity> checkNull = Optional.ofNullable(airport);
+		if(checkNull.isPresent())
 		{
 			return true;
 		}

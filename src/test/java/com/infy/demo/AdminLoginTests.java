@@ -12,7 +12,11 @@ import static org.mockito.Mockito.*;
 
 import java.util.Optional;
 
+<<<<<<< HEAD
 import com.infy.demo.dao.UserDAO;
+=======
+import com.infy.demo.dao.AdminDAO;
+>>>>>>> 87217a6a96853d542da92c98df252dfdcff201f6
 import com.infy.demo.exceptions.InvalidCredentialsException;
 import com.infy.demo.exceptions.UserNotFoundException;
 import com.infy.demo.model.User;
@@ -73,7 +77,11 @@ public class AdminLoginTests {
 		Optional <String> empty = Optional.empty(); 
 		when(adminDAO.getPasswordOfAdmin("marcus@marcus.com")).thenReturn(empty);
 		
+<<<<<<< HEAD
 		User adminFromDAO = adminService.loginAdmin(admin);
+=======
+		Admin adminFromDAO = adminService.loginAdmin(admin);
+>>>>>>> 87217a6a96853d542da92c98df252dfdcff201f6
 		assertEquals(null, adminFromDAO);
 	}
 }

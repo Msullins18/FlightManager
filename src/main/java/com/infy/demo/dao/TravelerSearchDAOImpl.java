@@ -9,14 +9,12 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
-
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import com.infy.demo.entity.AirportEntity;
 import com.infy.demo.entity.FlightEntity;
-import com.infy.demo.exceptions.NotEnoughTicketsException;
 import com.infy.demo.model.Airport;
 import com.infy.demo.model.Flight;
 
@@ -52,10 +50,9 @@ public class TravelerSearchDAOImpl implements TravelerSearchDAO {
 				flight.setFlightTax(flightEntity.getFlightTax());
 				flight.setFlightType(flightEntity.getFlightType());
 				flight.setSeatsAvailable(flightEntity.getSeatsAvailable());
-				if(numberOfTickets>flight.getSeatsAvailable()){
-					throw new NotEnoughTicketsException();
+				if(numberOfTickets<flight.getSeatsAvailable()){
+					flightList.add(flight);
 				}
-				flightList.add(flight);
 			}
 		}
 		return flightList;

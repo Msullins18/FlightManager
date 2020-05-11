@@ -9,6 +9,7 @@ import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,7 +18,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
+<<<<<<< HEAD
 import com.infy.demo.model.Airport;
+=======
+import com.infy.demo.exceptions.AirportNotFoundException;
+import com.infy.demo.exceptions.FlightNotFoundException;
+import com.infy.demo.exceptions.NoAirportsAvailableException;
+import com.infy.demo.exceptions.NoFlightsAvailableException;
+>>>>>>> 87217a6a96853d542da92c98df252dfdcff201f6
 import com.infy.demo.model.Flight;
 import com.infy.demo.service.AirportService;
 
@@ -42,6 +50,7 @@ public class AirportAPI {
 
 			String message = "The following flight has been successfully added with Id:" + id;
 
+<<<<<<< HEAD
 			return new ResponseEntity<String>(message, HttpStatus.OK);
 
 		} catch (Exception e) {
@@ -85,14 +94,16 @@ public class AirportAPI {
 			Integer id = airportService.addAirport(airport);
 			String message = "The following Airport has been successfully added with Airport Id: " + id;
 			log.info(message);
+=======
+>>>>>>> 87217a6a96853d542da92c98df252dfdcff201f6
 			return new ResponseEntity<String>(message, HttpStatus.OK);
-			
-		}
-		catch (Exception e) {
-			
-			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, environment.getProperty(e.getMessage()));
+
+		} catch (Exception e) {
+
+			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage());
 		}
 	}
+<<<<<<< HEAD
 	
 	@PostMapping(value = "deleteAirport/{airportId}")
 	public ResponseEntity<Integer> deleteAirport(@PathVariable("airportId") Integer airportId) throws Exception{
@@ -101,13 +112,32 @@ public class AirportAPI {
 		{
 			Integer result = airportService.deleteAirport(airportId);
 			log.info("The following Airport has been successfully deleted with Airport Id:" + result);
+=======
+
+	@PostMapping(value = "deleteFlight/{flightId}")
+<<<<<<< HEAD
+	public ResponseEntity<Integer> deleteFlight(@PathVariable("flightId") Integer flightId) throws Exception {
+
+		try {
+			Integer result = airportService.deleteFlight(flightId);
+			log.info("Flight successfully deleted with id: " + result);
+			ResponseEntity<Integer> re = new ResponseEntity<Integer>(result, HttpStatus.OK);
+			return re;
+		} catch (Exception e) {
+
+			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage());
+		}
+=======
+	public ResponseEntity<Integer> deleteFlight(@PathVariable("flightId") Integer flightId) throws Exception{
+		
+			Integer result = airportService.deleteFlight(flightId);
+			log.info(environment.getProperty("DealsForTodayAPI.DELETE_SUCCESS") + result);
+>>>>>>> 87217a6a96853d542da92c98df252dfdcff201f6
 			return new ResponseEntity<Integer>(result, HttpStatus.OK);
-		}
-		catch (Exception e) {
-			
-			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, environment.getProperty(e.getMessage()));
-		}
+		
+>>>>>>> 10bdc8289b8da825c3bfeed7f245566657d738f1
 	}
+<<<<<<< HEAD
 	
 	@GetMapping(value = "getAirports")
 	public ResponseEntity<List<Airport>> getAirports() throws Exception {
@@ -115,11 +145,34 @@ public class AirportAPI {
 		try {
 			list = airportService.getAirports();
 			ResponseEntity<List<Airport>> response = new ResponseEntity<List<Airport>>(list, HttpStatus.OK);
+=======
+
+	@GetMapping(value = "getFlights")
+	public ResponseEntity<List<Flight>> getFlights() throws Exception {
+		List<Flight> list = null;
+			list = airportService.getFlights();
+			ResponseEntity<List<Flight>> response = new ResponseEntity<List<Flight>>(list, HttpStatus.OK);
+>>>>>>> 87217a6a96853d542da92c98df252dfdcff201f6
 			return response;
+<<<<<<< HEAD
 		} catch (Exception e) {
 
-			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, environment.getProperty(e.getMessage()));
+			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage());
 		}
+=======
+>>>>>>> 10bdc8289b8da825c3bfeed7f245566657d738f1
 
 	}
+	
+	  @ExceptionHandler(FlightNotFoundException.class)
+	    public ResponseEntity<Object> handleException(FlightNotFoundException  e) {
+	    	//throw new ResponseStatusException(HttpStatus.UNAUTHORIZED,e.getMessage());
+	    	return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
+	    }
+	    
+	    @ExceptionHandler(NoFlightsAvailableException.class)
+	    public ResponseEntity<Object> handleException(NoAirportsAvailableException  e) {
+	    	//throw new ResponseStatusException(HttpStatus.UNAUTHORIZED,e.getMessage());
+	    	return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
+	    }
 }
