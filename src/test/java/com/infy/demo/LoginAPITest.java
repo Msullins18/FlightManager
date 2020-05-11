@@ -45,7 +45,7 @@ public class LoginAPITest {
 
 
 //	@Test
-//	public void loginuserValidTest() throws Exception {
+//	public void loginUserValidTest() throws Exception {
 //		User user = new User();
 //		user.setEmailId("marcus@marcus.com");
 //		user.setFirstName("Marcus");
@@ -63,7 +63,7 @@ public class LoginAPITest {
 //
 //
 //	@Test
-//	public void loginuserInvalidTest() throws Exception {
+//	public void loginUserInvalidTest() throws Exception {
 //		User user = new User();
 //		user.setEmailId("marcus@marcus.com");
 //		user.setFirstName("Marcus");
@@ -80,7 +80,7 @@ public class LoginAPITest {
 //	
 //
 //	@Test
-//	public void loginuserDoesNotExistTest() throws Exception {
+//	public void loginUserDoesNotExistTest() throws Exception {
 //		User user = new User();
 //		user.setEmailId("marcus@marcus.com");
 //		user.setFirstName("Marcus");
