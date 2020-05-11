@@ -19,7 +19,8 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.infy.demo.api.AirportAPI;
-
+import com.infy.demo.exceptions.FlightNotFoundException;
+import com.infy.demo.model.Airport;
 import com.infy.demo.model.Flight;
 import com.infy.demo.service.AirportService;
 
@@ -102,4 +103,37 @@ public class AirportAPITest {
 		mockMvc.perform(MockMvcRequestBuilders.get("/AirportAPI/getFlights"))
 				.andExpect(MockMvcResultMatchers.status().isOk());
 	}
+	
+	@Test
+	public void addAirportValidTest() throws Exception {
+		Airport airport = new Airport();
+		airport.setAirportName("DFW");
+		airport.setCity("Dallas");
+
+		String json = new ObjectMapper().writeValueAsString(airport);
+
+		Mockito.when(airportService.addAirport(airport)).thenReturn(1001);
+		mockMvc.perform(MockMvcRequestBuilders.post("/AirportAPI/addAirport").contentType(APPLICATION_JSON_UTF8).content(json))
+				.andExpect(MockMvcResultMatchers.status().isOk());
+	}
+	
+	@Test
+	public void deleteAirportValidTest() throws Exception {
+		Mockito.when(airportService.deleteAirport(1001)).thenReturn(1001);
+		mockMvc.perform(MockMvcRequestBuilders.post("/AirportAPI/deleteAirport/{1001}",1001))
+				.andExpect(MockMvcResultMatchers.status().isOk());
+	}
+	
+	@Test
+	public void getAirportsValidTest() throws Exception {
+		Airport airport = new Airport();
+		airport.setAirportName("DFW");
+		airport.setCity("Dallas");
+		List<Airport> lis = new ArrayList<>();
+		lis.add(airport);
+		Mockito.when(airportService.getAirports()).thenReturn(lis);
+		mockMvc.perform(MockMvcRequestBuilders.get("/AirportAPI/getAirports"))
+				.andExpect(MockMvcResultMatchers.status().isOk());
+	}
+	
 }
