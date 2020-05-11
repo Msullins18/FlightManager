@@ -10,6 +10,8 @@ import org.springframework.test.context.junit4.SpringRunner;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 
+import java.util.Optional;
+
 import com.infy.demo.dao.AdminDAO;
 import com.infy.demo.exceptions.InvalidCredentialsException;
 import com.infy.demo.exceptions.UserNotFoundException;
@@ -40,7 +42,7 @@ public class AdminLoginTests {
 		returned.setEmailId("marcus@marcus.com");
 		returned.setPassword(HashingUtility.getHash("Me@123"));
 		
-		when(adminDAO.getPasswordOfAdmin("marcus@marcus.com")).thenReturn(HashingUtility.getHash("Me@123"));
+		when(adminDAO.getPasswordOfAdmin("marcus@marcus.com")).thenReturn(Optional.of(HashingUtility.getHash("Me@123")));
 		when(adminDAO.getAdminByEmailId("marcus@marcus.com")).thenReturn(returned);
 		
 		Admin adminFromDAO = adminService.loginAdmin(admin);
@@ -55,7 +57,7 @@ public class AdminLoginTests {
 		admin.setEmailId("marcus@marcus.com");
 		admin.setPassword("Me@12");
 		
-		when(adminDAO.getPasswordOfAdmin("marcus@marcus.com")).thenReturn(HashingUtility.getHash("Me@123"));
+		when(adminDAO.getPasswordOfAdmin("marcus@marcus.com")).thenReturn(Optional.of(HashingUtility.getHash("Me@123")));
 		
 		Admin adminFromDAO = adminService.loginAdmin(admin);
 		assertEquals(null, adminFromDAO);
@@ -68,8 +70,8 @@ public class AdminLoginTests {
 		Admin admin = new Admin();
 		admin.setEmailId("marcus@marcus.com");
 		admin.setPassword("Me@123");
-		
-		when(adminDAO.getPasswordOfAdmin("marcus@marcus.com")).thenReturn(null);
+		Optional <String> empty = Optional.empty(); 
+		when(adminDAO.getPasswordOfAdmin("marcus@marcus.com")).thenReturn(empty);
 		
 		Admin adminFromDAO = adminService.loginAdmin(admin);
 		assertEquals(null, adminFromDAO);

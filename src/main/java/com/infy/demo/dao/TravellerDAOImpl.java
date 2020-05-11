@@ -1,7 +1,10 @@
 package com.infy.demo.dao;
+import java.util.Optional;
+
 import javax.persistence.EntityManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+
 import com.infy.demo.dao.TravellerDAO;
 import com.infy.demo.entity.TravellerEntity;
 import com.infy.demo.model.Traveller;
@@ -13,12 +16,11 @@ public class TravellerDAOImpl implements TravellerDAO {
 	EntityManager entityManager;
 	
 	@Override
-	public String getPasswordOfTraveller(String emailId) {
-		String password = null;
-		TravellerEntity TravellerEntity = entityManager.find(TravellerEntity.class, emailId);
-		
-		if (TravellerEntity!=null){
-			password = TravellerEntity.getPassword();
+	public Optional<String> getPasswordOfTraveller(String emailId) {
+		Optional<String> password = Optional.empty();
+		Optional<TravellerEntity> travellerEntity = Optional.of(entityManager.find(TravellerEntity.class, emailId));
+		if (travellerEntity.isPresent()){
+			password = Optional.of(travellerEntity.get().getPassword());
 		}
 		
 		return password;

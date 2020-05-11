@@ -2,6 +2,7 @@ package com.infy.demo.dao;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
@@ -39,12 +40,12 @@ public class AdminDAOImpl implements AdminDAO {
 	}
 
 	@Override
-	public String getPasswordOfAdmin(String emailId) {
-		String password = null;
+	public Optional<String> getPasswordOfAdmin(String emailId) {
+		Optional<String> password = Optional.empty();
 		AdminEntity adminEntity = entityManager.find(AdminEntity.class, emailId);
 		
-		if (adminEntity!=null){
-			password = adminEntity.getPassword();
+		if (password.isPresent()){
+			password = Optional.of(adminEntity.getPassword());
 		}
 		
 		return password;
@@ -69,9 +70,9 @@ public class AdminDAOImpl implements AdminDAO {
 	public Boolean checkAvailabilityOfEmailId(String emailId) {
 		// TODO Auto-generated method stub
 		Boolean available = false;
-		AdminEntity adminEntity = entityManager.find(AdminEntity.class, emailId);
+		Optional<AdminEntity> adminEntity = Optional.of(entityManager.find(AdminEntity.class, emailId));
 
-		if(adminEntity == null)
+		if(!adminEntity.isPresent())
 		{
 			available = true;
 		}
@@ -100,11 +101,12 @@ public class AdminDAOImpl implements AdminDAO {
 	public Integer deleteAirport(Integer airportId) {
 		// TODO Auto-generated method stub
 		Integer id = null;
-		AirportEntity airport = entityManager.find(AirportEntity.class, airportId);
-		airport.setFlightEntities(null);
-		if(airport!=null){
-			id = airport.getAirportId();
-			entityManager.remove(airport);
+		Optional<AirportEntity> airport = Optional.of(entityManager.find(AirportEntity.class, airportId));
+		if(airport.isPresent()){
+			AirportEntity ae = airport.get();
+			ae.setFlightEntities(null);
+			id = ae.getAirportId();
+			entityManager.remove(ae);
 		}
 		return id;
 	}

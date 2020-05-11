@@ -1,4 +1,6 @@
 package com.infy.demo.service;
+import java.util.Optional;
+
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,15 +22,15 @@ public class TravellerServiceImpl implements TravellerService {
 	@Override
 	public Traveller loginTraveller(Traveller traveller) throws Exception{
 		// TODO Auto-generated method stub
-		Traveller travellerFromDAO = null;
+		Optional<Traveller> travellerFromDAO = Optional.empty();
 		String emailId = traveller.getEmailId().toLowerCase();
-		String passwordFromDAO = travellerDAO.getPasswordOfTraveller(emailId);
-		if(passwordFromDAO != null)
+		Optional<String> passwordFromDAO = travellerDAO.getPasswordOfTraveller(emailId);
+		if(passwordFromDAO.isPresent())
 		{
 			String hashedPassword = HashingUtility.getHash(traveller.getPassword());
-			if(hashedPassword.equals(passwordFromDAO))
+			if(hashedPassword.equals(passwordFromDAO.get()))
 			{
-				travellerFromDAO = travellerDAO.getTravellerByEmailId(emailId);
+				travellerFromDAO = Optional.of(travellerDAO.getTravellerByEmailId(emailId));
 			}
 			else
 			{
@@ -40,27 +42,27 @@ public class TravellerServiceImpl implements TravellerService {
 		{
 			throw new UserNotFoundException(emailId);
 		}
-		return travellerFromDAO;
+		return travellerFromDAO.get();
 	}
 
 	@Override
 	public String registerTraveller(Traveller traveller) throws Exception{
 		// TODO Auto-generated method stub
 		String emailId = traveller.getEmailId().toLowerCase();
-		String registered = null;
+		Optional<String> registered = Optional.empty();
 		Boolean available = travellerDAO.checkAvailabilityOfEmailId(emailId);
 		if(available)
 		{
 			String passwordToDB = HashingUtility.getHash(traveller.getPassword());
 			traveller.setEmailId(emailId);
 			traveller.setPassword(passwordToDB);
-			registered = travellerDAO.registerTraveller(traveller);
+			registered = Optional.of(travellerDAO.registerTraveller(traveller));
 		}
-		if(registered == null)
+		if(!registered.isPresent())
 		{
 			throw new EmailUnavailableException(emailId);
 		}
-		return registered;
+		return registered.get();
 	}
 
 }

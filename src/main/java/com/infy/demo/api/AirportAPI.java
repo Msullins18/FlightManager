@@ -1,4 +1,5 @@
 package com.infy.demo.api;
+
 import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
@@ -26,45 +27,42 @@ import lombok.extern.slf4j.Slf4j;
 @RequestMapping("AirportAPI")
 @Slf4j
 public class AirportAPI {
-	
+
 	@Autowired
 	private AirportService airportService;
-	
+
 	@Autowired
 	private Environment environment;
 
 	@PostMapping(value = "addFlight")
 	public ResponseEntity<String> addFlight(@RequestBody Flight flight) throws Exception {
-		try
-		{
+		try {
 			Integer id = airportService.addFlight(flight);
-			
+
 			String message = "The following flight has been successfully added with Id:" + id;
-			
+
 			return new ResponseEntity<String>(message, HttpStatus.OK);
-			
-		}
-		catch (Exception e) {
-			
-			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, environment.getProperty(e.getMessage()));
+
+		} catch (Exception e) {
+
+			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage());
 		}
 	}
-	
+
 	@PostMapping(value = "deleteFlight/{flightId}")
-	public ResponseEntity<Integer> deleteFlight(@PathVariable("flightId") Integer flightId) throws Exception{
-		
-		try
-		{
+	public ResponseEntity<Integer> deleteFlight(@PathVariable("flightId") Integer flightId) throws Exception {
+
+		try {
 			Integer result = airportService.deleteFlight(flightId);
-			log.info(environment.getProperty("DealsForTodayAPI.DELETE_SUCCESS") + result);
-			return new ResponseEntity<Integer>(result, HttpStatus.OK);
-		}
-		catch (Exception e) {
-			
-			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, environment.getProperty(e.getMessage()));
+			log.info("Flight successfully deleted with id: " + result);
+			ResponseEntity<Integer> re = new ResponseEntity<Integer>(result, HttpStatus.OK);
+			return re;
+		} catch (Exception e) {
+
+			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage());
 		}
 	}
-	
+
 	@GetMapping(value = "getFlights")
 	public ResponseEntity<List<Flight>> getDealsForToday() throws Exception {
 		List<Flight> list = null;
@@ -74,7 +72,7 @@ public class AirportAPI {
 			return response;
 		} catch (Exception e) {
 
-			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, environment.getProperty(e.getMessage()));
+			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage());
 		}
 
 	}

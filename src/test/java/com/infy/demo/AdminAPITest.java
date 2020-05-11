@@ -36,6 +36,7 @@ public class AdminAPITest {
 
 	public static final MediaType APPLICATION_JSON_UTF8 = new MediaType(MediaType.APPLICATION_JSON.getType(),
 			MediaType.APPLICATION_JSON.getSubtype(), Charset.forName("utf8"));
+	
 	private MockMvc mockMvc;
 
 	@InjectMocks
@@ -161,17 +162,8 @@ public class AdminAPITest {
 	
 	@Test
 	public void deleteAirportValidTest() throws Exception {
-		Admin admin = new Admin();
-		admin.setEmailId("marcus@marcus.com");
-		admin.setFirstName("Marcus");
-		admin.setLastName("Sullins");
-		admin.setPassword(HashingUtility.getHash("Me@123"));
-		admin.setPhoneNumber("5552225555");
-
-		String json = new ObjectMapper().writeValueAsString(admin);
-
 		Mockito.when(adminService.deleteAirport(1001)).thenReturn(1001);
-		mockMvc.perform(MockMvcRequestBuilders.post("/Admin/deleteAirport/{1001}",1001).contentType(APPLICATION_JSON_UTF8).content(json))
+		mockMvc.perform(MockMvcRequestBuilders.post("/Admin/deleteAirport/{1001}",1001))
 				.andExpect(MockMvcResultMatchers.status().isOk());
 	}
 	
