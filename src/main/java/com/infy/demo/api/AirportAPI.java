@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
 import com.infy.demo.model.Airport;
+import com.infy.demo.exceptions.AirportNotFoundException;
 import com.infy.demo.exceptions.FlightNotFoundException;
 import com.infy.demo.exceptions.NoAirportsAvailableException;
 import com.infy.demo.exceptions.NoFlightsAvailableException;

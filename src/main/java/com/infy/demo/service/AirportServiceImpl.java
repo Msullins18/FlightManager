@@ -40,7 +40,7 @@ public class AirportServiceImpl implements AirportService {
 		if(!idCheck.isPresent()){
 			throw new FlightNotFoundException(flightId);
 		}
-		return id;
+		return idCheck.get();
 	}
 
 	@Override
