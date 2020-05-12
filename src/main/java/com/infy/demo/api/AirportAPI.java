@@ -130,6 +130,18 @@ public class AirportAPI {
 	}
 
 	@ExceptionHandler(NoFlightsAvailableException.class)
+	public ResponseEntity<Object> handleException(NoFlightsAvailableException e) {
+		// throw new ResponseStatusException(HttpStatus.UNAUTHORIZED,e.getMessage());
+		return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
+	}
+	
+	@ExceptionHandler(AirportNotFoundException.class)
+	public ResponseEntity<Object> handleException(AirportNotFoundException e) {
+		// throw new ResponseStatusException(HttpStatus.UNAUTHORIZED,e.getMessage());
+		return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
+	}
+
+	@ExceptionHandler(NoAirportsAvailableException.class)
 	public ResponseEntity<Object> handleException(NoAirportsAvailableException e) {
 		// throw new ResponseStatusException(HttpStatus.UNAUTHORIZED,e.getMessage());
 		return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);

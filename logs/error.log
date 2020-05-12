@@ -3006,3 +3006,33 @@ java.lang.NullPointerException: null
 2020-05-12 16:30:34.413  INFO 84624 --- [SpringContextShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2020-05-12 16:30:34.417  INFO 84624 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2020-05-12 16:30:35.252  INFO 84624 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2020-05-12 16:59:40.881  INFO 78140 --- [Thread-15] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-05-12 16:59:40.901  INFO 78140 --- [Thread-15] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-05-12 16:59:40.922  INFO 78140 --- [Thread-15] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2020-05-12 16:59:40.936  INFO 78140 --- [Thread-15] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2020-05-12 16:59:41.493  INFO 78140 --- [restartedMain] com.infy.demo.FlightManagerApplication   : Starting FlightManagerApplication on USABOS287408L with PID 78140 (D:\HTML files\Flight Project\Back End\FlightManager\target\classes started by manoj.khatri in D:\HTML files\Flight Project\Back End\FlightManager)
+2020-05-12 16:59:41.494  INFO 78140 --- [restartedMain] com.infy.demo.FlightManagerApplication   : No active profile set, falling back to default profiles: default
+2020-05-12 16:59:42.255  INFO 78140 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2020-05-12 16:59:42.275  INFO 78140 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 19ms. Found 0 JPA repository interfaces.
+2020-05-12 16:59:42.726  INFO 78140 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8085 (http)
+2020-05-12 16:59:42.728  INFO 78140 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-05-12 16:59:42.728  INFO 78140 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.33]
+2020-05-12 16:59:42.773  INFO 78140 --- [restartedMain] o.a.c.c.C.[.[.[/Flight_Manager]          : Initializing Spring embedded WebApplicationContext
+2020-05-12 16:59:42.774  INFO 78140 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1272 ms
+2020-05-12 16:59:42.882  INFO 78140 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2020-05-12 16:59:42.917  INFO 78140 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2020-05-12 16:59:42.929  INFO 78140 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-05-12 16:59:42.937  INFO 78140 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2020-05-12 16:59:43.250  INFO 78140 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-05-12 16:59:43.252  INFO 78140 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-05-12 16:59:43.407  WARN 78140 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-05-12 16:59:43.893  INFO 78140 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@ebc55979, org.springframework.security.web.context.SecurityContextPersistenceFilter@fe3d592d, org.springframework.security.web.header.HeaderWriterFilter@e8168d0a, org.springframework.web.filter.CorsFilter@c0fd82e9, org.springframework.security.web.authentication.logout.LogoutFilter@f753fe7c, com.infy.demo.filter.JWTFilter@256c8c97, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@50227a82, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@35eafa5e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3812c3b6, org.springframework.security.web.session.SessionManagementFilter@c0d6246c, org.springframework.security.web.access.ExceptionTranslationFilter@bf341417, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@78ee941a]
+2020-05-12 16:59:43.913  INFO 78140 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2020-05-12 16:59:44.058  INFO 78140 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-05-12 16:59:44.069  INFO 78140 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-05-12 16:59:44.303  INFO 78140 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2020-05-12 16:59:44.304  INFO 78140 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2020-05-12 16:59:44.313  INFO 78140 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2020-05-12 16:59:44.531  INFO 78140 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8085 (http) with context path '/Flight_Manager'
+2020-05-12 16:59:44.534  INFO 78140 --- [restartedMain] com.infy.demo.FlightManagerApplication   : Started FlightManagerApplication in 3.116 seconds (JVM running for 3614.385)
+2020-05-12 16:59:44.539  INFO 78140 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
