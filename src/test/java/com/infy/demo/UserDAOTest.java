@@ -17,7 +17,7 @@ import com.infy.demo.model.UserType;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @Transactional()
-@Rollback
+@Rollback(true)
 public class UserDAOTest {
 	
 	@Autowired

@@ -1,5 +1,8 @@
 package com.infy.demo;
 
+import static org.junit.Assert.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -25,8 +28,6 @@ import com.infy.demo.model.Flight;
 @Transactional
 @Rollback(true)
 public class AirportDAOTest {
-	@Rule
-	public BenchmarkRule benchmarkRun = new BenchmarkRule();
 	
 	@Rule
 	public ExpectedException expectedException = ExpectedException.none();
@@ -67,9 +68,24 @@ public class AirportDAOTest {
 		
 	}
 	@Test
-	public void deleteFlightNoExistingAirportTest() throws Exception {
-		airportDAO.deleteFlight(2000);
-		Assert.assertTrue(true);
+	public void airportExistsTest() throws Exception {
+		boolean exists = airportDAO.airportExists(1000);
+		
+		assertEquals(true, exists);
+	}
+	
+	@Test
+	public void getAirportsTest() {
+		List<Airport> list = new ArrayList<>();
+		list = airportDAO.getAirports();
+		assertNotNull(list);
+	}
+	
+	@Test
+	public void getFlightsTest() {
+		List<Flight> list = new ArrayList<>();
+		list = airportDAO.getFlights();
+		assertNotNull(list);
 	}
 
 }
