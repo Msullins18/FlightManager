@@ -12,8 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.infy.demo.exceptions.EmailUnavailableException;
-import com.infy.demo.exceptions.InvalidCredentialsException;
-import com.infy.demo.exceptions.UserNotFoundException;
 import com.infy.demo.model.User;
 import com.infy.demo.service.UserService;
 
@@ -38,18 +36,6 @@ public class UserAPI {
 		log.info("USER SUCCESSFULLY REGISTERED WITH EMAIL: "+ registered);
 		return re;
 	}
-	
-    @ExceptionHandler(UserNotFoundException.class)
-    public ResponseEntity<Object> handleException(UserNotFoundException  e) {
-    	//throw new ResponseStatusException(HttpStatus.NOT_FOUND,e.getMessage());
-    	return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
-    }
-    
-    @ExceptionHandler(InvalidCredentialsException.class)
-    public ResponseEntity<Object> handleException(InvalidCredentialsException  e) {
-    	//throw new ResponseStatusException(HttpStatus.UNAUTHORIZED,e.getMessage());
-    	return new ResponseEntity<>(e.getMessage(), HttpStatus.UNAUTHORIZED);
-    }
     
     @ExceptionHandler(EmailUnavailableException.class)
     public ResponseEntity<Object> handleException(EmailUnavailableException  e) {

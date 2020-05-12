@@ -10,6 +10,7 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.springframework.http.MediaType;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
@@ -22,7 +23,6 @@ import com.infy.demo.exceptions.EmailUnavailableException;
 import com.infy.demo.model.User;
 import com.infy.demo.service.UserService;
 import com.infy.demo.service.UserServiceImpl;
-import com.infy.demo.utility.HashingUtility;
 
 @RunWith(SpringRunner.class)
 public class UserAPITest {
@@ -49,7 +49,8 @@ public class UserAPITest {
 		user.setEmailId("marcus@marcus.com");
 		user.setFirstName("Marcus");
 		user.setLastName("Sullins");
-		user.setPassword(HashingUtility.getHash("Me@123"));
+		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+		user.setPassword(passwordEncoder.encode("Me@123"));
 		user.setPhoneNumber("5552225555");
 
 		String json = new ObjectMapper().writeValueAsString(user);
@@ -66,7 +67,8 @@ public class UserAPITest {
 		user.setEmailId("marcusmarcus.com");
 		user.setFirstName("Marcus");
 		user.setLastName("Sullins");
-		user.setPassword(HashingUtility.getHash("Me@123"));
+		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+		user.setPassword(passwordEncoder.encode("Me@123"));
 		user.setPhoneNumber("5552225555");
 
 		String json = new ObjectMapper().writeValueAsString(user);
@@ -77,12 +79,13 @@ public class UserAPITest {
 	}
 	
 	@Test
-	public void registeruserInvalidTest() throws Exception {
+	public void registerUserInvalidTest() throws Exception {
 		User user = new User();
 		user.setEmailId("marcus@marcus.com");
 		user.setFirstName("Marcus");
 		user.setLastName("Sullins");
-		user.setPassword(HashingUtility.getHash("Me@123"));
+		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+		user.setPassword(passwordEncoder.encode("Me@123"));
 		user.setPhoneNumber("5552225555");
 
 		String json = new ObjectMapper().writeValueAsString(user);

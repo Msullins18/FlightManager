@@ -40,7 +40,7 @@ public class AirportServiceImpl implements AirportService {
 		if (id == null) {
 			throw new FlightNotFoundException(flightId);
 		}
-		return airportDAO.deleteFlight(flightId);
+		return id;
 	}
 
 	@Override
