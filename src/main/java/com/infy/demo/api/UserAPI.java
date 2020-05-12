@@ -1,7 +1,6 @@
 package com.infy.demo.api;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.TransactionSystemException;
@@ -29,19 +28,6 @@ public class UserAPI {
 	
 	@Autowired
 	UserService userService;
-
-	@Autowired
-	private Environment environment;
-	
-//	@PostMapping(value = "Login")
-//	public ResponseEntity<user> loginuser(@RequestBody user user) throws Exception
-//	{
-//		log.info("user TRYING TO LOGIN WITH EMAIL: " + user.getEmailId());
-//		user authenticated = userService.loginuser(user);
-//		ResponseEntity<user> re = new ResponseEntity<user>(authenticated,HttpStatus.OK);
-//		log.info("user LOGGED IN SUCCESSFULLY WITH EMAIL: "+ authenticated.getEmailId());
-//		return re;
-//	}
 	
 	@PostMapping(value = "Register")
 	public ResponseEntity<String> registerUser(@RequestBody User user) throws Exception
@@ -74,7 +60,6 @@ public class UserAPI {
     @ExceptionHandler(TransactionSystemException.class)
     public ResponseEntity<Object> handleException(TransactionSystemException  e) {
     	//throw new ResponseStatusException(HttpStatus.UNAUTHORIZED,e.getMessage());
-    	e.printStackTrace();
     	return new ResponseEntity<>("Invalid inputs! Please try again.", HttpStatus.BAD_REQUEST);
     }
 

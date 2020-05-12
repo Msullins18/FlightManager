@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.infy.demo.model.User;
-import com.infy.demo.utility.HashingUtility;
 import com.infy.demo.utility.JWTUtility;
 
 import lombok.extern.slf4j.Slf4j;

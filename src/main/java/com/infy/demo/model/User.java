@@ -1,8 +1,5 @@
 package com.infy.demo.model;
 
-import lombok.Getter;
-import lombok.Setter;
-
 import lombok.Data;
 
 @Data

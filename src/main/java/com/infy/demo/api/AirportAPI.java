@@ -2,10 +2,7 @@ package com.infy.demo.api;
 
 import java.util.List;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -19,7 +16,6 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
 import com.infy.demo.model.Airport;
-import com.infy.demo.exceptions.AirportNotFoundException;
 import com.infy.demo.exceptions.FlightNotFoundException;
 import com.infy.demo.exceptions.NoAirportsAvailableException;
 import com.infy.demo.exceptions.NoFlightsAvailableException;
@@ -36,9 +32,6 @@ public class AirportAPI {
 
 	@Autowired
 	private AirportService airportService;
-
-	@Autowired
-	private Environment environment;
 
 	@PostMapping(value = "addFlight")
 	public ResponseEntity<String> addFlight(@RequestBody Flight flight) throws Exception {
@@ -75,7 +68,6 @@ public class AirportAPI {
 			Integer id = airportService.addAirport(airport);
 			String message = "The following Airport has been successfully added with Airport Id: " + id;
 			log.info(message);
-			ResponseEntity<Integer> re = new ResponseEntity<Integer>(id, HttpStatus.OK);
 			return new ResponseEntity<String>(message, HttpStatus.OK);
 
 		} catch (Exception e) {

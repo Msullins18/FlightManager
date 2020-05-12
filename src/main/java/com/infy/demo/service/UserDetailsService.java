@@ -22,5 +22,4 @@ public class UserDetailsService implements org.springframework.security.core.use
 		User user = userDAO.getUserByEmailId(emailId);
 		return new org.springframework.security.core.userdetails.User(user.getEmailId(), user.getPassword(), new ArrayList<>());
 	}
-	
 }

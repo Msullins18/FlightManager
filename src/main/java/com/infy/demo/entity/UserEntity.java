@@ -7,13 +7,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import com.infy.demo.model.UserType;
-
 import com.infy.demo.validator.Email;
-import com.infy.demo.validator.Password;
-
-import lombok.Getter;
-import lombok.Setter;
-
 
 import lombok.Data;
 @Data

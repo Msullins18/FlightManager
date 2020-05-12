@@ -2536,3 +2536,326 @@ io.jsonwebtoken.ExpiredJwtException: JWT expired at 2020-05-11T04:54:06Z. Curren
 
 2020-05-11 13:44:14.069 ERROR 74524 --- [http-nio-8085-exec-7] com.infy.demo.utility.LoggingAspect      : AirportValidator.INVALID_ARRIVAL_DATE
 2020-05-11 13:44:14.397  WARN 74524 --- [http-nio-8085-exec-7] .w.s.m.a.ResponseStatusExceptionResolver : Resolved [org.springframework.web.server.ResponseStatusException: 400 BAD_REQUEST "AirportValidator.INVALID_ARRIVAL_DATE"]
+2020-05-11 13:45:22.705  INFO 74524 --- [http-nio-8085-exec-2] com.infy.demo.api.AirportAPI             : The following Airport has been successfully deleted with Airport Id:3008
+2020-05-11 14:33:17.916  WARN 74524 --- [http-nio-8085-exec-4] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection oracle.jdbc.driver.T4CConnection@59c6137f (IO Error: Invalid Operation, NOT Connected). Possibly consider using a shorter maxLifetime value.
+2020-05-11 14:33:17.924  WARN 74524 --- [http-nio-8085-exec-4] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection oracle.jdbc.driver.T4CConnection@409dab2b (IO Error: Invalid Operation, NOT Connected). Possibly consider using a shorter maxLifetime value.
+2020-05-11 14:33:17.930  WARN 74524 --- [http-nio-8085-exec-4] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection oracle.jdbc.driver.T4CConnection@78d4e60b (IO Error: Invalid Operation, NOT Connected). Possibly consider using a shorter maxLifetime value.
+2020-05-11 14:33:17.936  WARN 74524 --- [http-nio-8085-exec-4] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection oracle.jdbc.driver.T4CConnection@3458b5a7 (IO Error: Invalid Operation, NOT Connected). Possibly consider using a shorter maxLifetime value.
+2020-05-11 14:33:17.941  WARN 74524 --- [http-nio-8085-exec-4] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection oracle.jdbc.driver.T4CConnection@98969dc (IO Error: Invalid Operation, NOT Connected). Possibly consider using a shorter maxLifetime value.
+2020-05-11 14:33:17.946  WARN 74524 --- [http-nio-8085-exec-4] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection oracle.jdbc.driver.T4CConnection@3b33310b (IO Error: Invalid Operation, NOT Connected). Possibly consider using a shorter maxLifetime value.
+2020-05-11 14:33:17.951  WARN 74524 --- [http-nio-8085-exec-4] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection oracle.jdbc.driver.T4CConnection@237cd557 (IO Error: Invalid Operation, NOT Connected). Possibly consider using a shorter maxLifetime value.
+2020-05-11 14:33:17.956  WARN 74524 --- [http-nio-8085-exec-4] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection oracle.jdbc.driver.T4CConnection@3659b2 (IO Error: Invalid Operation, NOT Connected). Possibly consider using a shorter maxLifetime value.
+2020-05-11 14:33:17.961  WARN 74524 --- [http-nio-8085-exec-4] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection oracle.jdbc.driver.T4CConnection@4249ccf2 (IO Error: Invalid Operation, NOT Connected). Possibly consider using a shorter maxLifetime value.
+2020-05-11 14:33:17.966  WARN 74524 --- [http-nio-8085-exec-4] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection oracle.jdbc.driver.T4CConnection@3a283711 (IO Error: Invalid Operation, NOT Connected). Possibly consider using a shorter maxLifetime value.
+2020-05-11 14:33:21.213  INFO 74524 --- [http-nio-8085-exec-4] com.infy.demo.api.TravelerSearchAPI      : Search flights from 1000 to New York
+2020-05-11 14:33:21.930  INFO 74524 --- [http-nio-8085-exec-4] com.infy.demo.api.TravelerSearchAPI      : The number of flights avaiable is 1
+2020-05-11 14:56:53.897  INFO 66940 --- [restartedMain] com.infy.demo.FlightManagerApplication   : Starting FlightManagerApplication on USABOS252632L with PID 66940 (C:\Users\marcus.sullins\Desktop\demo2\demo\target\classes started by marcus.sullins in C:\Users\marcus.sullins\Desktop\demo2\demo)
+2020-05-11 14:56:53.913  INFO 66940 --- [restartedMain] com.infy.demo.FlightManagerApplication   : No active profile set, falling back to default profiles: default
+2020-05-11 14:56:54.066  INFO 66940 --- [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in C:\Users\marcus.sullins\.m2\repository\org\glassfish\jaxb\jaxb-runtime\2.3.2\jaxb-runtime-2.3.2.jar referenced one or more files that do not exist: file:/C:/Users/marcus.sullins/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/jakarta.xml.bind-api-2.3.2.jar,file:/C:/Users/marcus.sullins/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/txw2-2.3.2.jar,file:/C:/Users/marcus.sullins/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/istack-commons-runtime-3.0.8.jar,file:/C:/Users/marcus.sullins/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/stax-ex-1.8.1.jar,file:/C:/Users/marcus.sullins/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/FastInfoset-1.2.16.jar,file:/C:/Users/marcus.sullins/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/jakarta.activation-api-1.2.1.jar
+2020-05-11 14:56:54.066  INFO 66940 --- [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in C:\Users\marcus.sullins\.m2\repository\com\oracle\ojdbc\ojdbc8\19.3.0.0\ojdbc8-19.3.0.0.jar referenced one or more files that do not exist: file:/C:/Users/marcus.sullins/.m2/repository/com/oracle/ojdbc/ojdbc8/19.3.0.0/oraclepki.jar
+2020-05-11 14:56:54.066  INFO 66940 --- [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in C:\Users\marcus.sullins\.m2\repository\com\oracle\ojdbc\oraclepki\19.3.0.0\oraclepki-19.3.0.0.jar referenced one or more files that do not exist: file:/C:/Users/marcus.sullins/.m2/repository/com/oracle/ojdbc/oraclepki/19.3.0.0/osdt_core.jar,file:/C:/Users/marcus.sullins/.m2/repository/com/oracle/ojdbc/oraclepki/19.3.0.0/osdt_cert.jar,file:/C:/Users/marcus.sullins/.m2/repository/com/oracle/ojdbc/oraclepki/oracle.osdt/osdt_core.jar,file:/C:/Users/marcus.sullins/.m2/repository/com/oracle/ojdbc/oraclepki/oracle.osdt/osdt_cert.jar
+2020-05-11 14:56:54.066  INFO 66940 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-05-11 14:56:54.066  INFO 66940 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-05-11 14:56:59.449  INFO 66940 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2020-05-11 14:56:59.519  INFO 66940 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 62ms. Found 0 JPA repository interfaces.
+2020-05-11 14:57:05.126  INFO 66940 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8085 (http)
+2020-05-11 14:57:05.180  INFO 66940 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-05-11 14:57:05.180  INFO 66940 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.33]
+2020-05-11 14:57:05.529  INFO 66940 --- [restartedMain] o.a.c.c.C.[.[.[/Flight_Manager]          : Initializing Spring embedded WebApplicationContext
+2020-05-11 14:57:05.537  INFO 66940 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 11463 ms
+2020-05-11 14:57:06.318  INFO 66940 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-05-11 14:57:11.504  INFO 66940 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-05-11 14:57:11.704  INFO 66940 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-05-11 14:57:12.052  INFO 66940 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.12.Final
+2020-05-11 14:57:12.970  INFO 66940 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-05-11 14:57:13.671  INFO 66940 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2020-05-11 14:57:21.384  INFO 66940 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-05-11 14:57:21.417  INFO 66940 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-05-11 14:57:22.147  WARN 66940 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-05-11 14:57:24.354  INFO 66940 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@57fb40d1, org.springframework.security.web.context.SecurityContextPersistenceFilter@6f9314b3, org.springframework.security.web.header.HeaderWriterFilter@296e96b5, org.springframework.web.filter.CorsFilter@5b785b43, org.springframework.security.web.authentication.logout.LogoutFilter@72946c1e, com.infy.demo.filter.JWTFilter@53cbb683, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5da6f99, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@51e21d37, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@35f14af8, org.springframework.security.web.session.SessionManagementFilter@2f6a19b7, org.springframework.security.web.access.ExceptionTranslationFilter@4df967e3, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@207e496b]
+2020-05-11 14:57:24.455  INFO 66940 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2020-05-11 14:57:25.113  INFO 66940 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-05-11 14:57:25.374  WARN 66940 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : Unable to start LiveReload server
+2020-05-11 14:57:26.266  INFO 66940 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2020-05-11 14:57:26.489  INFO 66940 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2020-05-11 14:57:26.590  INFO 66940 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2020-05-11 14:57:27.461  INFO 66940 --- [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2020-05-11 14:57:27.489  WARN 66940 --- [restartedMain] o.a.c.loader.WebappClassLoaderBase       : The web application [Flight_Manager] appears to have started a thread named [Timer-0] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ java.lang.Object.wait(Unknown Source)
+ java.util.TimerThread.mainLoop(Unknown Source)
+ java.util.TimerThread.run(Unknown Source)
+2020-05-11 14:57:27.489  WARN 66940 --- [restartedMain] o.a.c.loader.WebappClassLoaderBase       : The web application [Flight_Manager] appears to have started a thread named [oracle.jdbc.driver.BlockSource.ThreadedCachingBlockSource.BlockReleaser] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ oracle.jdbc.driver.BlockSource$ThreadedCachingBlockSource$BlockReleaser.run(BlockSource.java:331)
+2020-05-11 14:57:27.489  WARN 66940 --- [restartedMain] o.a.c.loader.WebappClassLoaderBase       : The web application [Flight_Manager] appears to have started a thread named [InterruptTimer] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ java.util.TimerThread.mainLoop(Unknown Source)
+ java.util.TimerThread.run(Unknown Source)
+2020-05-11 14:57:27.489  WARN 66940 --- [restartedMain] o.a.c.loader.WebappClassLoaderBase       : The web application [Flight_Manager] appears to have started a thread named [HikariPool-1 housekeeper] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ sun.misc.Unsafe.park(Native Method)
+ java.util.concurrent.locks.LockSupport.parkNanos(Unknown Source)
+ java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(Unknown Source)
+ java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(Unknown Source)
+ java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(Unknown Source)
+ java.util.concurrent.ThreadPoolExecutor.getTask(Unknown Source)
+ java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+ java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+ java.lang.Thread.run(Unknown Source)
+2020-05-11 14:57:27.489  WARN 66940 --- [restartedMain] o.a.c.loader.WebappClassLoaderBase       : The web application [Flight_Manager] appears to have started a thread named [HikariPool-1 connection adder] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ sun.nio.ch.SocketDispatcher.read0(Native Method)
+ sun.nio.ch.SocketDispatcher.read(Unknown Source)
+ sun.nio.ch.IOUtil.readIntoNativeBuffer(Unknown Source)
+ sun.nio.ch.IOUtil.read(Unknown Source)
+ sun.nio.ch.SocketChannelImpl.read(Unknown Source)
+ oracle.net.nt.TimeoutSocketChannel.read(TimeoutSocketChannel.java:174)
+ oracle.net.ns.NSProtocolNIO.doSocketRead(NSProtocolNIO.java:555)
+ oracle.net.ns.NIOPacket.readHeader(NIOPacket.java:258)
+ oracle.net.ns.NIOPacket.readPacketFromSocketChannel(NIOPacket.java:190)
+ oracle.net.ns.NIOPacket.readFromSocketChannel(NIOPacket.java:132)
+ oracle.net.ns.NIOPacket.readFromSocketChannel(NIOPacket.java:105)
+ oracle.net.ns.NIONSDataChannel.readDataFromSocketChannel(NIONSDataChannel.java:91)
+ oracle.net.ano.AnoCommNIO.p(Unknown Source)
+ oracle.net.ano.AnoCommNIO.e(Unknown Source)
+ oracle.net.ano.AnoComm.readUB4(Unknown Source)
+ oracle.net.ano.Ano.c(Unknown Source)
+ oracle.net.ano.Ano.negotiation(Unknown Source)
+ oracle.net.ns.NSProtocol.connect(NSProtocol.java:368)
+ oracle.jdbc.driver.T4CConnection.connect(T4CConnection.java:1596)
+ oracle.jdbc.driver.T4CConnection.logon(T4CConnection.java:588)
+ oracle.jdbc.driver.PhysicalConnection.connect(PhysicalConnection.java:793)
+ oracle.jdbc.driver.T4CDriverExtension.getConnection(T4CDriverExtension.java:57)
+ oracle.jdbc.driver.OracleDriver.connect(OracleDriver.java:747)
+ oracle.jdbc.driver.OracleDriver.connect(OracleDriver.java:562)
+ com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138)
+ com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:354)
+ com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:202)
+ com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:473)
+ com.zaxxer.hikari.pool.HikariPool.access$100(HikariPool.java:71)
+ com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:719)
+ com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:705)
+ java.util.concurrent.FutureTask.run(Unknown Source)
+ java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+ java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+ java.lang.Thread.run(Unknown Source)
+2020-05-11 14:57:27.531  INFO 66940 --- [restartedMain] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2020-05-11 14:57:27.539 ERROR 66940 --- [restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8085 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8085 or configure this application to listen on another port.
+
+2020-05-11 14:57:27.571  INFO 66940 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-05-11 14:57:27.571  INFO 66940 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-05-11 14:57:27.586  INFO 66940 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2020-05-11 14:57:29.814  INFO 66940 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2020-05-11 14:58:21.544  INFO 66676 --- [restartedMain] com.infy.demo.FlightManagerApplication   : Starting FlightManagerApplication on USABOS252632L with PID 66676 (C:\Users\marcus.sullins\Desktop\demo2\demo\target\classes started by marcus.sullins in C:\Users\marcus.sullins\Desktop\demo2\demo)
+2020-05-11 14:58:21.560  INFO 66676 --- [restartedMain] com.infy.demo.FlightManagerApplication   : No active profile set, falling back to default profiles: default
+2020-05-11 14:58:21.676  INFO 66676 --- [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in C:\Users\marcus.sullins\.m2\repository\org\glassfish\jaxb\jaxb-runtime\2.3.2\jaxb-runtime-2.3.2.jar referenced one or more files that do not exist: file:/C:/Users/marcus.sullins/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/jakarta.xml.bind-api-2.3.2.jar,file:/C:/Users/marcus.sullins/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/txw2-2.3.2.jar,file:/C:/Users/marcus.sullins/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/istack-commons-runtime-3.0.8.jar,file:/C:/Users/marcus.sullins/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/stax-ex-1.8.1.jar,file:/C:/Users/marcus.sullins/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/FastInfoset-1.2.16.jar,file:/C:/Users/marcus.sullins/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/jakarta.activation-api-1.2.1.jar
+2020-05-11 14:58:21.676  INFO 66676 --- [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in C:\Users\marcus.sullins\.m2\repository\com\oracle\ojdbc\ojdbc8\19.3.0.0\ojdbc8-19.3.0.0.jar referenced one or more files that do not exist: file:/C:/Users/marcus.sullins/.m2/repository/com/oracle/ojdbc/ojdbc8/19.3.0.0/oraclepki.jar
+2020-05-11 14:58:21.676  INFO 66676 --- [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in C:\Users\marcus.sullins\.m2\repository\com\oracle\ojdbc\oraclepki\19.3.0.0\oraclepki-19.3.0.0.jar referenced one or more files that do not exist: file:/C:/Users/marcus.sullins/.m2/repository/com/oracle/ojdbc/oraclepki/19.3.0.0/osdt_core.jar,file:/C:/Users/marcus.sullins/.m2/repository/com/oracle/ojdbc/oraclepki/19.3.0.0/osdt_cert.jar,file:/C:/Users/marcus.sullins/.m2/repository/com/oracle/ojdbc/oraclepki/oracle.osdt/osdt_core.jar,file:/C:/Users/marcus.sullins/.m2/repository/com/oracle/ojdbc/oraclepki/oracle.osdt/osdt_cert.jar
+2020-05-11 14:58:21.676  INFO 66676 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-05-11 14:58:21.676  INFO 66676 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-05-11 14:58:24.196  INFO 66676 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2020-05-11 14:58:24.328  INFO 66676 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 95ms. Found 0 JPA repository interfaces.
+2020-05-11 14:58:27.893  INFO 66676 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8085 (http)
+2020-05-11 14:58:27.916  INFO 66676 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-05-11 14:58:27.916  INFO 66676 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.33]
+2020-05-11 14:58:28.178  INFO 66676 --- [restartedMain] o.a.c.c.C.[.[.[/Flight_Manager]          : Initializing Spring embedded WebApplicationContext
+2020-05-11 14:58:28.178  INFO 66676 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 6502 ms
+2020-05-11 14:58:28.695  INFO 66676 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-05-11 14:58:33.717  INFO 66676 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-05-11 14:58:33.907  INFO 66676 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-05-11 14:58:34.117  INFO 66676 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.12.Final
+2020-05-11 14:58:34.595  INFO 66676 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-05-11 14:58:35.417  INFO 66676 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2020-05-11 14:58:42.551  INFO 66676 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-05-11 14:58:42.580  INFO 66676 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-05-11 14:58:43.121  WARN 66676 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-05-11 14:58:44.781  INFO 66676 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5a83bc13, org.springframework.security.web.context.SecurityContextPersistenceFilter@2b7bdb08, org.springframework.security.web.header.HeaderWriterFilter@7751090b, org.springframework.web.filter.CorsFilter@45e87e28, org.springframework.security.web.authentication.logout.LogoutFilter@6ed72e9, com.infy.demo.filter.JWTFilter@1a7a4688, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3feee601, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@239bc300, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@768d78f4, org.springframework.security.web.session.SessionManagementFilter@7661d5f6, org.springframework.security.web.access.ExceptionTranslationFilter@8abcd80, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@6a734e73]
+2020-05-11 14:58:44.870  INFO 66676 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2020-05-11 14:58:45.346  INFO 66676 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-05-11 14:58:45.440  INFO 66676 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-05-11 14:58:46.139  INFO 66676 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2020-05-11 14:58:46.199  INFO 66676 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2020-05-11 14:58:46.270  INFO 66676 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2020-05-11 14:58:46.928  INFO 66676 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8085 (http) with context path '/Flight_Manager'
+2020-05-11 14:58:46.936  INFO 66676 --- [restartedMain] com.infy.demo.FlightManagerApplication   : Started FlightManagerApplication in 26.275 seconds (JVM running for 27.584)
+2020-05-11 14:59:04.655  INFO 66676 --- [http-nio-8085-exec-1] o.a.c.c.C.[.[.[/Flight_Manager]          : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-05-11 14:59:04.660  INFO 66676 --- [http-nio-8085-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-05-11 14:59:04.677  INFO 66676 --- [http-nio-8085-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 17 ms
+2020-05-11 14:59:05.279  INFO 66676 --- [http-nio-8085-exec-2] com.infy.demo.api.LoginAPI               : USER TRYING TO LOGIN WITH EMAIL: marcus.sullins@infosys.com
+2020-05-11 14:59:06.445  INFO 66676 --- [http-nio-8085-exec-2] com.infy.demo.api.LoginAPI               : USER LOGGED IN SUCCESSFULLY WITH EMAIL: marcus.sullins@infosys.com
+2020-05-11 15:15:20.036  INFO 66676 --- [http-nio-8085-exec-8] com.infy.demo.api.LoginAPI               : USER TRYING TO LOGIN WITH EMAIL: marcus.sullinss@infosys.com
+2020-05-11 15:15:20.066  WARN 66676 --- [http-nio-8085-exec-8] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection oracle.jdbc.driver.T4CConnection@7e928266 (IO Error: Invalid Operation, NOT Connected). Possibly consider using a shorter maxLifetime value.
+2020-05-11 15:15:20.073  WARN 66676 --- [http-nio-8085-exec-8] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection oracle.jdbc.driver.T4CConnection@1470ddad (IO Error: Invalid Operation, NOT Connected). Possibly consider using a shorter maxLifetime value.
+2020-05-11 15:15:20.080  WARN 66676 --- [http-nio-8085-exec-8] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection oracle.jdbc.driver.T4CConnection@765d86dc (IO Error: Invalid Operation, NOT Connected). Possibly consider using a shorter maxLifetime value.
+2020-05-11 15:15:20.084  WARN 66676 --- [http-nio-8085-exec-8] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection oracle.jdbc.driver.T4CConnection@ea8affd (IO Error: Invalid Operation, NOT Connected). Possibly consider using a shorter maxLifetime value.
+2020-05-11 15:15:20.089  WARN 66676 --- [http-nio-8085-exec-8] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection oracle.jdbc.driver.T4CConnection@2f9333cf (IO Error: Invalid Operation, NOT Connected). Possibly consider using a shorter maxLifetime value.
+2020-05-11 15:15:20.095  WARN 66676 --- [http-nio-8085-exec-8] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection oracle.jdbc.driver.T4CConnection@15ac2786 (IO Error: Invalid Operation, NOT Connected). Possibly consider using a shorter maxLifetime value.
+2020-05-11 15:15:20.100  WARN 66676 --- [http-nio-8085-exec-8] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection oracle.jdbc.driver.T4CConnection@797b1ab (IO Error: Invalid Operation, NOT Connected). Possibly consider using a shorter maxLifetime value.
+2020-05-11 15:15:20.104  WARN 66676 --- [http-nio-8085-exec-8] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection oracle.jdbc.driver.T4CConnection@287f964d (IO Error: Invalid Operation, NOT Connected). Possibly consider using a shorter maxLifetime value.
+2020-05-11 15:15:20.109  WARN 66676 --- [http-nio-8085-exec-8] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection oracle.jdbc.driver.T4CConnection@44ad6a7a (IO Error: Invalid Operation, NOT Connected). Possibly consider using a shorter maxLifetime value.
+2020-05-11 15:15:20.114  WARN 66676 --- [http-nio-8085-exec-8] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection oracle.jdbc.driver.T4CConnection@147962fd (IO Error: Invalid Operation, NOT Connected). Possibly consider using a shorter maxLifetime value.
+2020-05-11 15:15:23.882  INFO 66676 --- [http-nio-8085-exec-8] com.infy.demo.api.LoginAPI               : USER LOGGED IN SUCCESSFULLY WITH EMAIL: marcus.sullinss@infosys.com
+2020-05-11 15:15:26.224  INFO 66676 --- [http-nio-8085-exec-1] com.infy.demo.api.TravelerSearchAPI      : The number of airports is 1
+2020-05-11 15:15:26.858  INFO 66676 --- [http-nio-8085-exec-2] com.infy.demo.api.TravelerSearchAPI      : The number of airports is 2
+2020-05-11 15:15:55.501  INFO 66676 --- [http-nio-8085-exec-6] com.infy.demo.api.TravelerSearchAPI      : Search flights from 1000 to Wisconssin
+2020-05-11 15:15:56.231  INFO 66676 --- [http-nio-8085-exec-6] com.infy.demo.api.TravelerSearchAPI      : The number of flights avaiable is 2
+2020-05-11 15:16:30.551  INFO 66676 --- [http-nio-8085-exec-8] com.infy.demo.api.TravelerSearchAPI      : Search flights from 1000 to New York
+2020-05-11 15:16:31.217  INFO 66676 --- [http-nio-8085-exec-8] com.infy.demo.api.TravelerSearchAPI      : The number of flights avaiable is 1
+2020-05-11 15:16:37.699  INFO 66676 --- [http-nio-8085-exec-10] com.infy.demo.api.TravelerSearchAPI      : Search flights from 1000 to Wisconssin
+2020-05-11 15:16:38.399  INFO 66676 --- [http-nio-8085-exec-10] com.infy.demo.api.TravelerSearchAPI      : The number of flights avaiable is 2
+2020-05-11 15:16:52.675  INFO 66676 --- [http-nio-8085-exec-2] com.infy.demo.api.TravelerSearchAPI      : Search flights from 1000 to New York
+2020-05-11 15:16:53.390  INFO 66676 --- [http-nio-8085-exec-2] com.infy.demo.api.TravelerSearchAPI      : The number of flights avaiable is 1
+2020-05-11 15:18:23.278  INFO 66676 --- [http-nio-8085-exec-4] com.infy.demo.api.LoginAPI               : USER TRYING TO LOGIN WITH EMAIL: marcus.sullinsinfosys.com
+2020-05-11 15:18:23.987 ERROR 66676 --- [http-nio-8085-exec-4] com.infy.demo.utility.LoggingAspect      : java.lang.NullPointerException
+
+java.lang.NullPointerException: null
+	at com.infy.demo.dao.UserDAOImpl.getUserByEmailId(UserDAOImpl.java:60) ~[classes/:na]
+	at com.infy.demo.dao.UserDAOImpl$$FastClassBySpringCGLIB$$c7aee949.invoke(<generated>) ~[classes/:na]
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218) ~[spring-core-5.2.5.RELEASE.jar:5.2.5.RELEASE]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:771) [spring-aop-5.2.5.RELEASE.jar:5.2.5.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-5.2.5.RELEASE.jar:5.2.5.RELEASE]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749) [spring-aop-5.2.5.RELEASE.jar:5.2.5.RELEASE]
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:139) ~[spring-tx-5.2.5.RELEASE.jar:5.2.5.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.2.5.RELEASE.jar:5.2.5.RELEASE]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749) [spring-aop-5.2.5.RELEASE.jar:5.2.5.RELEASE]
+	at org.springframework.aop.aspectj.AspectJAfterThrowingAdvice.invoke(AspectJAfterThrowingAdvice.java:62) ~[spring-aop-5.2.5.RELEASE.jar:5.2.5.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.2.5.RELEASE.jar:5.2.5.RELEASE]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749) [spring-aop-5.2.5.RELEASE.jar:5.2.5.RELEASE]
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:95) ~[spring-aop-5.2.5.RELEASE.jar:5.2.5.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.2.5.RELEASE.jar:5.2.5.RELEASE]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749) [spring-aop-5.2.5.RELEASE.jar:5.2.5.RELEASE]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:691) [spring-aop-5.2.5.RELEASE.jar:5.2.5.RELEASE]
+	at com.infy.demo.dao.UserDAOImpl$$EnhancerBySpringCGLIB$$1577be3f.getUserByEmailId(<generated>) [classes/:na]
+	at com.infy.demo.service.UserDetailsService.loadUserByUsername(UserDetailsService.java:22) [classes/:na]
+	at org.springframework.security.authentication.dao.DaoAuthenticationProvider.retrieveUser(DaoAuthenticationProvider.java:108) [spring-security-core-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.security.authentication.dao.AbstractUserDetailsAuthenticationProvider.authenticate(AbstractUserDetailsAuthenticationProvider.java:144) [spring-security-core-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.security.authentication.ProviderManager.authenticate(ProviderManager.java:175) [spring-security-core-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.security.authentication.ProviderManager.authenticate(ProviderManager.java:195) [spring-security-core-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter$AuthenticationManagerDelegator.authenticate(WebSecurityConfigurerAdapter.java:501) [spring-security-config-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at com.infy.demo.api.LoginAPI.loginUser(LoginAPI.java:31) [classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_141]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[na:1.8.0_141]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[na:1.8.0_141]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[na:1.8.0_141]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190) [spring-web-5.2.5.RELEASE.jar:5.2.5.RELEASE]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138) [spring-web-5.2.5.RELEASE.jar:5.2.5.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:105) [spring-webmvc-5.2.5.RELEASE.jar:5.2.5.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:879) [spring-webmvc-5.2.5.RELEASE.jar:5.2.5.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:793) [spring-webmvc-5.2.5.RELEASE.jar:5.2.5.RELEASE]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) [spring-webmvc-5.2.5.RELEASE.jar:5.2.5.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040) [spring-webmvc-5.2.5.RELEASE.jar:5.2.5.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943) [spring-webmvc-5.2.5.RELEASE.jar:5.2.5.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) [spring-webmvc-5.2.5.RELEASE.jar:5.2.5.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909) [spring-webmvc-5.2.5.RELEASE.jar:5.2.5.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:660) [tomcat-embed-core-9.0.33.jar:9.0.33]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) [spring-webmvc-5.2.5.RELEASE.jar:5.2.5.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741) [tomcat-embed-core-9.0.33.jar:9.0.33]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) [tomcat-embed-core-9.0.33.jar:9.0.33]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.33.jar:9.0.33]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) [tomcat-embed-websocket-9.0.33.jar:9.0.33]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.33.jar:9.0.33]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.33.jar:9.0.33]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:113) [spring-web-5.2.5.RELEASE.jar:5.2.5.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.33.jar:9.0.33]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.33.jar:9.0.33]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:320) [spring-security-web-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:126) [spring-security-web-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:90) [spring-security-web-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) [spring-security-web-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:118) [spring-security-web-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) [spring-security-web-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:137) [spring-security-web-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) [spring-security-web-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:111) [spring-security-web-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) [spring-security-web-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:158) [spring-security-web-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) [spring-security-web-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) [spring-security-web-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) [spring-security-web-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at com.infy.demo.filter.JWTFilter.doFilterInternal(JWTFilter.java:57) [classes/:na]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.2.5.RELEASE.jar:5.2.5.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) [spring-security-web-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:116) [spring-security-web-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) [spring-security-web-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:92) [spring-web-5.2.5.RELEASE.jar:5.2.5.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.2.5.RELEASE.jar:5.2.5.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) [spring-security-web-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:92) [spring-security-web-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:77) [spring-security-web-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.2.5.RELEASE.jar:5.2.5.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) [spring-security-web-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:105) [spring-security-web-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) [spring-security-web-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:56) [spring-security-web-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.2.5.RELEASE.jar:5.2.5.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) [spring-security-web-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:215) [spring-security-web-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:178) [spring-security-web-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:358) [spring-web-5.2.5.RELEASE.jar:5.2.5.RELEASE]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:271) [spring-web-5.2.5.RELEASE.jar:5.2.5.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.33.jar:9.0.33]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.33.jar:9.0.33]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) [spring-web-5.2.5.RELEASE.jar:5.2.5.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.2.5.RELEASE.jar:5.2.5.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.33.jar:9.0.33]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.33.jar:9.0.33]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) [spring-web-5.2.5.RELEASE.jar:5.2.5.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.2.5.RELEASE.jar:5.2.5.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.33.jar:9.0.33]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.33.jar:9.0.33]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) [spring-web-5.2.5.RELEASE.jar:5.2.5.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.2.5.RELEASE.jar:5.2.5.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.33.jar:9.0.33]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.33.jar:9.0.33]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202) [tomcat-embed-core-9.0.33.jar:9.0.33]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96) [tomcat-embed-core-9.0.33.jar:9.0.33]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) [tomcat-embed-core-9.0.33.jar:9.0.33]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139) [tomcat-embed-core-9.0.33.jar:9.0.33]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.33.jar:9.0.33]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) [tomcat-embed-core-9.0.33.jar:9.0.33]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) [tomcat-embed-core-9.0.33.jar:9.0.33]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:373) [tomcat-embed-core-9.0.33.jar:9.0.33]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.33.jar:9.0.33]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868) [tomcat-embed-core-9.0.33.jar:9.0.33]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1594) [tomcat-embed-core-9.0.33.jar:9.0.33]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.33.jar:9.0.33]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source) [na:1.8.0_141]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [na:1.8.0_141]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.33.jar:9.0.33]
+	at java.lang.Thread.run(Unknown Source) [na:1.8.0_141]
+
+2020-05-11 15:18:44.559  INFO 66676 --- [http-nio-8085-exec-7] com.infy.demo.api.UserAPI                : USER TRYING TO REGISTER WITH EMAIL: marcussullins1996gmail.co
+2020-05-11 15:18:45.843  WARN 66676 --- [http-nio-8085-exec-7] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.transaction.TransactionSystemException: Could not commit JPA transaction; nested exception is javax.persistence.RollbackException: Error while committing the transaction]
+2020-05-11 15:34:29.212  INFO 66676 --- [Thread-10] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-05-11 15:34:29.221  INFO 66676 --- [Thread-10] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-05-11 15:34:29.316  INFO 66676 --- [Thread-10] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2020-05-11 15:34:29.328  INFO 66676 --- [Thread-10] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2020-05-11 15:34:31.708  INFO 66676 --- [restartedMain] com.infy.demo.FlightManagerApplication   : Starting FlightManagerApplication on USABOS252632L with PID 66676 (C:\Users\marcus.sullins\Desktop\demo2\demo\target\classes started by marcus.sullins in C:\Users\marcus.sullins\Desktop\demo2\demo)
+2020-05-11 15:34:31.709  INFO 66676 --- [restartedMain] com.infy.demo.FlightManagerApplication   : No active profile set, falling back to default profiles: default
+2020-05-11 15:34:34.257  INFO 66676 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2020-05-11 15:34:34.330  INFO 66676 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 71ms. Found 0 JPA repository interfaces.
+2020-05-11 15:34:35.397  INFO 66676 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8085 (http)
+2020-05-11 15:34:35.399  INFO 66676 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-05-11 15:34:35.401  INFO 66676 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.33]
+2020-05-11 15:34:35.518  INFO 66676 --- [restartedMain] o.a.c.c.C.[.[.[/Flight_Manager]          : Initializing Spring embedded WebApplicationContext
+2020-05-11 15:34:35.519  INFO 66676 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 3799 ms
+2020-05-11 15:34:35.717  INFO 66676 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2020-05-11 15:34:38.919  INFO 66676 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2020-05-11 15:34:38.963  INFO 66676 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-05-11 15:34:38.980  INFO 66676 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2020-05-11 15:34:44.519  INFO 66676 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-05-11 15:34:44.521  INFO 66676 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-05-11 15:34:44.885  WARN 66676 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
