@@ -36,8 +36,8 @@ public class AirportServiceImpl implements AirportService {
 	@Override
 	public Integer deleteFlight(Integer flightId) throws Exception {
 		// TODO Auto-generated method stub
-		Integer id = airportDAO.deleteFlight(flightId);
-		if (id == null) {
+		Optional<Integer> idCheck = Optional.ofNullable(flightId);
+		if(!idCheck.isPresent()){
 			throw new FlightNotFoundException(flightId);
 		}
 		return id;
