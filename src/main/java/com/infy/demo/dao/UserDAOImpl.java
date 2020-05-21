@@ -19,7 +19,6 @@ public class UserDAOImpl implements UserDAO {
 	public String registerUser(User user) {
 		// TODO Auto-generated method stub
 		UserEntity userEntity = new UserEntity();
-		
 		userEntity.setEmailId(user.getEmailId());
 		userEntity.setFirstName(user.getFirstName());
 		userEntity.setLastName(user.getLastName());
@@ -32,24 +31,17 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	@Override
-	public User getUserByEmailId(String emailId) {
+	public UserEntity getUserByEmailId(String emailId) {
 		// TODO Auto-generated method stub
 		Optional<UserEntity> userEntity = Optional.ofNullable(entityManager.find(UserEntity.class, emailId));
-		User user = new User();
 		if(userEntity.isPresent())
-		{
-			user.setEmailId(userEntity.get().getEmailId());
-			user.setFirstName(userEntity.get().getFirstName());
-			user.setLastName(userEntity.get().getLastName());
-			user.setPassword(userEntity.get().getPassword());
-			user.setPhoneNumber(userEntity.get().getPhoneNumber());
+		{	
+			return userEntity.get();
 		}
 		else
 		{
 			throw new UsernameNotFoundException("Email ID not found!");
 		}
-		
-		return user;
 	}
 
 	@Override
@@ -59,7 +51,7 @@ public class UserDAOImpl implements UserDAO {
 		Optional<UserEntity> userEntity = Optional.empty();
 		if(entityManager.find(UserEntity.class, emailId) != null)
 		{
-			userEntity = Optional.of(entityManager.find(UserEntity.class, emailId));
+			userEntity = Optional.ofNullable(entityManager.find(UserEntity.class, emailId));
 		}
 		
 

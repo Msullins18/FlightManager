@@ -18,7 +18,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.transaction.TransactionSystemException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.infy.demo.api.UserAPI;
+import com.infy.demo.api.UserAPIImpl;
 import com.infy.demo.exceptions.EmailUnavailableException;
 import com.infy.demo.model.User;
 import com.infy.demo.service.UserService;
@@ -32,7 +32,7 @@ public class UserAPITest {
 	private MockMvc mockMvc;
 
 	@InjectMocks
-	private UserAPI userAPI;
+	private UserAPIImpl userAPI;
 
    	@Mock
 	UserService userService = new UserServiceImpl();

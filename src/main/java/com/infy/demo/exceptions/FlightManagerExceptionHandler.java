@@ -5,12 +5,23 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.transaction.TransactionSystemException;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
 @ControllerAdvice
 public class FlightManagerExceptionHandler {
-    
+	
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public ResponseEntity<Object> handleException(MethodArgumentNotValidException  e) {
+    	String message = "";
+    	
+    	if(e.getMessage().contains("emailId"))message = "Email cannot be null or empty";
+    	if(e.getMessage().contains("password"))message = "Email cannot be null or empty";
+    	
+    	return new ResponseEntity<>(message, HttpStatus.BAD_REQUEST);
+    }
+	
     @ExceptionHandler(EmailUnavailableException.class)
     public ResponseEntity<Object> handleException(EmailUnavailableException  e) {
     	return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);

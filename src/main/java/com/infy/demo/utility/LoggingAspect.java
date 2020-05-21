@@ -16,6 +16,7 @@ import lombok.extern.slf4j.Slf4j;
 @Aspect
 @Slf4j
 public class LoggingAspect {
+	
 	@AfterThrowing(pointcut = "execution(* com.infy.demo.dao.*Impl.*(..))", throwing = "exception")	
 	public void logExceptionFromDAO(Exception exception) throws Exception {
 		log(exception);
@@ -54,7 +55,7 @@ public class LoggingAspect {
     public Object logAroundRegisterUserMethod(ProceedingJoinPoint joinPoint) throws Throwable 
     {
     	log.info("USER TRYING TO REGISTER...");
-    	Object obj = aroungLogHelper(joinPoint);
+    	Object obj = aroundLogHelper(joinPoint);
     	log.info("USER SUCCESSFULLY REGISTERED...");
     	return obj;
     }
@@ -63,13 +64,40 @@ public class LoggingAspect {
     public Object logAroundLoginUserMethod(ProceedingJoinPoint joinPoint) throws Throwable 
     {
     	log.info("USER TRYING TO LOGIN...");
-    	Object obj =  aroungLogHelper(joinPoint);
+    	Object obj =  aroundLogHelper(joinPoint);
     	log.info("USER SUCCESSFULLY LOGGED IN...");
     	return obj;
     }
     
-    private Object aroungLogHelper(ProceedingJoinPoint joinPoint) throws Throwable {
+    @Around("execution(* com.infy.demo.api.TravelerSearchAPI.getFlights(..))")
+    public Object logAroundGetFlightsMethod(ProceedingJoinPoint joinPoint) throws Throwable 
+    {
+    	log.info("SEARCHING FOR FLIGHTS...");
+    	Object obj =  aroundLogHelper(joinPoint);
+    	log.info("FLIGHTS FOUND...");
+    	return obj;
+    }
+    
+    @Around("execution(* com.infy.demo.api.TravelerSearchAPI.getAllOrigins(..))")
+    public Object logAroundGetAllOriginsMethod(ProceedingJoinPoint joinPoint) throws Throwable 
+    {
+    	log.info("SEARCHING FOR ORIGINS...");
+    	Object obj =  aroundLogHelper(joinPoint);
+    	log.info("ORIGINS ACQUIRED...");
+    	return obj;
+    }
+    
+    @Around("execution(* com.infy.demo.api.TravelerSearchAPI.getAllDestinations(..))")
+    public Object logAroundGetAllDestinationsMethod(ProceedingJoinPoint joinPoint) throws Throwable 
+    {
+    	log.info("SEARCHING FOR DESTINATIONS...");
+    	Object obj =  aroundLogHelper(joinPoint);
+    	log.info("DESTINATIONS ACQUIRED...");
+    	return obj;
+    }
+    
+    private Object aroundLogHelper(ProceedingJoinPoint joinPoint) throws Throwable {
         log.info(joinPoint.getSignature().getName()+ " " + joinPoint.getSignature().toString());
         return joinPoint.proceed();
-      }
+    }
 }

@@ -1,5 +1,7 @@
 package com.infy.demo.api;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -28,7 +30,7 @@ import lombok.extern.slf4j.Slf4j;
 @RestController
 @RequestMapping("User")
 @Api(value = "UserAPI",tags={ "User"},description = "User calls")
-public class UserAPI {
+public class UserAPIImpl implements UserAPI {
 	
 	@Autowired
 	private UserService userService;
@@ -39,26 +41,18 @@ public class UserAPI {
     @Autowired
     private AuthenticationManager authenticationManager;
 	
-    @ApiOperation(value = "Register user for application", nickname = "registerUser", notes = "Returns email of user upon successful registration", response = String.class, tags={ "User"})
-    @ApiResponses(value = { 
-        @ApiResponse(code = 200, message = "", response = String.class),
-        @ApiResponse(code = 400, message = ""),
-        @ApiResponse(code = 500, message = "") })
+    @Override
 	@PostMapping(value = "Register",produces = { "application/json" })
-	public ResponseEntity<String> registerUser(@RequestBody User user)
+	public ResponseEntity<String> registerUser(@Valid @RequestBody User user)
 	{
 		String registered = userService.registerUser(user);
 		ResponseEntity<String> re = new ResponseEntity<String>(registered,HttpStatus.OK);
 		return re;
 	}
     
-    @ApiOperation(value = "Submit user credentials for authorization", nickname = "loginUser", notes = "Returns a JSON Web Token for use in other api calls", response = String.class, tags={ "login", })
-    @ApiResponses(value = { 
-        @ApiResponse(code = 200, message = "", response = String.class),
-        @ApiResponse(code = 403, message = ""),
-        @ApiResponse(code = 500, message = "") })
+    @Override
 	@PostMapping(value = "Login")
-	public String loginUser(@ApiParam(value = "Credentials of User to authenticate",required=true) @RequestBody User user)
+	public String loginUser(@Valid @RequestBody User user)
 	{
 		authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(user.getEmailId(),user.getPassword()));

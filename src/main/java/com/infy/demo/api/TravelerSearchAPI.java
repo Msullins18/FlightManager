@@ -30,10 +30,10 @@ public class TravelerSearchAPI {
 
 	@PostMapping(value="/getFlights")
 	public ResponseEntity<List<Flight>> getFlights(@RequestBody SearchFlights searchFlights) {
-		log.info("Search flights from "+searchFlights.getAirportId() +" to " +searchFlights.getDestination());
+//		log.info("Search flights from "+searchFlights.getAirportId() +" to " +searchFlights.getDestination());
 		List<Flight> flightList = travelerSearchService.getFlights(searchFlights.getDate(), searchFlights.getAirportId(),searchFlights.getDestination(), searchFlights.getNumberOfTickets());
 		ResponseEntity<List<Flight>> response = new ResponseEntity<List<Flight>>(flightList, HttpStatus.OK);
-		log.info("The number of flights avaiable is " + flightList.size()); 
+//		log.info("The number of flights avaiable is " + flightList.size()); 
 		return response;
 	}
 
@@ -42,7 +42,7 @@ public class TravelerSearchAPI {
 		List<Airport> origins = null;
 		origins = travelerSearchService.getAllOrigins();
 		ResponseEntity<List<Airport>> response = new ResponseEntity<List<Airport>>(origins, HttpStatus.OK);
-		log.info("The number of airports is " + origins.size());
+//		log.info("The number of airports is " + origins.size());
 		return response;
 	}
 
@@ -51,7 +51,7 @@ public class TravelerSearchAPI {
 		List<String> destinations = null;
 		destinations = travelerSearchService.getAllDestinations();
 		ResponseEntity<List<String>> response = new ResponseEntity<List<String>>(destinations, HttpStatus.OK);
-		log.info("The number of airports is " + destinations.size());
+//		log.info("The number of airports is " + destinations.size());
 		return response;
 	}
 }

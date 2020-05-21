@@ -8,6 +8,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import com.infy.demo.dao.UserDAO;
+import com.infy.demo.entity.UserEntity;
 import com.infy.demo.model.User;
 
 @Service
@@ -19,11 +20,13 @@ public class UserDetailsService implements org.springframework.security.core.use
 	@Override
 	public UserDetails loadUserByUsername(String emailId) throws UsernameNotFoundException {
 		// TODO Auto-generated method stub
-		User user = userDAO.getUserByEmailId(emailId);
-		if(user == null)
-		{
-			throw new UsernameNotFoundException("Email ID not found!");
-		}
+		UserEntity userEntity = userDAO.getUserByEmailId(emailId);
+		User user = new User();
+		user.setEmailId(userEntity.getEmailId());
+		user.setFirstName(userEntity.getFirstName());
+		user.setLastName(userEntity.getLastName());
+		user.setPassword(userEntity.getPassword());
+		user.setPhoneNumber(userEntity.getPhoneNumber());
 		return new org.springframework.security.core.userdetails.User(user.getEmailId(), user.getPassword(), new ArrayList<>());
 	}
 }
