@@ -15,11 +15,15 @@ public class UserDetailsService implements org.springframework.security.core.use
 
 	@Autowired
 	UserDAO userDAO;
-
+	//override user details service to check received credentials from frontend against database credentials
 	@Override
 	public UserDetails loadUserByUsername(String emailId) throws UsernameNotFoundException {
 		// TODO Auto-generated method stub
 		User user = userDAO.getUserByEmailId(emailId);
+		if(user == null)
+		{
+			throw new UsernameNotFoundException("Email ID not found!");
+		}
 		return new org.springframework.security.core.userdetails.User(user.getEmailId(), user.getPassword(), new ArrayList<>());
 	}
 }

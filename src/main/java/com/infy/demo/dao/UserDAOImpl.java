@@ -3,6 +3,7 @@ package com.infy.demo.dao;
 import java.util.Optional;
 import javax.persistence.EntityManager;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Repository;
 import com.infy.demo.entity.UserEntity;
 import com.infy.demo.model.User;
@@ -33,7 +34,7 @@ public class UserDAOImpl implements UserDAO {
 	@Override
 	public User getUserByEmailId(String emailId) {
 		// TODO Auto-generated method stub
-		Optional<UserEntity> userEntity = Optional.of(entityManager.find(UserEntity.class, emailId));
+		Optional<UserEntity> userEntity = Optional.ofNullable(entityManager.find(UserEntity.class, emailId));
 		User user = new User();
 		if(userEntity.isPresent())
 		{
@@ -42,6 +43,10 @@ public class UserDAOImpl implements UserDAO {
 			user.setLastName(userEntity.get().getLastName());
 			user.setPassword(userEntity.get().getPassword());
 			user.setPhoneNumber(userEntity.get().getPhoneNumber());
+		}
+		else
+		{
+			throw new UsernameNotFoundException("Email ID not found!");
 		}
 		
 		return user;

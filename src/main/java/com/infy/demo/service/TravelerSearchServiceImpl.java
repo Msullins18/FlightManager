@@ -20,7 +20,7 @@ public class TravelerSearchServiceImpl implements TravelerSearchService {
 	private TravelerSearchDAO travelerSearchDAO;
 
 	@Override
-	public List<Flight> getFlights(LocalDate date, Integer airportId, String destination, Integer numberOfTickets) throws Exception {
+	public List<Flight> getFlights(LocalDate date, Integer airportId, String destination, Integer numberOfTickets) {
 		TravelValidator.validateTravel(date);;
 		List<Flight> flightList = travelerSearchDAO.getFlights(date, airportId, destination, numberOfTickets);
 		if(flightList.isEmpty())
@@ -32,12 +32,12 @@ public class TravelerSearchServiceImpl implements TravelerSearchService {
 	}
 
 	@Override
-	public List<Airport> getAllOrigins() throws Exception {
+	public List<Airport> getAllOrigins() {
 		return travelerSearchDAO.getAllOrigins();
 	}
 
 	@Override
-	public List<String> getAllDestinations() throws Exception {
+	public List<String> getAllDestinations() {
 		return travelerSearchDAO.getAllDestinations();
 	}
 

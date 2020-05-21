@@ -5,14 +5,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.infy.demo.exceptions.InvalidDateException;
-import com.infy.demo.exceptions.NoFlightsAvailableException;
+
 import com.infy.demo.model.Airport;
 import com.infy.demo.model.Flight;
 import com.infy.demo.model.SearchFlights;
@@ -31,7 +29,7 @@ public class TravelerSearchAPI {
 	private TravelerSearchService travelerSearchService;
 
 	@PostMapping(value="/getFlights")
-	public ResponseEntity<List<Flight>> getFlights(@RequestBody SearchFlights searchFlights) throws Exception{
+	public ResponseEntity<List<Flight>> getFlights(@RequestBody SearchFlights searchFlights) {
 		log.info("Search flights from "+searchFlights.getAirportId() +" to " +searchFlights.getDestination());
 		List<Flight> flightList = travelerSearchService.getFlights(searchFlights.getDate(), searchFlights.getAirportId(),searchFlights.getDestination(), searchFlights.getNumberOfTickets());
 		ResponseEntity<List<Flight>> response = new ResponseEntity<List<Flight>>(flightList, HttpStatus.OK);
@@ -40,7 +38,7 @@ public class TravelerSearchAPI {
 	}
 
 	@GetMapping(value="/getAirports")
-	public ResponseEntity<List<Airport>> getAllOrigins() throws Exception{
+	public ResponseEntity<List<Airport>> getAllOrigins() {
 		List<Airport> origins = null;
 		origins = travelerSearchService.getAllOrigins();
 		ResponseEntity<List<Airport>> response = new ResponseEntity<List<Airport>>(origins, HttpStatus.OK);
@@ -49,24 +47,11 @@ public class TravelerSearchAPI {
 	}
 
 	@GetMapping(value="/getDestinations")
-	public ResponseEntity<List<String>> getAllDestinations() throws Exception{
+	public ResponseEntity<List<String>> getAllDestinations() {
 		List<String> destinations = null;
 		destinations = travelerSearchService.getAllDestinations();
 		ResponseEntity<List<String>> response = new ResponseEntity<List<String>>(destinations, HttpStatus.OK);
 		log.info("The number of airports is " + destinations.size());
 		return response;
 	}
-	
-	 
-	 @ExceptionHandler(NoFlightsAvailableException.class)
-	    public ResponseEntity<Object> handleException(NoFlightsAvailableException  e) {
-	    	return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
-	    }
-	 
-	 @ExceptionHandler(InvalidDateException.class)
-	    public ResponseEntity<Object> handleException(InvalidDateException  e) {
-	    	return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
-	    }
-	
-
 }

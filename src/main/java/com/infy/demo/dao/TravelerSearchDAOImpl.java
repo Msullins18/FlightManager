@@ -24,7 +24,7 @@ public class TravelerSearchDAOImpl implements TravelerSearchDAO {
 	private EntityManager entityManager;
 
 	@Override
-	public List<Flight> getFlights(LocalDate date, Integer airportId, String destination, Integer numberOfTickets) throws Exception {
+	public List<Flight> getFlights(LocalDate date, Integer airportId, String destination, Integer numberOfTickets){
 		String queryString = "select f from FlightEntity f where f.airportId =: airportId and f.destination =:destination";
 		Query query=entityManager.createQuery(queryString);
 		query.setParameter("airportId", airportId);

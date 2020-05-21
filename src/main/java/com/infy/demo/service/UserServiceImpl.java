@@ -24,16 +24,15 @@ public class UserServiceImpl implements UserService {
 	EntityManager entityManager;
 
 	@Override
-	public String registerUser(User user) throws Exception {
+	public String registerUser(User user){
 		// TODO Auto-generated method stub
 		String emailId = user.getEmailId().toLowerCase();
 		Optional<String> registered = Optional.empty();
 		Boolean available = userDAO.checkAvailabilityOfEmailId(emailId);
 		if (available) {
+			//set pw to bcrypt hash for secure storage
 			BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 			String passwordToDB = passwordEncoder.encode(user.getPassword());
-			System.out.println(passwordToDB);
-			System.out.println(user.getPassword());
 			user.setEmailId(emailId);
 			user.setPassword(passwordToDB);
 			registered = Optional.of(userDAO.registerUser(user));
