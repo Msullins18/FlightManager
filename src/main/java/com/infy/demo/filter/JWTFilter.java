@@ -34,14 +34,13 @@ public class JWTFilter extends OncePerRequestFilter{
 
         String token = null;
         String userName = null;
-        // look for token & extract username
+
         if (authorizationHeader != null && authorizationHeader.startsWith("Bearer ")) {
             token = authorizationHeader.substring(7);
             System.out.println("TOKEN RECIEVED"+token);
             userName = jwtUtility.extractEmailId(token);
         }
-        //if username is present, we have a token
-        //validate token and create authentication
+
         if (userName != null && SecurityContextHolder.getContext().getAuthentication() == null) {
 
             UserDetails userDetails = userDetailsService.loadUserByUsername(userName);

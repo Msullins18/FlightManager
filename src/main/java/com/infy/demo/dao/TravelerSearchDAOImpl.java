@@ -24,40 +24,56 @@ public class TravelerSearchDAOImpl implements TravelerSearchDAO {
 	private EntityManager entityManager;
 
 	@Override
-	public List<FlightEntity> getFlights(LocalDate date, Integer airportId, String destination, Integer numberOfTickets){
+	public List<Flight> getFlights(LocalDate date, Integer airportId, String destination, Integer numberOfTickets) throws Exception {
 		String queryString = "select f from FlightEntity f where f.airportId =: airportId and f.destination =:destination";
 		Query query=entityManager.createQuery(queryString);
 		query.setParameter("airportId", airportId);
 		query.setParameter("destination", destination);
 		List<FlightEntity> flightEntityList = query.getResultList();
 
-		List<FlightEntity> flightList = new ArrayList<>();
+		List<Flight> flightList = null;
 		LocalDate today = LocalDate.now();
 		Optional<List<FlightEntity>> checkNull = Optional.ofNullable(flightEntityList);
 		if(checkNull.isPresent()){
+			flightList = new ArrayList<>();
 			for(FlightEntity flightEntity: flightEntityList){
 				if(flightEntity.getSeatsAvailable()<1 && flightEntity.getDateOfDeparture().isBefore(today))
 					return flightList;
-				if(flightEntity.getDateOfDeparture().isAfter(date) || flightEntity.getDateOfDeparture().isEqual(date))
-					flightList.add(flightEntity);
+				Flight flight = new Flight();
+				flight.setAirportId(flightEntity.getAirportId());
+				flight.setDateOfArrival(flightEntity.getDateOfArrival());
+				flight.setDateOfDeparture(flightEntity.getDateOfDeparture());
+				flight.setDestination(flightEntity.getDestination());
+				flight.setFlightFare(flightEntity.getFlightFare());
+				flight.setFlightId(flightEntity.getFlightId());
+				flight.setFlightSize(flightEntity.getFlightSize());
+				flight.setFlightTax(flightEntity.getFlightTax());
+				flight.setFlightType(flightEntity.getFlightType());
+				flight.setSeatsAvailable(flightEntity.getSeatsAvailable());
+				if(numberOfTickets<flight.getSeatsAvailable()){
+					flightList.add(flight);
+				}
 			}
 		}
 		return flightList;
 	}
 
 	@Override
-	public List<AirportEntity> getAllOrigins() {
+	public List<Airport> getAllOrigins() {
 		String queryString = "select f from FlightEntity f";
 		Query query=entityManager.createQuery(queryString);
 		List<FlightEntity> flightEntityList = query.getResultList();
-		List<AirportEntity> originList = new ArrayList<>();
-		List<AirportEntity> airportList = new ArrayList<>();
+		List<Airport> originList = new ArrayList<>();
+		List<Airport> airportList = new ArrayList<>();
 		Optional<List<FlightEntity>> checkNull = Optional.ofNullable(flightEntityList);
 		if(checkNull.isPresent()){
 			for(FlightEntity flightEntity: flightEntityList){
 				AirportEntity airportEntity = entityManager.find(AirportEntity.class, flightEntity.getAirportId());
-
-				originList.add(airportEntity);
+				Airport airport = new Airport();
+				airport.setAirportId(airportEntity.getAirportId());
+				airport.setCity(airportEntity.getCity());
+				airport.setAirportName(airportEntity.getAirportName());
+				originList.add(airport);
 			}
 			airportList = originList.stream()
                     .filter( distinctByKey(p -> p.getAirportId()) )

@@ -5,16 +5,19 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.infy.demo.dao.AirportDAO;
 import com.infy.demo.dao.FlightDAO;
 import com.infy.demo.entity.FlightEntity;
 import com.infy.demo.exceptions.AirportNotFoundException;
 import com.infy.demo.exceptions.FlightNotFoundException;
-import com.infy.demo.exceptions.NoFlightsAvailableException;
 import com.infy.demo.model.Flight;
 import com.infy.demo.validator.AirportValidator;
 
+@Transactional
+@Service(value="flightService")
 public class FlightServiceImpl implements FlightService {
 	@Autowired
 	AirportDAO airportDAO;

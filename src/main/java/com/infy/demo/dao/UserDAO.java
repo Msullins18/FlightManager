@@ -1,12 +1,14 @@
 package com.infy.demo.dao;
 
-import com.infy.demo.entity.UserEntity;
+import java.util.List;
+import java.util.Optional;
+
 import com.infy.demo.model.User;
+import com.infy.demo.model.Airport;
 
 public interface UserDAO {
-	public abstract UserEntity getUserByEmailId(String emailId);
-
+	public abstract Optional<String> getPasswordOfUser(String emailId);
+	public abstract User getUserByEmailId(String emailId);
 	public abstract String registerUser(User user);
-
-	public abstract Boolean checkAvailabilityOfEmailId(String emailId);
+	public Boolean checkAvailabilityOfEmailId(String emailId);
 }

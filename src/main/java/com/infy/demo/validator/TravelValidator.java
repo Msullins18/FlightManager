@@ -6,7 +6,7 @@ import com.infy.demo.exceptions.InvalidDateException;
 
 
 public class TravelValidator{
-	public static void validateTravel(LocalDate date) {
+	public static void validateTravel(LocalDate date) throws Exception{
 		if(!isValidDate(date))
 			throw new InvalidDateException();
 	}

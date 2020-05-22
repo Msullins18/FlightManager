@@ -17,8 +17,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 import com.carrotsearch.junitbenchmarks.BenchmarkOptions;
 import com.carrotsearch.junitbenchmarks.BenchmarkRule;
 import com.infy.demo.dao.TravelerSearchDAO;
-import com.infy.demo.entity.AirportEntity;
-import com.infy.demo.entity.FlightEntity;
 import com.infy.demo.exceptions.NoFlightsAvailableException;
 import com.infy.demo.model.Airport;
 import com.infy.demo.model.Flight;
@@ -46,17 +44,17 @@ public class TravelerSearchServiceTest {
 		Integer airport = 1000;
 		String destination = "New York";
 		Integer numberOfTickets = 2;
-		FlightEntity flight = new FlightEntity();
+		Flight flight = new Flight();
 		flight.setAirportId(airport);
 		flight.setDateOfArrival(date);
 		flight.setDateOfDeparture(date);
 		flight.setDestination(destination);
-		flight.setFlightFare(250d);
+		flight.setFlightFare(250);
 		flight.setFlightId(2000);
 		flight.setFlightSize(999);
-		flight.setFlightTax(20d);
+		flight.setFlightTax(20);
 		flight.setSeatsAvailable(100);
-		List<FlightEntity> flightList = new ArrayList<>();
+		List<Flight> flightList = new ArrayList<>();
 		flightList.add(flight);
 		Mockito.when(travelerSearchDAO.getFlights(date, airport, destination, numberOfTickets)).thenReturn(flightList);
 		List<Flight> result = travelerSearchService.getFlights(date, airport, destination, numberOfTickets);
@@ -71,7 +69,7 @@ public class TravelerSearchServiceTest {
 		String destination = "New York";
 		Integer numberOfTickets = 2;
 
-		List<FlightEntity> flightList = new ArrayList<>();
+		List<Flight> flightList = new ArrayList<>();
 		Mockito.when(travelerSearchDAO.getFlights(date, airport, destination, numberOfTickets)).thenReturn(flightList);
 		travelerSearchService.getFlights(date, airport, destination, numberOfTickets);
 	}
@@ -79,8 +77,8 @@ public class TravelerSearchServiceTest {
 	@Test
 	@BenchmarkOptions(concurrency = 2, warmupRounds = 0, benchmarkRounds = 5)
 	public void testGetAllOrigins() throws Exception{
-		List<AirportEntity> origins = new ArrayList<>();
-		AirportEntity airport = new AirportEntity();
+		List<Airport> origins = new ArrayList<>();
+		Airport airport = new Airport();
 		airport.setAirportId(1000);
 		airport.setAirportName("DFW");
 		airport.setCity("Dallas");
@@ -109,7 +107,7 @@ public class TravelerSearchServiceTest {
 		Integer airport = 1000;
 		String destination = "New York";
 		Integer numberOfTickets = 2;
-		List<FlightEntity> flightList = new ArrayList<>();
+		List<Flight> flightList = new ArrayList<>();
 		Mockito.when(travelerSearchDAO.getFlights(date, airport, destination, numberOfTickets)).thenReturn(flightList);
 		travelerSearchService.getFlights(date, airport, destination, numberOfTickets);
 		

@@ -10,7 +10,6 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.springframework.http.MediaType;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
@@ -18,11 +17,12 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.transaction.TransactionSystemException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.infy.demo.api.UserAPIImpl;
+import com.infy.demo.api.UserAPI;
 import com.infy.demo.exceptions.EmailUnavailableException;
 import com.infy.demo.model.User;
 import com.infy.demo.service.UserService;
 import com.infy.demo.service.UserServiceImpl;
+import com.infy.demo.utility.HashingUtility;
 
 @RunWith(SpringRunner.class)
 public class UserAPITest {
@@ -32,7 +32,7 @@ public class UserAPITest {
 	private MockMvc mockMvc;
 
 	@InjectMocks
-	private UserAPIImpl userAPI;
+	private UserAPI userAPI;
 
    	@Mock
 	UserService userService = new UserServiceImpl();
@@ -49,8 +49,7 @@ public class UserAPITest {
 		user.setEmailId("marcus@marcus.com");
 		user.setFirstName("Marcus");
 		user.setLastName("Sullins");
-		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-		user.setPassword(passwordEncoder.encode("Me@123"));
+		user.setPassword(HashingUtility.getHash("Me@123"));
 		user.setPhoneNumber("5552225555");
 
 		String json = new ObjectMapper().writeValueAsString(user);
@@ -67,8 +66,7 @@ public class UserAPITest {
 		user.setEmailId("marcusmarcus.com");
 		user.setFirstName("Marcus");
 		user.setLastName("Sullins");
-		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-		user.setPassword(passwordEncoder.encode("Me@123"));
+		user.setPassword(HashingUtility.getHash("Me@123"));
 		user.setPhoneNumber("5552225555");
 
 		String json = new ObjectMapper().writeValueAsString(user);
@@ -79,13 +77,12 @@ public class UserAPITest {
 	}
 	
 	@Test
-	public void registerUserInvalidTest() throws Exception {
+	public void registeruserInvalidTest() throws Exception {
 		User user = new User();
 		user.setEmailId("marcus@marcus.com");
 		user.setFirstName("Marcus");
 		user.setLastName("Sullins");
-		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-		user.setPassword(passwordEncoder.encode("Me@123"));
+		user.setPassword(HashingUtility.getHash("Me@123"));
 		user.setPhoneNumber("5552225555");
 
 		String json = new ObjectMapper().writeValueAsString(user);

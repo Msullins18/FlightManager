@@ -1,13 +1,21 @@
 package com.infy.demo.dao;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
-import javax.persistence.EntityManager;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.stereotype.Repository;
-import com.infy.demo.entity.UserEntity;
-import com.infy.demo.model.User;
 
+import javax.persistence.EntityManager;
+import javax.persistence.Query;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import com.infy.demo.entity.UserEntity;
+import com.infy.demo.entity.AirportEntity;
+import com.infy.demo.entity.FlightEntity;
+import com.infy.demo.model.User;
+import com.infy.demo.model.Airport;
+import com.infy.demo.model.Flight;
 
 @Repository(value = "userDAO")
 public class UserDAOImpl implements UserDAO {
@@ -19,6 +27,7 @@ public class UserDAOImpl implements UserDAO {
 	public String registerUser(User user) {
 		// TODO Auto-generated method stub
 		UserEntity userEntity = new UserEntity();
+		
 		userEntity.setEmailId(user.getEmailId());
 		userEntity.setFirstName(user.getFirstName());
 		userEntity.setLastName(user.getLastName());
@@ -31,17 +40,30 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	@Override
-	public UserEntity getUserByEmailId(String emailId) {
+	public Optional<String> getPasswordOfUser(String emailId) {
+		Optional<String> password = Optional.empty();
+		UserEntity userEntity = entityManager.find(UserEntity.class, emailId);
+		
+		if (password.isPresent()){
+			password = Optional.of(userEntity.getPassword());
+		}
+		
+		return password;
+	}
+
+	@Override
+	public User getUserByEmailId(String emailId) {
 		// TODO Auto-generated method stub
-		Optional<UserEntity> userEntity = Optional.ofNullable(entityManager.find(UserEntity.class, emailId));
-		if(userEntity.isPresent())
-		{	
-			return userEntity.get();
-		}
-		else
-		{
-			throw new UsernameNotFoundException("Email ID not found!");
-		}
+		UserEntity userEntity = entityManager.find(UserEntity.class, emailId);
+		User user = new User();
+		System.out.println(userEntity);
+		user.setEmailId(userEntity.getEmailId());
+		user.setFirstName(userEntity.getFirstName());
+		user.setLastName(userEntity.getLastName());
+		user.setPassword(userEntity.getPassword());
+		user.setPhoneNumber(userEntity.getPhoneNumber());
+		
+		return user;
 	}
 
 	@Override
@@ -51,7 +73,7 @@ public class UserDAOImpl implements UserDAO {
 		Optional<UserEntity> userEntity = Optional.empty();
 		if(entityManager.find(UserEntity.class, emailId) != null)
 		{
-			userEntity = Optional.ofNullable(entityManager.find(UserEntity.class, emailId));
+			userEntity = Optional.of(entityManager.find(UserEntity.class, emailId));
 		}
 		
 
