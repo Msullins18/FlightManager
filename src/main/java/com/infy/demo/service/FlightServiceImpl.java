@@ -4,7 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.infy.demo.dao.AirportDAO;
 import com.infy.demo.dao.FlightDAO;
@@ -15,6 +18,8 @@ import com.infy.demo.exceptions.NoFlightsAvailableException;
 import com.infy.demo.model.Flight;
 import com.infy.demo.validator.AirportValidator;
 
+@Service(value = "FlightService")
+@Transactional
 public class FlightServiceImpl implements FlightService {
 	@Autowired
 	AirportDAO airportDAO;

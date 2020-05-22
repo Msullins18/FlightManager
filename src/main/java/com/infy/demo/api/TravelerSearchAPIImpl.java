@@ -54,7 +54,7 @@ public class TravelerSearchAPIImpl implements TravelerSearchAPI {
 	/*
 	 * @return all destination cities that flights have
 	 */
-	@GetMapping(value="/destinations", produces="application/json")
+	@GetMapping(value="Destinations", produces="application/json")
 	public ResponseEntity<List<String>> getAllDestinations() {
 		List<String> destinations = null;
 		destinations = travelerSearchService.getAllDestinations();
