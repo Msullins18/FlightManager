@@ -9,7 +9,6 @@ import org.springframework.transaction.annotation.Transactional;
 import com.infy.demo.dao.TravelerSearchDAO;
 import com.infy.demo.entity.AirportEntity;
 import com.infy.demo.entity.FlightEntity;
-import com.infy.demo.exceptions.NoAirportsAvailableException;
 import com.infy.demo.exceptions.NoFlightsAvailableException;
 import com.infy.demo.model.Airport;
 import com.infy.demo.model.Flight;

@@ -4,7 +4,6 @@ import java.util.List;
 
 import com.infy.demo.entity.AirportEntity;
 import com.infy.demo.model.Airport;
-import com.infy.demo.model.Flight;
 
 public interface AirportDAO {
 	public abstract boolean airportExists(Integer airportId);

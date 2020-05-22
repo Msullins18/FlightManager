@@ -19,11 +19,6 @@ import com.infy.demo.service.UserService;
 import com.infy.demo.utility.JWTUtility;
 
 import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiParam;
-import io.swagger.annotations.ApiResponse;
-import io.swagger.annotations.ApiResponses;
-import lombok.extern.slf4j.Slf4j;
 
 
 @CrossOrigin
@@ -49,7 +44,7 @@ public class UserAPIImpl implements UserAPI {
 		ResponseEntity<String> re = new ResponseEntity<String>(registered,HttpStatus.OK);
 		return re;
 	}
-    @Uni
+    
     @Override
 	@PostMapping(value = "Login")
 	public String loginUser(@Valid @RequestBody User user)

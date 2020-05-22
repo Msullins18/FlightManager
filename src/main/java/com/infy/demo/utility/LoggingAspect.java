@@ -3,11 +3,9 @@ package com.infy.demo.utility;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.aspectj.lang.ProceedingJoinPoint;
-import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.AfterThrowing;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Before;
 import org.springframework.stereotype.Component;
 
 import lombok.extern.slf4j.Slf4j;
@@ -93,6 +91,60 @@ public class LoggingAspect {
     	log.info("SEARCHING FOR DESTINATIONS...");
     	Object obj =  aroundLogHelper(joinPoint);
     	log.info("DESTINATIONS ACQUIRED...");
+    	return obj;
+    }
+    
+    @Around("execution(* com.infy.demo.api.FlightAPI.addFlight(..))")
+    public Object logAroundAddFlightMethod(ProceedingJoinPoint joinPoint) throws Throwable 
+    {
+    	log.info("ADDING FLIGHT...");
+    	Object obj =  aroundLogHelper(joinPoint);
+    	log.info("SUCCESSFULLY ADDED FLIGHT...");
+    	return obj;
+    }
+    
+    @Around("execution(* com.infy.demo.api.FlightAPI.deleteFlight(..))")
+    public Object logAroundDeleteFlightMethod(ProceedingJoinPoint joinPoint) throws Throwable 
+    {
+    	log.info("DELETING FLIGHT...");
+    	Object obj =  aroundLogHelper(joinPoint);
+    	log.info("SUCCESSFULLY DELETED FLIGHT...");
+    	return obj;
+    }
+    
+    @Around("execution(* com.infy.demo.api.FlightAPI.getFlights(..))")
+    public Object logAroundGetFlightsFlightMethod(ProceedingJoinPoint joinPoint) throws Throwable 
+    {
+    	log.info("SEARCHING FOR FLIGHTS...");
+    	Object obj =  aroundLogHelper(joinPoint);
+    	log.info("FLIGHTS FOUND...");
+    	return obj;
+    }
+    
+    @Around("execution(* com.infy.demo.api.AirportAPI.addAirport(..))")
+    public Object logAroundAddAirportMethod(ProceedingJoinPoint joinPoint) throws Throwable 
+    {
+    	log.info("ADDING AIRPORT...");
+    	Object obj =  aroundLogHelper(joinPoint);
+    	log.info("SUCCESSFULLY ADDED AIRPORT...");
+    	return obj;
+    }
+    
+    @Around("execution(* com.infy.demo.api.AirportAPI.deleteAirport(..))")
+    public Object logAroundDeleteAirportMethod(ProceedingJoinPoint joinPoint) throws Throwable 
+    {
+    	log.info("DELETING AIRPORT...");
+    	Object obj =  aroundLogHelper(joinPoint);
+    	log.info("SUCCESSFULLY DELETED AIRPORT...");
+    	return obj;
+    }
+    
+    @Around("execution(* com.infy.demo.api.AirportAPI.getAirports(..))")
+    public Object logAroundGetAirportsFlightMethod(ProceedingJoinPoint joinPoint) throws Throwable 
+    {
+    	log.info("SEARCHING FOR AIRPORTS...");
+    	Object obj =  aroundLogHelper(joinPoint);
+    	log.info("AIRPORTS FOUND...");
     	return obj;
     }
     

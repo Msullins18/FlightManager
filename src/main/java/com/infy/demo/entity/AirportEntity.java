@@ -11,10 +11,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
-
-import lombok.Getter;
-import lombok.Setter;
-
 import lombok.Data;
 
 @Data

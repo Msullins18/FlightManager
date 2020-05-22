@@ -15,8 +15,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import com.infy.demo.entity.AirportEntity;
 import com.infy.demo.entity.FlightEntity;
-import com.infy.demo.model.Airport;
-import com.infy.demo.model.Flight;
 
 @Repository(value = "travelerSearchDAO")
 public class TravelerSearchDAOImpl implements TravelerSearchDAO {

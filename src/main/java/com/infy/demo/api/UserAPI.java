@@ -15,7 +15,7 @@ public interface UserAPI {
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = String.class),
         @ApiResponse(code = 400, message = "Bad Request"),
-        @ApiResponse(code = 500, message = "Internal Server Error") })
+        @ApiResponse(code = 500, message = "Some unknown error occurred!") })
 	public abstract ResponseEntity<String> registerUser(@ApiParam(value = "Info of User Registering",required=true) @Valid @RequestBody User user);
 
     @ApiOperation(value = "Submit user credentials for authorization", nickname = "loginUser", notes = "Returns a JSON Web Token for use in other api calls", response = String.class, tags={ "User", })
@@ -23,6 +23,6 @@ public interface UserAPI {
         @ApiResponse(code = 200, message = "", response = String.class),
         @ApiResponse(code = 403, message = ""),
         @ApiResponse(code = 400, message = "Bad Request"),
-        @ApiResponse(code = 500, message = "Internal Server Error") })
+        @ApiResponse(code = 500, message = "Some unknown error occurred!") })
 	public abstract String loginUser(@ApiParam(value = "Credentials of User to authenticate",required=true) @Valid @RequestBody User user);
 }
