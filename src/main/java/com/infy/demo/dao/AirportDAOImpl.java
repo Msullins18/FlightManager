@@ -3,17 +3,13 @@ package com.infy.demo.dao;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-
 import com.infy.demo.entity.AirportEntity;
 import com.infy.demo.entity.FlightEntity;
 import com.infy.demo.model.Airport;
-import com.infy.demo.model.Flight;
 
 
 @Repository(value = "airportDAO")
@@ -25,8 +21,7 @@ public class AirportDAOImpl implements AirportDAO {
 	@Override
 	public boolean airportExists(Integer airportId) {
 		// TODO Auto-generated method stub
-		AirportEntity airport = entityManager.find(AirportEntity.class, airportId);
-		Optional<AirportEntity> checkNull = Optional.ofNullable(airport);
+		Optional<AirportEntity> checkNull = Optional.ofNullable(entityManager.find(AirportEntity.class, airportId));
 		if(checkNull.isPresent())
 		{
 			return true;
@@ -59,7 +54,7 @@ public class AirportDAOImpl implements AirportDAO {
 	public Integer deleteAirport(Integer airportId) {
 		// TODO Auto-generated method stub
 		Integer id = null;
-		Optional<AirportEntity> airport = Optional.of(entityManager.find(AirportEntity.class, airportId));
+		Optional<AirportEntity> airport = Optional.ofNullable(entityManager.find(AirportEntity.class, airportId));
 		if(airport.isPresent()){
 			AirportEntity ae = airport.get();
 			ae.setFlightEntities(null);

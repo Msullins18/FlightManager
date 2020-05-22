@@ -70,12 +70,7 @@ public class UserDAOImpl implements UserDAO {
 	public Boolean checkAvailabilityOfEmailId(String emailId) {
 		// TODO Auto-generated method stub
 		Boolean available = false;
-		Optional<UserEntity> userEntity = Optional.empty();
-		if(entityManager.find(UserEntity.class, emailId) != null)
-		{
-			userEntity = Optional.of(entityManager.find(UserEntity.class, emailId));
-		}
-		
+		Optional<UserEntity> userEntity = Optional.ofNullable(entityManager.find(UserEntity.class, emailId));
 
 		if(!userEntity.isPresent())
 		{

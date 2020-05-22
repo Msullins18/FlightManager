@@ -2,8 +2,6 @@ package com.infy.demo.exceptions;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.authentication.BadCredentialsException;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.transaction.TransactionSystemException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -14,12 +12,7 @@ public class FlightManagerExceptionHandler {
 	
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<Object> handleException(MethodArgumentNotValidException  e) {
-    	String message = "";
-    	
-    	if(e.getMessage().contains("emailId"))message = "Email cannot be null or empty";
-    	if(e.getMessage().contains("password"))message = "Email cannot be null or empty";
-    	
-    	return new ResponseEntity<>(message, HttpStatus.BAD_REQUEST);
+    	return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_ACCEPTABLE);
     }
 	
     @ExceptionHandler(EmailUnavailableException.class)
@@ -56,4 +49,9 @@ public class FlightManagerExceptionHandler {
     public ResponseEntity<Object> handleException(InvalidDateException  e) {
     	return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
 	}
+	
+    @ExceptionHandler(Exception.class)
+    public ResponseEntity<Object> handleException(Exception  e) {
+    	return new ResponseEntity<>("Some unknown error occurred!", HttpStatus.INTERNAL_SERVER_ERROR);
+    }
 }

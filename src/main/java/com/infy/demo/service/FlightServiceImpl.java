@@ -26,7 +26,7 @@ public class FlightServiceImpl implements FlightService {
 	FlightDAO flightDAO;
 
 	@Override
-	public Integer addFlight(Flight flight) throws Exception {
+	public Integer addFlight(Flight flight) {
 		// TODO Auto-generated method stub
 		AirportValidator.validateFlight(flight);
 		boolean doesExist = airportDAO.airportExists(flight.getAirportId());
@@ -40,7 +40,7 @@ public class FlightServiceImpl implements FlightService {
 	}
 
 	@Override
-	public Integer deleteFlight(Integer flightId) throws Exception {
+	public Integer deleteFlight(Integer flightId) {
 		// TODO Auto-generated method stub
 		Integer id = flightDAO.deleteFlight(flightId);
 		if (id == null) {
@@ -50,7 +50,7 @@ public class FlightServiceImpl implements FlightService {
 	}
 
 	@Override
-	public List<Flight> getFlights() throws Exception {
+	public List<Flight> getFlights() {
 		// TODO Auto-generated method stub
 		List<FlightEntity> flightList = flightDAO.getFlights();
 		List<Flight> flights = null;
@@ -71,6 +71,10 @@ public class FlightServiceImpl implements FlightService {
 				flight.setSeatsAvailable(f.getSeatsAvailable());
 				flights.add(flight);
 			}
+		}
+		else
+		{
+			throw new NoFlightsAvailableException();
 		}
 		return flights;
 	}

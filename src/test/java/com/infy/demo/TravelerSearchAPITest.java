@@ -7,27 +7,24 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.springframework.http.MediaType;
-import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.infy.demo.api.TravelerSearchAPI;
-import com.infy.demo.exceptions.InvalidDateException;
-import com.infy.demo.exceptions.NoFlightsAvailableException;
+import com.infy.demo.api.TravelerSearchAPIImpl;
 import com.infy.demo.model.Airport;
 import com.infy.demo.model.Flight;
 import com.infy.demo.model.SearchFlights;
 import com.infy.demo.service.TravelerSearchService;
 
-@RunWith(SpringRunner.class)
+
 public class TravelerSearchAPITest {
 	
 
@@ -36,7 +33,7 @@ public class TravelerSearchAPITest {
 	private MockMvc mockMvc;
 	
 	@InjectMocks
-	private TravelerSearchAPI travelerSearchAPI;
+	private TravelerSearchAPI travelerSearchAPI = new TravelerSearchAPIImpl();;
 	
 	@Mock
 	private TravelerSearchService travelerSearchService;
@@ -79,13 +76,13 @@ public class TravelerSearchAPITest {
 	@Test
 	public void travelerSearchGetAllOrigins() throws Exception {
 		Mockito.when(travelerSearchService.getAllOrigins()).thenReturn(origins);
-		mockMvc.perform(MockMvcRequestBuilders.get("/Search/getAirports")).andExpect(MockMvcResultMatchers.status().isOk());
+		mockMvc.perform(MockMvcRequestBuilders.get("/Search")).andExpect(MockMvcResultMatchers.status().isOk());
 	}
 	
 	@Test
 	public void travelerSearchGetAllDestinations() throws Exception {
 		Mockito.when(travelerSearchService.getAllDestinations()).thenReturn(destinations);
-		mockMvc.perform(MockMvcRequestBuilders.get("/Search/getDestinations")).andExpect(MockMvcResultMatchers.status().isOk());
+		mockMvc.perform(MockMvcRequestBuilders.get("/Search/destinations")).andExpect(MockMvcResultMatchers.status().isOk());
 	}
 	
 	@Test
@@ -94,30 +91,9 @@ public class TravelerSearchAPITest {
 		
 		Mockito.when(travelerSearchService.getFlights(searchFlights.getDate(), searchFlights.getAirportId(), searchFlights.getDestination(), searchFlights.getNumberOfTickets()))
 		.thenReturn(flightList);
-		mockMvc.perform(MockMvcRequestBuilders.post("/Search/getFlights").contentType(APPLICATION_JSON_UTF8).content(json))
+		mockMvc.perform(MockMvcRequestBuilders.post("/Search").contentType(APPLICATION_JSON_UTF8).content(json))
 				.andExpect(MockMvcResultMatchers.status().isOk());
 	}
-	
-	@Test
-	public void travelerSearchGetFlightsFlightNotFound() throws Exception {
-		String json = new ObjectMapper().writeValueAsString(searchFlights);
-		Mockito.when(travelerSearchService.getFlights(date, airportId, destination, numberOfTickets))
-		.thenThrow(NoFlightsAvailableException.class);
-		mockMvc.perform(MockMvcRequestBuilders.post("/Search/getFlights").contentType(APPLICATION_JSON_UTF8).content(json))
-				.andExpect(MockMvcResultMatchers.status().isNotFound());
-	}
-	
-	@Test
-	public void travelerSearchGetFlightsInvalidDate() throws Exception {
-		String json = new ObjectMapper().writeValueAsString(searchFlights);
-		Mockito.when(travelerSearchService.getFlights(date, airportId, destination, numberOfTickets))
-		.thenThrow(InvalidDateException.class);
-		mockMvc.perform(MockMvcRequestBuilders.post("/Search/getFlights").contentType(APPLICATION_JSON_UTF8).content(json))
-				.andExpect(MockMvcResultMatchers.status().isBadRequest());
-	}
 
-	
-	
-	
 
 }

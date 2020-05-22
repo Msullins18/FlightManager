@@ -30,52 +30,18 @@ public class UserAPI {
 	@Autowired
 	UserService userService;
 
-	@Autowired
-	private Environment environment;
-	
-//	@PostMapping(value = "Login")
-//	public ResponseEntity<user> loginuser(@RequestBody user user) throws Exception
-//	{
-//		log.info("user TRYING TO LOGIN WITH EMAIL: " + user.getEmailId());
-//		user authenticated = userService.loginuser(user);
-//		ResponseEntity<user> re = new ResponseEntity<user>(authenticated,HttpStatus.OK);
-//		log.info("user LOGGED IN SUCCESSFULLY WITH EMAIL: "+ authenticated.getEmailId());
-//		return re;
-//	}
-	
-	@PostMapping(value = "Register")
-	public ResponseEntity<String> registerUser(@RequestBody User user) throws Exception
-	{
-		log.info("USER TRYING TO REGISTER WITH EMAIL: "+ user.getEmailId());
-		String registered = userService.registerUser(user);
-		ResponseEntity<String> re = new ResponseEntity<String>(registered,HttpStatus.OK);
-		log.info("USER SUCCESSFULLY REGISTERED WITH EMAIL: "+ registered);
-		return re;
-	}
-	
-    @ExceptionHandler(UserNotFoundException.class)
-    public ResponseEntity<Object> handleException(UserNotFoundException  e) {
-    	//throw new ResponseStatusException(HttpStatus.NOT_FOUND,e.getMessage());
-    	return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
-    }
-    
-    @ExceptionHandler(InvalidCredentialsException.class)
-    public ResponseEntity<Object> handleException(InvalidCredentialsException  e) {
-    	//throw new ResponseStatusException(HttpStatus.UNAUTHORIZED,e.getMessage());
-    	return new ResponseEntity<>(e.getMessage(), HttpStatus.UNAUTHORIZED);
-    }
-    
-    @ExceptionHandler(EmailUnavailableException.class)
-    public ResponseEntity<Object> handleException(EmailUnavailableException  e) {
-    	//throw new ResponseStatusException(HttpStatus.UNAUTHORIZED,e.getMessage());
-    	return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
-    }
-    
-    @ExceptionHandler(TransactionSystemException.class)
-    public ResponseEntity<Object> handleException(TransactionSystemException  e) {
-    	//throw new ResponseStatusException(HttpStatus.UNAUTHORIZED,e.getMessage());
-    	e.printStackTrace();
-    	return new ResponseEntity<>("Invalid inputs! Please try again.", HttpStatus.BAD_REQUEST);
-    }
+    @ApiOperation(value = "Register user for application", nickname = "registerUser", notes = "Returns email of user upon successful registration", response = String.class, tags={ "User"})
+    @ApiResponses(value = { 
+        @ApiResponse(code = 200, message = "", response = String.class),
+        @ApiResponse(code = 400, message = "Bad Request"),
+        @ApiResponse(code = 500, message = "Some unknown error occurred!") })
+	public abstract ResponseEntity<String> registerUser(@ApiParam(value = "Info of User Registering",required=true) @Valid @RequestBody User user);
 
+    @ApiOperation(value = "Submit user credentials for authorization", nickname = "loginUser", notes = "Returns a JSON Web Token for use in other api calls", response = String.class, tags={ "User", })
+    @ApiResponses(value = { 
+        @ApiResponse(code = 200, message = "", response = String.class),
+        @ApiResponse(code = 403, message = ""),
+        @ApiResponse(code = 400, message = "Bad Request"),
+        @ApiResponse(code = 500, message = "Some unknown error occurred!") })
+	public abstract String loginUser(@ApiParam(value = "Credentials of User to authenticate",required=true) @Valid @RequestBody User user);
 }

@@ -24,7 +24,7 @@ import com.infy.demo.service.UserService;
 import com.infy.demo.service.UserServiceImpl;
 import com.infy.demo.utility.HashingUtility;
 
-@RunWith(SpringRunner.class)
+
 public class UserAPITest {
 	public static final MediaType APPLICATION_JSON_UTF8 = new MediaType(MediaType.APPLICATION_JSON.getType(),
 			MediaType.APPLICATION_JSON.getSubtype(), Charset.forName("utf8"));
@@ -73,7 +73,7 @@ public class UserAPITest {
 
 		Mockito.when(userService.registerUser(user)).thenThrow(TransactionSystemException.class);
 		mockMvc.perform(MockMvcRequestBuilders.post("/User/Register").contentType(APPLICATION_JSON_UTF8).content(json))
-				.andExpect(MockMvcResultMatchers.status().isBadRequest());
+				.andExpect(MockMvcResultMatchers.status().isNotAcceptable());
 	}
 	
 	@Test
