@@ -49,7 +49,7 @@ public class UserAPIImpl implements UserAPI {
 		ResponseEntity<String> re = new ResponseEntity<String>(registered,HttpStatus.OK);
 		return re;
 	}
-    
+    @Uni
     @Override
 	@PostMapping(value = "Login")
 	public String loginUser(@Valid @RequestBody User user)
