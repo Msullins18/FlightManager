@@ -12,6 +12,9 @@ import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import lombok.Data;
 
 @Data
@@ -24,7 +27,7 @@ public class AirportEntity {
   	@GeneratedValue(generator = "airportSeqGen")
 	private Integer airportId;
 	
-	@Column(name="NAME")
+	@Column(name="NAME", unique=true)
 	private String airportName;
 	
 	@Column(name="CITY")
