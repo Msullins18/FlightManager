@@ -4,12 +4,17 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.AfterThrowing;
+import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.springframework.stereotype.Component;
 
+import lombok.extern.slf4j.Slf4j;
+
 @Component
 @Aspect
+@Slf4j
 public class LoggingAspect {
+	
 	@AfterThrowing(pointcut = "execution(* com.infy.demo.dao.*Impl.*(..))", throwing = "exception")	
 	public void logExceptionFromDAO(Exception exception) throws Exception {
 		log(exception);
@@ -19,19 +24,29 @@ public class LoggingAspect {
 	public void logExceptionFromService(Exception exception) throws Exception {
 			log(exception);
 	}
-
 	
 	private void log(Exception exception) {
 		Logger logger = LogManager.getLogger(this.getClass());
 		if(exception.getMessage() != null)
 		{
+			logger.error(exception.getClass());
 			logger.error(exception.getMessage());
+			logger.error(exception);
 		}
 		else
 		{
+			logger.error(exception.getClass());
 			logger.error(exception);
 		}
 	}
+	
+//	@Around(pointcut)
+//	dasdasd{
+//		log.("entering into " + classname method name + "with arguments=" + args)
+//		joinitpoint.proceeed();
+//		log.("exiting from " + classname method name)
+//	}
+	
 
 	
     @Around("execution(* com.infy.demo.api.UserAPI.registerUser(..))")
@@ -56,6 +71,11 @@ public class LoggingAspect {
     public Object logAroundGetFlightsMethod(ProceedingJoinPoint joinPoint) throws Throwable 
     {
     	log.info("SEARCHING FOR FLIGHTS...");
+    	try{
+    		joinPoint.proceed();
+    	} catch(Throwable e){
+    		e.printStackTrace();
+    	}
     	Object obj =  aroundLogHelper(joinPoint);
     	log.info("FLIGHTS FOUND...");
     	return obj;

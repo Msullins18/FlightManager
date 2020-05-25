@@ -2,12 +2,13 @@ package com.infy.demo.validator;
 
 import java.time.LocalDate;
 
+import com.infy.demo.exceptions.InvalidArrivalDateException;
 import com.infy.demo.model.Flight;
 
 public class AirportValidator {
-	public static void validateFlight(Flight flight) throws Exception{
+	public static void validateFlight(Flight flight){
 		if(!isValidDate(flight.getDateOfDeparture(), flight.getDateOfArrival()))
-			throw new Exception("AirportValidator.INVALID_ARRIVAL_DATE");
+			throw new InvalidArrivalDateException();
 		
 	}
 	

@@ -13,6 +13,8 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import com.infy.demo.dao.TravelerSearchDAO;
+import com.infy.demo.entity.AirportEntity;
+import com.infy.demo.entity.FlightEntity;
 import com.infy.demo.exceptions.NoFlightsAvailableException;
 import com.infy.demo.model.Airport;
 import com.infy.demo.model.Flight;
@@ -42,17 +44,17 @@ public class TravelerSearchServiceTest {
 		Integer airport = 1000;
 		String destination = "New York";
 		Integer numberOfTickets = 2;
-		Flight flight = new Flight();
+		FlightEntity flight = new FlightEntity();
 		flight.setAirportId(airport);
 		flight.setDateOfArrival(date);
 		flight.setDateOfDeparture(date);
 		flight.setDestination(destination);
-		flight.setFlightFare(250);
+		flight.setFlightFare(250d);
 		flight.setFlightId(2000);
 		flight.setFlightSize(999);
-		flight.setFlightTax(20);
+		flight.setFlightTax(20d);
 		flight.setSeatsAvailable(100);
-		List<Flight> flightList = new ArrayList<>();
+		List<FlightEntity> flightList = new ArrayList<>();
 		flightList.add(flight);
 		Mockito.when(travelerSearchDAO.getFlights(date, airport, destination, numberOfTickets)).thenReturn(flightList);
 		List<Flight> result = travelerSearchService.getFlights(date, airport, destination, numberOfTickets);
@@ -67,7 +69,7 @@ public class TravelerSearchServiceTest {
 		String destination = "New York";
 		Integer numberOfTickets = 2;
 
-		List<Flight> flightList = new ArrayList<>();
+		List<FlightEntity> flightList = new ArrayList<>();
 		Mockito.when(travelerSearchDAO.getFlights(date, airport, destination, numberOfTickets)).thenReturn(flightList);
 		travelerSearchService.getFlights(date, airport, destination, numberOfTickets);
 		
@@ -75,8 +77,8 @@ public class TravelerSearchServiceTest {
 	
 	@Test
 	public void testGetAllOrigins() throws Exception{
-		List<Airport> origins = new ArrayList<>();
-		Airport airport = new Airport();
+		List<AirportEntity> origins = new ArrayList<>();
+		AirportEntity airport = new AirportEntity();
 		airport.setAirportId(1000);
 		airport.setAirportName("DFW");
 		airport.setCity("Dallas");
@@ -105,7 +107,7 @@ public class TravelerSearchServiceTest {
 		Integer airport = 1000;
 		String destination = "New York";
 		Integer numberOfTickets = 2;
-		List<Flight> flightList = new ArrayList<>();
+		List<FlightEntity> flightList = new ArrayList<>();
 		Mockito.when(travelerSearchDAO.getFlights(date, airport, destination, numberOfTickets)).thenReturn(flightList);
 		travelerSearchService.getFlights(date, airport, destination, numberOfTickets);
 		
