@@ -14,6 +14,8 @@ public class User {
 	@NotNull
 	@Email
 	private String emailId;
+	@NotEmpty
+	@NotNull
 	private String password;
 	private String phoneNumber;
 	private UserType userType;

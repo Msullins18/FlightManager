@@ -14,6 +14,7 @@ import com.infy.demo.dao.FlightDAO;
 import com.infy.demo.entity.FlightEntity;
 import com.infy.demo.exceptions.AirportNotFoundException;
 import com.infy.demo.exceptions.FlightNotFoundException;
+import com.infy.demo.exceptions.NoFlightsAvailableException;
 import com.infy.demo.model.Flight;
 import com.infy.demo.validator.AirportValidator;
 

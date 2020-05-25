@@ -12,16 +12,12 @@ import org.mockito.MockitoAnnotations;
 
 import static org.mockito.Mockito.*;
 import org.springframework.transaction.TransactionSystemException;
-
 import com.infy.demo.dao.UserDAO;
 import com.infy.demo.exceptions.EmailUnavailableException;
-import com.infy.demo.exceptions.InvalidCredentialsException;
-import com.infy.demo.exceptions.UserNotFoundException;
 import com.infy.demo.model.User;
 import com.infy.demo.model.UserType;
 import com.infy.demo.service.UserService;
 import com.infy.demo.service.UserServiceImpl;
-import com.infy.demo.utility.HashingUtility;
 
 
 public class UserServiceTest {
