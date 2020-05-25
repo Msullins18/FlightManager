@@ -1,5 +1,7 @@
 package com.infy.demo.api;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
@@ -18,17 +20,13 @@ import com.infy.demo.exceptions.UserNotFoundException;
 import com.infy.demo.model.User;
 import com.infy.demo.service.UserService;
 
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import lombok.extern.slf4j.Slf4j;
 
 
-@CrossOrigin
-@RestController
-@RequestMapping("User")
-@Slf4j
-public class UserAPI {
+public interface UserAPI {
 	
-	@Autowired
-	UserService userService;
 
     @ApiOperation(value = "Register user for application", nickname = "registerUser", notes = "Returns email of user upon successful registration", response = String.class, tags={ "User"})
     @ApiResponses(value = { 
