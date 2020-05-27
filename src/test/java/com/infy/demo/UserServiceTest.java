@@ -60,7 +60,7 @@ public class UserServiceTest {
 		user.setEmailId("marcusmarcus.com");
 		when(userDAO.checkAvailabilityOfEmailId("marcusmarcus.com")).thenReturn(true);
 		when(userDAO.registerUser(user)).thenThrow(TransactionSystemException.class);
-		String registered = userService.registerUser(user);
+		userService.registerUser(user);
 	}
 	
 	@Test
@@ -69,7 +69,7 @@ public class UserServiceTest {
 		expectedException.expect(EmailUnavailableException.class);
 		
 		when(userDAO.checkAvailabilityOfEmailId("marcus@marcus.com")).thenReturn(false);
-		String registered = userService.registerUser(user);
+		userService.registerUser(user);
 	}
 	
 

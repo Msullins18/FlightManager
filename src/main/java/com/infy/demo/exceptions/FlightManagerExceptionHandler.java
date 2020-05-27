@@ -12,7 +12,7 @@ public class FlightManagerExceptionHandler {
 	
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<Object> handleException(MethodArgumentNotValidException  e) {
-    	return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_ACCEPTABLE);
+    	return new ResponseEntity<>(e, HttpStatus.NOT_ACCEPTABLE);
     }
 	
     @ExceptionHandler(EmailUnavailableException.class)

@@ -23,6 +23,7 @@ import com.infy.demo.model.UserType;
 public class UserDAOTest {
 	@Rule
 	public ExpectedException expectedException = ExpectedException.none();
+	
 	@Mock
 	private EntityManager entityManager; 
 
