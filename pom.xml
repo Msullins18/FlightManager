@@ -68,15 +68,12 @@
     		<artifactId>springfox-swagger-ui</artifactId>
     		<version>2.9.2</version>
 		</dependency>
-<<<<<<< HEAD
 
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
 			<scope>test</scope>
 		</dependency>
-=======
->>>>>>> 4710793caf1fc1ad5e1d387abefc64ead85627ff
 		
 		<dependency>
 		    <groupId>junit</groupId>
