@@ -44,11 +44,11 @@ public class FlightServiceImpl implements FlightService {
 	@Override
 	public Integer deleteFlight(Integer flightId) {
 		// TODO Auto-generated method stub
-		Integer id = flightDAO.deleteFlight(flightId);
-		if (id == null) {
+		Optional<Integer> id = Optional.of(flightDAO.deleteFlight(flightId));
+		if (!id.isPresent()) {
 			throw new FlightNotFoundException(flightId);
 		}
-		return flightDAO.deleteFlight(flightId);
+		return id.get();
 	}
 
 	@Override
