@@ -18,7 +18,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.infy.demo.api.AirportAPI;
+import com.infy.demo.api.AirportAPIImpl;
 import com.infy.demo.exceptions.FlightNotFoundException;
 import com.infy.demo.model.Airport;
 import com.infy.demo.model.Flight;
@@ -32,7 +32,7 @@ public class AirportAPITest {
 	private MockMvc mockMvc;
 
 	@InjectMocks
-	private AirportAPI airportAPI;
+	private AirportAPIImpl airportAPI;
 
 	@Mock
 	AirportService airportService;
