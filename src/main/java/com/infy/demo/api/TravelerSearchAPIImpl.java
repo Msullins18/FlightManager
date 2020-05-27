@@ -33,7 +33,7 @@ public class TravelerSearchAPIImpl implements TravelerSearchAPI {
 	 * @return a list of flights that matches search data
 	 * @throw Exception
 	 */
-	@PostMapping(value="/getFlights")
+	@PostMapping(consumes="application/json")
 	public ResponseEntity<List<Flight>> getFlights(@RequestBody SearchFlights searchFlights) {
 		List<Flight> flightList = travelerSearchService.getFlights(searchFlights.getDate(), searchFlights.getAirportId(),searchFlights.getDestination(), searchFlights.getNumberOfTickets());
 		ResponseEntity<List<Flight>> response = new ResponseEntity<List<Flight>>(flightList, HttpStatus.OK);
@@ -43,7 +43,7 @@ public class TravelerSearchAPIImpl implements TravelerSearchAPI {
 	/*
 	 * @return all airports from database
 	 */
-	@GetMapping(value="/getAirports")
+	@GetMapping(produces="application/json")
 	public ResponseEntity<List<Airport>> getAllOrigins() {
 		List<Airport> origins = null;
 		origins = travelerSearchService.getAllOrigins();
@@ -54,7 +54,7 @@ public class TravelerSearchAPIImpl implements TravelerSearchAPI {
 	/*
 	 * @return all destination cities that flights have
 	 */
-	@GetMapping(value="/getDestinations")
+	@GetMapping(value="Destinations", produces="application/json")
 	public ResponseEntity<List<String>> getAllDestinations() {
 		List<String> destinations = null;
 		destinations = travelerSearchService.getAllDestinations();

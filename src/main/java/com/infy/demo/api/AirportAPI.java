@@ -1,56 +1,38 @@
 package com.infy.demo.api;
 
 import java.util.List;
+
 import javax.validation.Valid;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
+
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+
 import com.infy.demo.model.Airport;
 import com.infy.demo.service.AirportService;
-import io.swagger.annotations.Api;
+import com.infy.demo.service.TravelerSearchService;
+
 import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 
-@CrossOrigin
-@RestController
-@RequestMapping("AirportAPI")
-@Api(value="Airport Management System", description="Managing admin operations such as adding and deleting airports")
-public class AirportAPI {
-
-	@Autowired
-	private AirportService airportService;
-
-    @ApiOperation(value = "Add an Airport")
-	@PostMapping(value = "Airport")
-	public ResponseEntity<String> addAirport(@Valid @RequestBody Airport airport) {
-			Integer id = airportService.addAirport(airport);
-			String message = "The following Airport has been successfully added with Airport Id: " + id;
-			return new ResponseEntity<String>(message, HttpStatus.OK);
-	}
-	
-
-    @ApiOperation(value = "Delete an airport")
-	@DeleteMapping(value = "Airport/{airportId}")
-	public ResponseEntity<Integer> deleteAirport(@PathVariable("airportId") Integer airportId) {
-			Integer result = airportService.deleteAirport(airportId);
-			ResponseEntity<Integer> re = new ResponseEntity<Integer>(result, HttpStatus.OK);
-			return re;
-
-	}
-	
-	@ApiOperation(value = "Get list of all available airports", response = List.class)
-	@GetMapping(value = "Airport")
-	public ResponseEntity<List<Airport>> getAirports() {
-			List<Airport> list = null;
-			list = airportService.getAirports();
-			ResponseEntity<List<Airport>> response = new ResponseEntity<List<Airport>>(list, HttpStatus.OK);
-			return response;
-	}
+public interface AirportAPI {
+	 	@ApiOperation(value = "Add a new airport to the airport database", response = String.class)
+		@ApiResponses(value = { @ApiResponse(code = 200, message = "Airport Added successfully"),
+				@ApiResponse(code = 404, message = ""), @ApiResponse(code = 400, message = "")})
+		public abstract ResponseEntity<String> addAirport(@Valid @RequestBody Airport airport);
+	 	
+	 	  @ApiOperation(value = "Delete airport from data base based on airport Id provided", response = String.class)
+	 	    @ApiResponses(value = { 
+	 	        @ApiResponse(code = 200, message = "Airport deleted successfully", response = String.class),
+	 	        @ApiResponse(code = 403, message = ""),
+	 	        @ApiResponse(code = 400, message = "Bad Request"),
+	 	        @ApiResponse(code = 500, message = "Some unknown error occurred!") })
+	 	public ResponseEntity<Integer> deleteAirport(@PathVariable("airportId") Integer airportId);
+	 	
+	 	 @ApiOperation(value = "Fetch all the airports from database", response = AirportService.class)
+	 	@ApiResponses(value = { @ApiResponse(code = 200, message = "Fetched all airports successfully"),
+	 			@ApiResponse(code = 404, message = "airports not found"), @ApiResponse(code = 400, message = "")})
+	 	public ResponseEntity<List<Airport>> getAirports();
 }

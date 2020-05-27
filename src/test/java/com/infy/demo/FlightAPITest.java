@@ -17,7 +17,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.infy.demo.api.FlightAPI;
+import com.infy.demo.api.FlightAPIImpl;
 import com.infy.demo.model.Flight;
 import com.infy.demo.service.FlightService;
 
@@ -28,7 +28,7 @@ public class FlightAPITest {
 	private MockMvc mockMvc;
 
 	@InjectMocks
-	private FlightAPI flightAPI;
+	private FlightAPIImpl flightAPI;
 
 	@Mock
 	FlightService flightService;
