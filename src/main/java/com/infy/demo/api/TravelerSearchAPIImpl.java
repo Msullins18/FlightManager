@@ -1,6 +1,9 @@
 package com.infy.demo.api;
 
 import java.util.List;
+
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -34,7 +37,7 @@ public class TravelerSearchAPIImpl implements TravelerSearchAPI {
 	 * @throw Exception
 	 */
 	@PostMapping(consumes="application/json")
-	public ResponseEntity<List<Flight>> getFlights(@RequestBody SearchFlights searchFlights) {
+	public ResponseEntity<List<Flight>> getFlights(@Valid @RequestBody SearchFlights searchFlights) {
 		List<Flight> flightList = travelerSearchService.getFlights(searchFlights.getDate(), searchFlights.getAirportId(),searchFlights.getDestination(), searchFlights.getNumberOfTickets());
 		ResponseEntity<List<Flight>> response = new ResponseEntity<List<Flight>>(flightList, HttpStatus.OK);
 		return response;
